@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}CodeVerseHub - Competitive Programming Platform{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="fade-in-up">CodeVerseHub</h1>
+                <p class="lead fade-in-up">Join our Discord community's premier competitive programming platform. Solve problems, participate in contests, and level up your coding skills.</p>
+                <div class="fade-in-up">
+                    {% if not user.is_authenticated %}
+                        <a href="{% url 'register' %}" class="btn btn-light btn-lg me-3">Get Started</a>
+                        <a href="{% url 'contests' %}" class="btn btn-outline-light btn-lg">View Contests</a>
+                    {% else %}
+                        <a href="{% url 'dashboard' %}" class="btn btn-light btn-lg me-3">Go to Dashboard</a>
+                        <a href="{% url 'problems' %}" class="btn btn-outline-light btn-lg">Solve Problems</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-code" style="font-size: 10rem; opacity: 0.3;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Platform Statistics -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="stats-card">
+                    <span class="number">{{ total_users }}</span>
+                    <span class="label">Active Users</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="stats-card">
+                    <span class="number">{{ total_contests }}</span>
+                    <span class="label">Contests Hosted</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="stats-card">
+                    <span class="number">{{ total_problems }}</span>
+                    <span class="label">Problems Available</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="stats-card">
+                    <span class="number">{{ total_submissions }}</span>
+                    <span class="label">Solutions Submitted</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Upcoming Contests -->
+{% if upcoming_contests %}
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Upcoming Contests</h2>
+        <div class="row">
+            {% for contest in upcoming_contests %}
+            <div class="col-md-4 mb-4">
+                <div class="card contest-card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">{{ contest.title }}</h5>
+                        <span class="contest-status status-{{ contest.status }}">{{ contest.get_status_display }}</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ contest.description|truncatewords:20 }}</p>
+                        <div class="mb-2">
+                            <i class="fas fa-calendar text-muted"></i>
+                            <small class="text-muted">{{ contest.start_time|date:"M d, Y H:i" }}</small>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-clock text-muted"></i>
+                            <small class="text-muted">{{ contest.duration_minutes }} minutes</small>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-users text-muted"></i>
+                            <small class="text-muted">{{ contest.participant_count }}/{{ contest.max_participants }} participants</small>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'contest_detail' contest.id %}" class="btn btn-primary btn-sm">View Details</a>
+                        <span class="difficulty-badge difficulty-{{ contest.difficulty }}">{{ contest.get_difficulty_display }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'contests' %}" class="btn btn-outline-primary">View All Contests</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Platform Features</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-trophy fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Competitive Contests</h5>
+                        <p class="card-text">Participate in regular coding contests with real-time leaderboards and comprehensive problem sets.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-puzzle-piece fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Problem Library</h5>
+                        <p class="card-text">Access hundreds of algorithmic problems categorized by difficulty and topic to improve your skills.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">Progress Tracking</h5>
+                        <p class="card-text">Monitor your improvement with detailed analytics, submission history, and performance metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Announcements -->
+{% if recent_announcements %}
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Recent Announcements</h2>
+        <div class="row">
+            {% for announcement in recent_announcements %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ announcement.title }}</h6>
+                        <p class="card-text">{{ announcement.content|truncatewords:15 }}</p>
+                        <small class="text-muted">
+                            <i class="fas fa-user"></i> {{ announcement.created_by.username }}
+                            • <i class="fas fa-calendar"></i> {{ announcement.created_at|date:"M d, Y" }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+{% if not user.is_authenticated %}
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Start Your Coding Journey?</h2>
+        <p class="lead mb-4">Join thousands of programmers in our Discord community and take your skills to the next level.</p>
+        <a href="{% url 'register' %}" class="btn btn-light btn-lg">Create Account</a>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

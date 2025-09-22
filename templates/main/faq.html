@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block title %}FAQ - CodeVerseHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="text-center mb-5">
+                <h1><i class="fas fa-question-circle"></i> Frequently Asked Questions</h1>
+                <p class="lead">Find answers to common questions about CodeVerseHub</p>
+            </div>
+
+            <div class="accordion" id="faqAccordion">
+                <!-- General Questions -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse" data-bs-target="#generalQuestions">
+                                <i class="fas fa-info-circle"></i> General Questions
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="generalQuestions" class="collapse show" data-bs-parent="#faqAccordion">
+                        <div class="card-body">
+                            <h5>What is CodeVerseHub?</h5>
+                            <p>CodeVerseHub is a competitive programming platform designed for our Discord community. It provides coding contests, practice problems, and a collaborative learning environment.</p>
+                            
+                            <h5>How do I get started?</h5>
+                            <p>Simply create an account, complete your profile, and start solving problems or participating in contests. Check out our <a href="{% url 'about' %}">About page</a> for more information.</p>
+                            
+                            <h5>Is CodeVerseHub free to use?</h5>
+                            <p>Yes! CodeVerseHub is completely free for all community members.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account & Profile -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accountQuestions">
+                                <i class="fas fa-user"></i> Account & Profile
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="accountQuestions" class="collapse" data-bs-parent="#faqAccordion">
+                        <div class="card-body">
+                            <h5>How do I create an account?</h5>
+                            <p>Click the "Register" button in the navigation bar and fill out the registration form. You'll need a valid email address and Discord username.</p>
+                            
+                            <h5>Can I change my username?</h5>
+                            <p>Currently, usernames cannot be changed after registration. Please choose carefully during sign-up.</p>
+                            
+                            <h5>How do I update my profile information?</h5>
+                            <p>Go to your profile page and click "Edit Profile" to update your information, bio, and profile picture.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contests -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contestQuestions">
+                                <i class="fas fa-trophy"></i> Contests
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="contestQuestions" class="collapse" data-bs-parent="#faqAccordion">
+                        <div class="card-body">
+                            <h5>How do I participate in a contest?</h5>
+                            <p>Browse the contests page, find an upcoming contest, and click "Register" before the contest starts. You'll receive notifications about contest times.</p>
+                            
+                            <h5>What programming languages are supported?</h5>
+                            <p>We support Python, Java, C++, C, and JavaScript. More languages may be added in the future.</p>
+                            
+                            <h5>How is scoring calculated?</h5>
+                            <p>Scoring is typically based on the number of problems solved and the time taken to solve them. Each contest may have specific scoring rules.</p>
+                            
+                            <h5>Can I view solutions after a contest?</h5>
+                            <p>Yes, after a contest ends, you can view your own submissions and often editorial solutions for learning purposes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problems -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#problemQuestions">
+                                <i class="fas fa-puzzle-piece"></i> Problems
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="problemQuestions" class="collapse" data-bs-parent="#faqAccordion">
+                        <div class="card-body">
+                            <h5>How are problems categorized?</h5>
+                            <p>Problems are categorized by difficulty (Easy, Medium, Hard) and tagged with topics like "Dynamic Programming", "Graphs", "Arrays", etc.</p>
+                            
+                            <h5>What happens after I submit a solution?</h5>
+                            <p>Your solution will be tested against predefined test cases. You'll receive a verdict like "Accepted", "Wrong Answer", or "Time Limit Exceeded".</p>
+                            
+                            <h5>Can I submit multiple solutions for the same problem?</h5>
+                            <p>Yes, you can submit multiple times until you get an accepted solution. Only your best submission counts for scoring.</p>
+                            
+                            <h5>Why was my solution rejected?</h5>
+                            <p>Common reasons include wrong logic, exceeding time/memory limits, compilation errors, or runtime errors. Check the verdict for specific details.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalQuestions">
+                                <i class="fas fa-cog"></i> Technical
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="technicalQuestions" class="collapse" data-bs-parent="#faqAccordion">
+                        <div class="card-body">
+                            <h5>I'm having trouble submitting my code. What should I do?</h5>
+                            <p>Make sure your code compiles without errors and follows the input/output format specified in the problem. If issues persist, contact support.</p>
+                            
+                            <h5>The website is not working properly. Who should I contact?</h5>
+                            <p>Report technical issues to the moderators through Discord or the contact methods provided in the community.</p>
+                            
+                            <h5>Are there any browser requirements?</h5>
+                            <p>CodeVerseHub works best on modern browsers like Chrome, Firefox, Safari, and Edge with JavaScript enabled.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#communityQuestions">
+                                <i class="fas fa-users"></i> Community
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="communityQuestions" class="collapse" data-bs-parent="#faqAccordion">
+                        <div class="card-body">
+                            <h5>How can I connect with other members?</h5>
+                            <p>Join our Discord server where you can discuss problems, share experiences, and connect with fellow programmers.</p>
+                            
+                            <h5>Can I get help with problems?</h5>
+                            <p>Yes! You can ask for hints and guidance in the Discord community, but please don't ask for or share complete solutions.</p>
+                            
+                            <h5>How do I report inappropriate behavior?</h5>
+                            <p>Contact moderators immediately through Discord or use the reporting features if available. We take community safety seriously.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <h4>Still have questions?</h4>
+                <p>Can't find what you're looking for? Reach out to our community moderators for help.</p>
+                <a href="{% url 'about' %}" class="btn btn-primary">Learn More About Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

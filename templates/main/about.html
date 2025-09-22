@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}About - CodeVerseHub{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="text-center mb-5">
+                <h1><i class="fas fa-info-circle"></i> About CodeVerseHub</h1>
+                <p class="lead">Learn more about our competitive programming platform</p>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>Our Mission</h3>
+                    <p>CodeVerseHub is a comprehensive competitive programming platform designed specifically for our Discord community. Our mission is to provide an engaging, educational, and competitive environment where programmers of all skill levels can improve their coding abilities, participate in contests, and connect with fellow developers.</p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>What We Offer</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-trophy text-primary"></i> Regular coding contests</li>
+                                <li class="list-group-item"><i class="fas fa-puzzle-piece text-success"></i> Extensive problem library</li>
+                                <li class="list-group-item"><i class="fas fa-chart-line text-info"></i> Performance analytics</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-users text-warning"></i> Community interaction</li>
+                                <li class="list-group-item"><i class="fas fa-graduation-cap text-danger"></i> Learning resources</li>
+                                <li class="list-group-item"><i class="fas fa-medal text-secondary"></i> Achievement system</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>Technology Stack</h3>
+                    <p>CodeVerseHub is built using modern web technologies to ensure a fast, reliable, and scalable platform:</p>
+                    <ul>
+                        <li><strong>Backend:</strong> Django (Python)</li>
+                        <li><strong>Frontend:</strong> Bootstrap 5, JavaScript</li>
+                        <li><strong>Database:</strong> SQLite (development) / PostgreSQL (production)</li>
+                        <li><strong>Authentication:</strong> Django's built-in authentication system</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>Community Guidelines</h3>
+                    <p>We foster a respectful and inclusive environment where everyone can learn and grow. Please:</p>
+                    <ul>
+                        <li>Be respectful to all community members</li>
+                        <li>Help others when possible</li>
+                        <li>Follow fair play practices in contests</li>
+                        <li>Report any issues or concerns to moderators</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h3>Get Started Today!</h3>
+                <p class="mb-4">Ready to join our community of passionate programmers?</p>
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'register' %}" class="btn btn-primary btn-lg me-3">Create Account</a>
+                    <a href="{% url 'contests' %}" class="btn btn-outline-primary btn-lg">View Contests</a>
+                {% else %}
+                    <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg me-3">Go to Dashboard</a>
+                    <a href="{% url 'problems' %}" class="btn btn-outline-primary btn-lg">Solve Problems</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
