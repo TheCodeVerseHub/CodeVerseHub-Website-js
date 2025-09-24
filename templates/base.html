@@ -16,81 +16,177 @@
     {% block extra_head %}{% endblock %}
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Professional Navigation with Discord Button -->
+    {% with current=request.resolver_match.url_name %}
+    <nav class="navbar navbar-expand-lg cvh-navbar sticky-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <i class="fas fa-code"></i> CodeVerseHub
+            <!-- Logo -->
+            <a href="{% url 'home' %}" class="navbar-brand cvh-brand" aria-label="CodeVerseHub Home">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span>CodeVerseHub</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler cvh-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#primaryNavigation" aria-controls="primaryNavigation" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="primaryNavigation">
                 <ul class="navbar-nav me-auto">
+                    <!-- Main Navigation Links -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contests' %}">Contests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'problems' %}">Problems</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            More
+                        <a href="{% url 'home' %}" class="nav-link cvh-nav-link {% if current == 'home' %}active{% endif %}" 
+                           aria-current="{% if current == 'home' %}page{% endif %}">
+                           Home
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'resources' %}">Resources</a></li>
-                            <li><a class="dropdown-item" href="{% url 'timeline' %}">Timeline</a></li>
-                            <li><a class="dropdown-item" href="{% url 'rules' %}">Rules</a></li>
-                            <li><a class="dropdown-item" href="{% url 'faq' %}">FAQ</a></li>
-                            <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'about' %}" class="nav-link cvh-nav-link {% if current == 'about' %}active{% endif %}"
+                           aria-current="{% if current == 'about' %}page{% endif %}">
+                           About
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'contests' %}" class="nav-link cvh-nav-link {% if current == 'contests' %}active{% endif %}"
+                           aria-current="{% if current == 'contests' %}page{% endif %}">
+                           Contests
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'problems' %}" class="nav-link cvh-nav-link {% if current == 'problems' %}active{% endif %}"
+                           aria-current="{% if current == 'problems' %}page{% endif %}">
+                           Problems
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'rules' %}" class="nav-link cvh-nav-link {% if current == 'rules' %}active{% endif %}"
+                           aria-current="{% if current == 'rules' %}page{% endif %}">
+                           Rules
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="{% url 'faq' %}" class="nav-link cvh-nav-link {% if current == 'faq' %}active{% endif %}"
+                           aria-current="{% if current == 'faq' %}page{% endif %}">
+                           FAQ
+                        </a>
+                    </li>
+                    
+                    <!-- Resources Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link cvh-nav-link dropdown-toggle {% if current in 'resources timeline' %}active{% endif %}" 
+                           href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" 
+                           aria-expanded="false">
+                           Resources
+                        </a>
+                        <ul class="dropdown-menu cvh-dropdown" aria-labelledby="resourcesDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'resources' %}">
+                                    <i class="fas fa-book me-2"></i>Learning Resources
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'timeline' %}">
+                                    <i class="fas fa-clock me-2"></i>Timeline
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
+
+                <!-- Right-aligned items (auth + Discord button) -->
+                <div class="navbar-nav ms-auto align-items-center">
+                    <!-- Discord Button -->
+                    <div class="nav-item me-3">
+                        <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-discord" target="_blank" rel="noopener">
+                            <i class="fab fa-discord me-1"></i> Join Discord
+                        </a>
+                    </div>
+                
+                    <!-- Auth Navigation -->
                     {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'dashboard' %}">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
                         {% if user.is_moderator %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-cog"></i> Admin
+                            <a class="nav-link cvh-nav-link dropdown-toggle" href="#" 
+                               id="adminDropdown" role="button" data-bs-toggle="dropdown" 
+                               aria-expanded="false">
+                                <i class="fas fa-shield-alt me-1"></i>Admin
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'create_contest' %}">Create Contest</a></li>
-                                <li><a class="dropdown-item" href="{% url 'create_problem' %}">Create Problem</a></li>
-                                <li><a class="dropdown-item" href="/admin/">Django Admin</a></li>
+                            <ul class="dropdown-menu cvh-dropdown dropdown-menu-end" aria-labelledby="adminDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'create_contest' %}">
+                                        <i class="fas fa-plus me-2"></i>Create Contest
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'create_problem' %}">
+                                        <i class="fas fa-plus-square me-2"></i>Create Problem
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="/admin/">
+                                        <i class="fas fa-tools me-2"></i>Django Admin
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         {% endif %}
+                        
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-user"></i> {{ user.username }}
+                            <a class="nav-link cvh-nav-link dropdown-toggle" href="#"
+                               id="userDropdown" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <i class="fas fa-user-circle me-1"></i>{{ user.username }}
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                            <ul class="dropdown-menu cvh-dropdown dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'dashboard' %}">
+                                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'profile' %}">
+                                        <i class="fas fa-id-badge me-2"></i>Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'edit_profile' %}">
+                                        <i class="fas fa-user-edit me-2"></i>Edit Profile
+                                    </a>
+                                </li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'logout' %}">
+                                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            <a href="{% url 'login' %}" class="nav-link cvh-nav-link {% if current == 'login' %}active{% endif %}">
+                                <i class="fas fa-sign-in-alt me-1"></i>Login
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                            <a href="{% url 'register' %}" class="nav-link cvh-nav-link {% if current == 'register' %}active{% endif %}">
+                                <i class="fas fa-user-plus me-1"></i>Register
+                            </a>
                         </li>
                     {% endif %}
-                </ul>
+                </div>
             </div>
         </div>
     </nav>
+    {% endwith %}
 
     <!-- Messages -->
     {% if messages %}
