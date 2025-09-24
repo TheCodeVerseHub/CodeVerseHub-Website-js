@@ -389,3 +389,62 @@ function initFooterAnimations() {
 
 // Initialize footer animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', initFooterAnimations);
+
+// FAQ Functionality
+function filterFAQ(category) {
+    const categories = document.querySelectorAll('.faq-category');
+    const buttons = document.querySelectorAll('.btn-group .btn');
+    
+    // Update active button
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Show/hide categories
+    categories.forEach(function(cat) {
+        if (category === 'all' || cat.dataset.category === category) {
+            cat.style.display = 'block';
+        } else {
+            cat.style.display = 'none';
+        }
+    });
+}
+
+// FAQ Search functionality - enhanced version for the new layout
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('faqSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.accordion-item');
+            
+            faqItems.forEach(function(item) {
+                const question = item.querySelector('.accordion-button').textContent.toLowerCase();
+                const answer = item.querySelector('.accordion-body').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    // Highlight search terms if found
+                    if (searchTerm.length > 2) {
+                        item.classList.add('search-highlight');
+                    } else {
+                        item.classList.remove('search-highlight');
+                    }
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('search-highlight');
+                }
+            });
+            
+            // Show/hide categories based on visible items
+            const categories = document.querySelectorAll('.faq-category');
+            categories.forEach(function(category) {
+                const visibleItems = category.querySelectorAll('.accordion-item[style*="block"], .accordion-item:not([style*="none"])');
+                if (visibleItems.length === 0 && searchTerm.length > 0) {
+                    category.style.display = 'none';
+                } else {
+                    category.style.display = 'block';
+                }
+            });
+        });
+    }
+});

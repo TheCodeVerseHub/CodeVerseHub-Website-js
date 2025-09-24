@@ -1,168 +1,474 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
+{% load static %}
 
 {% block title %}FAQ - CodeVerseHub{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <div class="text-center mb-5">
-                <h1><i class="fas fa-question-circle"></i> Frequently Asked Questions</h1>
+<!-- FAQ Hero Section -->
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12 text-center">
+                <h1><i class="fas fa-question-circle text-info me-3"></i>Frequently Asked Questions</h1>
                 <p class="lead">Find answers to common questions about CodeVerseHub</p>
-            </div>
-
-            <div class="accordion" id="faqAccordion">
-                <!-- General Questions -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left" type="button" data-bs-toggle="collapse" data-bs-target="#generalQuestions">
-                                <i class="fas fa-info-circle"></i> General Questions
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="generalQuestions" class="collapse show" data-bs-parent="#faqAccordion">
-                        <div class="card-body">
-                            <h5>What is CodeVerseHub?</h5>
-                            <p>CodeVerseHub is a competitive programming platform designed for our Discord community. It provides coding contests, practice problems, and a collaborative learning environment.</p>
-                            
-                            <h5>How do I get started?</h5>
-                            <p>Simply create an account, complete your profile, and start solving problems or participating in contests. Check out our <a href="{% url 'about' %}">About page</a> for more information.</p>
-                            
-                            <h5>Is CodeVerseHub free to use?</h5>
-                            <p>Yes! CodeVerseHub is completely free for all community members.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Account & Profile -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accountQuestions">
-                                <i class="fas fa-user"></i> Account & Profile
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="accountQuestions" class="collapse" data-bs-parent="#faqAccordion">
-                        <div class="card-body">
-                            <h5>How do I create an account?</h5>
-                            <p>Click the "Register" button in the navigation bar and fill out the registration form. You'll need a valid email address and Discord username.</p>
-                            
-                            <h5>Can I change my username?</h5>
-                            <p>Currently, usernames cannot be changed after registration. Please choose carefully during sign-up.</p>
-                            
-                            <h5>How do I update my profile information?</h5>
-                            <p>Go to your profile page and click "Edit Profile" to update your information, bio, and profile picture.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contests -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contestQuestions">
-                                <i class="fas fa-trophy"></i> Contests
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="contestQuestions" class="collapse" data-bs-parent="#faqAccordion">
-                        <div class="card-body">
-                            <h5>How do I participate in a contest?</h5>
-                            <p>Browse the contests page, find an upcoming contest, and click "Register" before the contest starts. You'll receive notifications about contest times.</p>
-                            
-                            <h5>What programming languages are supported?</h5>
-                            <p>We support Python, Java, C++, C, and JavaScript. More languages may be added in the future.</p>
-                            
-                            <h5>How is scoring calculated?</h5>
-                            <p>Scoring is typically based on the number of problems solved and the time taken to solve them. Each contest may have specific scoring rules.</p>
-                            
-                            <h5>Can I view solutions after a contest?</h5>
-                            <p>Yes, after a contest ends, you can view your own submissions and often editorial solutions for learning purposes.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Problems -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#problemQuestions">
-                                <i class="fas fa-puzzle-piece"></i> Problems
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="problemQuestions" class="collapse" data-bs-parent="#faqAccordion">
-                        <div class="card-body">
-                            <h5>How are problems categorized?</h5>
-                            <p>Problems are categorized by difficulty (Easy, Medium, Hard) and tagged with topics like "Dynamic Programming", "Graphs", "Arrays", etc.</p>
-                            
-                            <h5>What happens after I submit a solution?</h5>
-                            <p>Your solution will be tested against predefined test cases. You'll receive a verdict like "Accepted", "Wrong Answer", or "Time Limit Exceeded".</p>
-                            
-                            <h5>Can I submit multiple solutions for the same problem?</h5>
-                            <p>Yes, you can submit multiple times until you get an accepted solution. Only your best submission counts for scoring.</p>
-                            
-                            <h5>Why was my solution rejected?</h5>
-                            <p>Common reasons include wrong logic, exceeding time/memory limits, compilation errors, or runtime errors. Check the verdict for specific details.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Technical -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalQuestions">
-                                <i class="fas fa-cog"></i> Technical
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="technicalQuestions" class="collapse" data-bs-parent="#faqAccordion">
-                        <div class="card-body">
-                            <h5>I'm having trouble submitting my code. What should I do?</h5>
-                            <p>Make sure your code compiles without errors and follows the input/output format specified in the problem. If issues persist, contact support.</p>
-                            
-                            <h5>The website is not working properly. Who should I contact?</h5>
-                            <p>Report technical issues to the moderators through Discord or the contact methods provided in the community.</p>
-                            
-                            <h5>Are there any browser requirements?</h5>
-                            <p>CodeVerseHub works best on modern browsers like Chrome, Firefox, Safari, and Edge with JavaScript enabled.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Community -->
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#communityQuestions">
-                                <i class="fas fa-users"></i> Community
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="communityQuestions" class="collapse" data-bs-parent="#faqAccordion">
-                        <div class="card-body">
-                            <h5>How can I connect with other members?</h5>
-                            <p>Join our Discord server where you can discuss problems, share experiences, and connect with fellow programmers.</p>
-                            
-                            <h5>Can I get help with problems?</h5>
-                            <p>Yes! You can ask for hints and guidance in the Discord community, but please don't ask for or share complete solutions.</p>
-                            
-                            <h5>How do I report inappropriate behavior?</h5>
-                            <p>Contact moderators immediately through Discord or use the reporting features if available. We take community safety seriously.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <h4>Still have questions?</h4>
-                <p>Can't find what you're looking for? Reach out to our community moderators for help.</p>
-                <a href="{% url 'about' %}" class="btn btn-primary">Learn More About Us</a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- FAQ Content -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            
+            <!-- Search Box -->
+            <div class="mb-5">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-dark border-secondary">
+                        <i class="fas fa-search text-info"></i>
+                    </span>
+                    <input type="text" class="form-control bg-dark border-secondary text-light" 
+                           placeholder="Search FAQ..." id="faqSearch">
+                </div>
+            </div>
+
+            <!-- Category Buttons -->
+            <div class="text-center mb-5">
+                <div class="btn-group flex-wrap" role="group">
+                    <button type="button" class="btn btn-outline-info active" onclick="filterFAQ('all')">All</button>
+                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('general')">General</button>
+                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('account')">Account</button>
+                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('contests')">Contests</button>
+                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('problems')">Problems</button>
+                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('technical')">Technical</button>
+                </div>
+            </div>
+            
+            <!-- General Questions -->
+            <div class="faq-category mb-5" data-category="general">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-info-circle me-2"></i>General Questions
+                </h3>
+                
+                <div class="accordion" id="generalAccordion">
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#general1">
+                                What is CodeVerseHub?
+                            </button>
+                        </h2>
+                        <div id="general1" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                CodeVerseHub is a competitive programming platform designed specifically for our Discord community. It provides a comprehensive environment for coding contests, practice problems, skill development, and collaborative learning among programmers of all levels.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#general2">
+                                How do I get started on CodeVerseHub?
+                            </button>
+                        </h2>
+                        <div id="general2" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Getting started is easy! Simply create an account using our registration page, join our Discord server, and you can immediately start participating in contests, solving practice problems, and engaging with our community of programmers.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#general3">
+                                Is CodeVerseHub free to use?
+                            </button>
+                        </h2>
+                        <div id="general3" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Yes! CodeVerseHub is completely free to use. All features including contests, practice problems, community discussions, and learning resources are available at no cost to all members of our Discord community.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#general4">
+                                What programming languages are supported?
+                            </button>
+                        </h2>
+                        <div id="general4" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                We support all major programming languages including Python, Java, C++, C, JavaScript, Go, Rust, and many others. You can choose your preferred language for solving problems and participating in contests.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Questions -->
+            <div class="faq-category mb-5" data-category="account">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-user-circle me-2"></i>Account & Profile
+                </h3>
+                
+                <div class="accordion" id="accountAccordion">
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#account1">
+                                How do I create an account?
+                            </button>
+                        </h2>
+                        <div id="account1" class="accordion-collapse collapse" data-bs-parent="#accountAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Click on the "Register" button in the navigation menu, fill out the registration form with your details including your Discord username, and verify your email address. Once registered, you can immediately start using all platform features.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#account2">
+                                Can I change my username later?
+                            </button>
+                        </h2>
+                        <div id="account2" class="accordion-collapse collapse" data-bs-parent="#accountAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Your username is permanent once created to maintain consistency in leaderboards and contest history. However, you can update your display name, bio, and other profile information at any time through your profile settings.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#account3">
+                                What if I forget my password?
+                            </button>
+                        </h2>
+                        <div id="account3" class="accordion-collapse collapse" data-bs-parent="#accountAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Use the "Forgot Password" link on the login page to reset your password. You'll receive an email with instructions to create a new password. Make sure to check your spam folder if you don't see the email immediately.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contest Questions -->
+            <div class="faq-category mb-5" data-category="contests">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-trophy me-2"></i>Contests
+                </h3>
+                
+                <div class="accordion" id="contestsAccordion">
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#contest1">
+                                How do I participate in contests?
+                            </button>
+                        </h2>
+                        <div id="contest1" class="accordion-collapse collapse" data-bs-parent="#contestsAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Browse available contests on the Contests page, click on a contest you're interested in, and register before the contest starts. Once registered, you can participate when the contest begins and submit solutions to the problems.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#contest2">
+                                What types of contests are available?
+                            </button>
+                        </h2>
+                        <div id="contest2" class="accordion-collapse collapse" data-bs-parent="#contestsAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                We offer various contest formats including individual competitions, team contests, weekly challenges, themed contests (like algorithms or data structures), and special community events with different difficulty levels.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#contest3">
+                                How is scoring calculated in contests?
+                            </button>
+                        </h2>
+                        <div id="contest3" class="accordion-collapse collapse" data-bs-parent="#contestsAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Scoring typically considers correctness, time taken to solve problems, and number of submissions. Each contest may have specific scoring rules which are clearly outlined in the contest description before it begins.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem Questions -->
+            <div class="faq-category mb-5" data-category="problems">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-puzzle-piece me-2"></i>Problems & Solutions
+                </h3>
+                
+                <div class="accordion" id="problemsAccordion">
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#problem1">
+                                How are problems categorized by difficulty?
+                            </button>
+                        </h2>
+                        <div id="problem1" class="accordion-collapse collapse" data-bs-parent="#problemsAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Problems are categorized as Easy, Medium, or Hard based on algorithmic complexity, implementation difficulty, and the concepts required. Beginners should start with Easy problems and gradually progress to more challenging ones.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#problem2">
+                                What happens after I submit a solution?
+                            </button>
+                        </h2>
+                        <div id="problem2" class="accordion-collapse collapse" data-bs-parent="#problemsAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Your solution is automatically tested against multiple test cases. You'll receive immediate feedback including verdict (Accepted, Wrong Answer, Time Limit Exceeded, etc.), execution time, and memory usage.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#problem3">
+                                Can I see test cases for problems?
+                            </button>
+                        </h2>
+                        <div id="problem3" class="accordion-collapse collapse" data-bs-parent="#problemsAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Each problem includes sample test cases with expected outputs to help you understand the problem. However, your solution will be tested against additional hidden test cases to ensure correctness.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Questions -->
+            <div class="faq-category mb-5" data-category="technical">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-cog me-2"></i>Technical Support
+                </h3>
+                
+                <div class="accordion" id="technicalAccordion">
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#technical1">
+                                What are the time and memory limits for solutions?
+                            </button>
+                        </h2>
+                        <div id="technical1" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Time and memory limits vary by problem and are clearly specified in each problem statement. Typical limits are 1-2 seconds for time and 256-512 MB for memory, but these can vary based on problem complexity.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#technical2">
+                                Why is my code giving a runtime error?
+                            </button>
+                        </h2>
+                        <div id="technical2" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Runtime errors can occur due to array out of bounds, division by zero, infinite recursion, or other execution issues. Check your code for edge cases, proper input handling, and ensure all variables are properly initialized.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#technical3">
+                                What should I do if I encounter a technical issue?
+                            </button>
+                        </h2>
+                        <div id="technical3" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                            <div class="accordion-body bg-dark text-secondary">
+                                Report technical issues through our Discord server or contact our moderators. Include details about the problem, your browser/system information, and steps to reproduce the issue for faster resolution.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h3 class="mb-3">Still Have Questions?</h3>
+        <p class="lead mb-4">Can't find what you're looking for? Our community and moderators are here to help!</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="#" class="btn btn-outline-light btn-lg">
+                <i class="fab fa-discord me-2"></i>Join Discord
+            </a>
+            <a href="mailto:support@codeversehub.com" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-envelope me-2"></i>Email Support
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// FAQ JavaScript functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Show first category by default
+    filterFAQ('all');
+    
+    // Search functionality
+    const searchInput = document.getElementById('faqSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            searchFAQ();
+        });
+    }
+});
+
+// Toggle FAQ answer
+function toggleFAQ(element) {
+    const answer = element.nextElementSibling;
+    const icon = element.querySelector('i');
+    const isOpen = answer.classList.contains('show');
+    
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-answer.show').forEach(item => {
+        item.classList.remove('show');
+    });
+    document.querySelectorAll('.faq-question.active').forEach(item => {
+        item.classList.remove('active');
+        const iconEl = item.querySelector('i');
+        iconEl.className = 'fas fa-plus';
+        iconEl.style.transform = 'rotate(0deg)';
+    });
+    
+    // Toggle current item
+    if (!isOpen) {
+        answer.classList.add('show');
+        element.classList.add('active');
+        icon.className = 'fas fa-minus';
+        icon.style.transform = 'rotate(45deg)';
+    }
+}
+
+// Filter FAQ by category
+function filterFAQ(category) {
+    const categories = document.querySelectorAll('.faq-category');
+    const buttons = document.querySelectorAll('.category-btn');
+    
+    // Update button states
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // Find and activate the clicked button
+    buttons.forEach(btn => {
+        if (btn.textContent.toLowerCase() === category.toLowerCase() || 
+            (category === 'all' && btn.textContent.toLowerCase() === 'all')) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Show/hide categories
+    categories.forEach(cat => {
+        if (category === 'all' || cat.dataset.category === category) {
+            cat.style.display = 'block';
+        } else {
+            cat.style.display = 'none';
+        }
+    });
+    
+    // Close all open FAQs when switching categories
+    document.querySelectorAll('.faq-answer.show').forEach(item => {
+        item.classList.remove('show');
+    });
+    document.querySelectorAll('.faq-question.active').forEach(item => {
+        item.classList.remove('active');
+        const iconEl = item.querySelector('i');
+        iconEl.className = 'fas fa-plus';
+        iconEl.style.transform = 'rotate(0deg)';
+    });
+}
+
+// Search FAQ
+function searchFAQ() {
+    const searchInput = document.getElementById('faqSearch');
+    if (!searchInput) return;
+    
+    const searchTerm = searchInput.value.toLowerCase();
+    const faqItems = document.querySelectorAll('.faq-item');
+    let hasVisibleItems = false;
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+            item.style.display = 'block';
+            hasVisibleItems = true;
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    
+    // Show all categories when searching
+    if (searchTerm) {
+        document.querySelectorAll('.faq-category').forEach(cat => {
+            // Check if category has any visible items
+            const visibleItems = cat.querySelectorAll('.faq-item[style*="block"], .faq-item:not([style*="none"])');
+            if (cat.querySelectorAll('.faq-item[style*="block"]').length > 0) {
+                cat.style.display = 'block';
+            } else {
+                cat.style.display = 'none';
+            }
+        });
+        
+        // Update active button
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+    } else {
+        // Reset to show all when search is cleared
+        filterFAQ('all');
+    }
+}
+
+// Add smooth scrolling for better UX
+document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.textContent.toLowerCase();
+        filterFAQ(category);
+        
+        // Smooth scroll to FAQ content
+        document.querySelector('.faq-content').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+});
+</script>
 {% endblock %}
