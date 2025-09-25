@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import User, Event, Contest, Problem, TestCase, Submission, EventRegistration, ContestParticipant, UserProblemStatus, Announcement
+from .models import User, Contest, Problem, TestCase, Submission, ContestParticipant, UserProblemStatus, Announcement
+from .contest_event_model import Event, ContestEvent
+from .event_registration import EventRegistration
 
 
 class CustomUserAdmin(BaseUserAdmin):
@@ -34,22 +36,15 @@ class ProblemAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
-class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'start_datetime', 'end_datetime', 'registration_deadline', 'location_type', 'capacity', 'organizer', 'is_contest')
-    list_filter = ('location_type', 'visibility', 'start_datetime', 'is_contest')
-    search_fields = ('title', 'description', 'tags')
-    prepopulated_fields = {'slug': ('title',)}
-
-
-class ContestInline(admin.StackedInline):
-    model = Contest
-    can_delete = False
-
-
 class ContestAdmin(admin.ModelAdmin):
-    list_display = ('title', 'start_time', 'end_time', 'contest_type', 'difficulty', 'is_active')
-    list_filter = ('contest_type', 'difficulty', 'created_at')
+    list_display = ('title', 'start_time', 'end_time', 'contest_type', 'difficulty', 'created_by', 'is_active')
+    list_filter = ('contest_type', 'difficulty', 'is_active', 'start_time')
     search_fields = ('title', 'description')
+    
+    def save_model(self, request, obj, form, change):
+        if not change:  # If creating a new object
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
 
 
 class SubmissionAdmin(admin.ModelAdmin):
@@ -59,16 +54,10 @@ class SubmissionAdmin(admin.ModelAdmin):
     readonly_fields = ('submitted_at',)
 
 
-class EventRegistrationAdmin(admin.ModelAdmin):
-    list_display = ('user', 'event', 'status', 'registered_at', 'attendance_confirmed')
-    list_filter = ('status', 'registered_at', 'attendance_confirmed')
-    search_fields = ('user__username', 'event__title', 'notes')
-
-
 class ContestParticipantAdmin(admin.ModelAdmin):
-    list_display = ('user', 'contest', 'score', 'problems_solved', 'rank', 'team_name', 'disqualified')
-    list_filter = ('contest', 'disqualified')
-    search_fields = ('user__username', 'team_name', 'contest__title')
+    list_display = ('user', 'contest', 'score', 'problems_solved', 'registered_at')
+    list_filter = ('contest', 'registered_at')
+    search_fields = ('user__username', 'contest__title')
 
 
 class AnnouncementAdmin(admin.ModelAdmin):
@@ -82,13 +71,37 @@ class AnnouncementAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
 
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'start_time', 'end_time', 'status', 'is_active', 'created_by')
+    list_filter = ('is_active', 'start_time', 'end_time')
+    search_fields = ('title', 'description', 'location')
+    
+    def save_model(self, request, obj, form, change):
+        if not change:  # If creating a new object
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
+
+
+class EventRegistrationAdmin(admin.ModelAdmin):
+    list_display = ('user', 'event', 'registered_at', 'attended')
+    list_filter = ('attended', 'registered_at', 'event')
+    search_fields = ('user__username', 'event__title')
+
+
+class ContestEventAdmin(admin.ModelAdmin):
+    list_display = ('event', 'contest_type', 'difficulty', 'team_size')
+    list_filter = ('contest_type', 'difficulty')
+    search_fields = ('event__title',)
+
+
 admin.site.register(User, CustomUserAdmin)
-admin.site.register(Event, EventAdmin)
 admin.site.register(Contest, ContestAdmin)
 admin.site.register(Problem, ProblemAdmin)
 admin.site.register(TestCase)
 admin.site.register(Submission, SubmissionAdmin)
-admin.site.register(EventRegistration, EventRegistrationAdmin)
 admin.site.register(ContestParticipant, ContestParticipantAdmin)
 admin.site.register(UserProblemStatus)
 admin.site.register(Announcement, AnnouncementAdmin)
+admin.site.register(Event, EventAdmin)
+admin.site.register(ContestEvent, ContestEventAdmin)
+admin.site.register(EventRegistration, EventRegistrationAdmin)

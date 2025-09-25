@@ -4,12 +4,54 @@ from django.utils import timezone
 
 User = get_user_model()
 
+# Event base model
+class Event(models.Model):
+    """
+    Base Event model for all event types
+    """
+    title = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    location = models.CharField(max_length=200, blank=True, help_text="Physical location or 'Online'")
+    is_active = models.BooleanField(default=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_events')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    featured_image = models.ImageField(upload_to='event_images', blank=True, null=True)
+    max_participants = models.IntegerField(default=0, help_text="0 means unlimited")
+    
+    def __str__(self):
+        return self.title
+        
+    @property
+    def is_upcoming(self):
+        return self.start_time > timezone.now()
+        
+    @property
+    def is_ongoing(self):
+        now = timezone.now()
+        return self.start_time <= now <= self.end_time
+        
+    @property
+    def is_past(self):
+        return self.end_time < timezone.now()
+        
+    @property
+    def status(self):
+        if self.is_upcoming:
+            return 'upcoming'
+        elif self.is_ongoing:
+            return 'ongoing'
+        else:
+            return 'completed'
+
 # Create a ContestEvent model to extend the Event model with contest-specific attributes
 class ContestEvent(models.Model):
     """
     ContestEvent model extends the Event model with contest-specific attributes
     """
-    event = models.OneToOneField('Event', on_delete=models.CASCADE, related_name='contest_details')
+    event = models.OneToOneField(Event, on_delete=models.CASCADE, related_name='contest_details')
     
     TYPE_CHOICES = [
         ('individual', 'Individual'),
