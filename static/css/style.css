@@ -38,150 +38,126 @@ body {
     color: var(--text-primary);
 }
 
-/* Professional Navigation Styles */
-.cvh-navbar {
-    background-color: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+/* Simple Text-Only Navigation */
+.cvh-header {
+    background-color: var(--bg-primary);
     border-bottom: 1px solid var(--border-color);
-    padding: 0.6rem 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.cvh-navbar.scrolled {
-    padding: 0.4rem 0;
-    background-color: rgba(10, 10, 10, 0.98);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-}
-
-.cvh-brand {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 60px;
     display: flex;
     align-items: center;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cvh-logo {
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--cyan-blue);
     text-decoration: none;
     letter-spacing: 0.5px;
     position: relative;
-    transition: all 0.3s ease;
-    margin-right: 2rem;
 }
 
-.cvh-brand:hover {
-    color: var(--text-primary);
-    transform: translateY(-1px);
+.cvh-logo:hover {
+    color: var(--blue);
 }
 
-.cvh-brand i {
-    margin-right: 0.4rem;
-    color: var(--cyan-blue);
-    font-size: 1.5rem;
-    text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
-}
-
-.cvh-brand:before {
+.cvh-logo:before {
     content: "<";
     color: var(--purple);
     margin-right: 2px;
-    position: absolute;
-    left: -12px;
-    opacity: 0.8;
 }
 
-.cvh-brand:after {
+.cvh-logo:after {
     content: ">";
     color: var(--purple);
     margin-left: 2px;
-    position: absolute;
-    right: -12px;
-    opacity: 0.8;
 }
 
-/* Navigation Controls */
-.navbar-toggler.cvh-toggler {
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
     border: none;
-    padding: 0.25rem;
-    color: var(--cyan-blue);
-    transition: all 0.3s ease;
-}
-
-.navbar-toggler.cvh-toggler:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 229, 255, 0.2);
-}
-
-.navbar-toggler.cvh-toggler i {
-    font-size: 1.5rem;
-}
-
-/* Navigation Links */
-.cvh-nav-link {
-    color: var(--text-secondary) !important;
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.5rem 0.8rem !important;
-    margin: 0 0.2rem;
-    border-radius: 4px;
-    transition: all 0.3s ease;
     position: relative;
-}
-
-.cvh-nav-link:hover {
-    color: var(--text-primary) !important;
-    background-color: rgba(255, 255, 255, 0.05);
-    transform: translateY(-1px);
-}
-
-.cvh-nav-link.active {
-    color: var(--cyan-blue) !important;
-    font-weight: 600;
-}
-
-.cvh-nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
     width: 30px;
-    height: 3px;
-    background: var(--cyan-blue);
-    border-radius: 2px;
-    box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+    height: 30px;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 10;
 }
 
-.cvh-nav-link i {
-    font-size: 0.9rem;
-}
-
-/* Discord Button */
-.btn-discord {
-    background: linear-gradient(135deg, #7289da, #5865F2);
-    border: none;
-    color: #fff !important;
-    font-weight: 600;
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
+.menu-toggle span,
+.menu-toggle span:before,
+.menu-toggle span:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: var(--cyan-blue);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+}
+
+.menu-toggle span {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle span:before {
+    top: -8px;
+}
+
+.menu-toggle span:after {
+    bottom: -8px;
+}
+
+/* Main Navigation */
+.main-nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-left: 40px;
 }
 
-.btn-discord i {
-    font-size: 1.1rem;
+.auth-nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
 }
 
-.btn-discord:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
-    filter: brightness(1.05);
+.nav-item {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.2s ease;
 }
 
-.btn-discord:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(88, 101, 242, 0.4);
+.nav-item:hover {
+    color: var(--text-primary);
+}
+
+.nav-item.active {
+    color: var(--cyan-blue);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--cyan-blue);
 }
 
 .cvh-nav-link {
@@ -219,170 +195,108 @@ body {
 
 /* Dropdown styling */
 /* Dropdown Styling */
-.cvh-dropdown {
-    background-color: rgba(26, 26, 26, 0.98);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    margin-top: 0.6rem;
-    min-width: 220px;
-    padding: 0.5rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    animation: dropdown-fade 0.2s ease;
-    border-top: 2px solid var(--cyan-blue);
+.nav-dropdown {
+    position: relative;
 }
 
-@keyframes dropdown-fade {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.dropdown-menu {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-top: 10px;
+    min-width: 180px;
+    padding: 8px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 0.6rem 1rem;
+    display: block;
+    padding: 8px 16px;
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
-    border-radius: 4px;
     transition: all 0.2s ease;
-    margin-bottom: 0.2rem;
 }
 
 .dropdown-item:hover {
-    background-color: rgba(0, 229, 255, 0.1);
-    color: var(--cyan-blue);
-    transform: translateX(3px);
-}
-
-.dropdown-item:active {
-    background-color: rgba(0, 229, 255, 0.15);
-}
-
-.dropdown-item i {
-    margin-right: 0.7rem;
-    width: 16px;
-    text-align: center;
+    background-color: rgba(0, 229, 255, 0.05);
     color: var(--cyan-blue);
 }
 
 .dropdown-divider {
     height: 1px;
     background-color: var(--border-color);
-    margin: 0.5rem 0;
-    opacity: 0.5;
+    margin: 8px 0;
 }
 
-/* Responsive dropdown adjustments */
-@media (max-width: 992px) {
-    .dropdown-menu {
-        border: none;
-        background-color: rgba(42, 42, 42, 0.4);
-        box-shadow: none;
-        padding: 0 0 0 1rem;
-        animation: none;
-        margin-top: 0.2rem;
-        margin-bottom: 0.5rem;
-        border-left: 2px solid var(--cyan-blue);
-        border-top: none;
-    }
-    
-    .dropdown-item {
-        padding: 0.5rem 0.8rem;
-    }
-    
-    .dropdown-divider {
-        margin: 0.3rem 0;
-    }
-}
-
-/* Responsive Styles for Navigation */
+/* Responsive Styles */
 @media (max-width: 991.98px) {
-    .cvh-navbar {
-        padding: 0.7rem 0;
+    .cvh-header {
+        height: auto;
+        padding: 15px 0;
+    }
+    
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
     }
     
     .navbar-collapse {
-        background-color: var(--bg-secondary);
-        margin-top: 0.8rem;
-        padding: 1rem;
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    }
-    
-    .cvh-nav-link {
-        padding: 0.7rem 1rem !important;
-        margin: 0.2rem 0;
-        border-radius: 4px;
-    }
-    
-    .cvh-nav-link.active::after {
-        display: none;
-    }
-    
-    .cvh-nav-link.active {
-        background-color: rgba(0, 229, 255, 0.1);
-    }
-    
-    .navbar-nav {
-        padding-bottom: 0.5rem;
-    }
-    
-    .navbar-nav .ms-auto {
-        margin-top: 0.8rem;
-        padding-top: 0.8rem;
-        border-top: 1px solid var(--border-color);
-    }
-    
-    .btn-discord {
         width: 100%;
-        margin-bottom: 0.5rem;
+        padding-top: 15px;
     }
     
-    /* Adjust the navbar brand spacing */
-    .cvh-brand {
-        margin-left: 1rem;
+    .main-nav, .auth-nav {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        align-items: flex-start;
     }
     
-    /* Fix dropdown position */
+    .nav-item {
+        margin: 10px 0;
+        display: block;
+        width: 100%;
+    }
+    
     .dropdown-menu {
         position: static !important;
-        float: none;
-        width: auto;
-        margin-top: 0.25rem;
-    }
-    
-    /* Make dividers more subtle */
-    .navbar-collapse .dropdown-divider {
-        margin: 0.3rem 0;
-        opacity: 0.3;
-    }
-    
-    /* Special styling for mobile dropdowns */
-    .navbar-collapse .dropdown-menu {
-        background-color: rgba(10, 10, 10, 0.5);
-        border-left: 2px solid var(--cyan-blue);
-        border-top: none;
-        border-radius: 0;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
+        transform: none !important;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 10px;
         box-shadow: none;
-        padding-left: 1rem;
+        border-left: 2px solid var(--cyan-blue);
+        padding-left: 10px;
     }
     
-    /* Special styling for auth section on mobile */
-    .navbar-collapse .ms-auto {
-        margin-top: 0.8rem;
-        padding-top: 0.8rem;
+    .dropdown-menu.show {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .auth-nav {
+        margin-top: 15px;
         border-top: 1px solid var(--border-color);
+        padding-top: 15px;
     }
 }
 
@@ -2804,6 +2718,67 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 229, 255, 0.4);
 }
+
+/* Navbar base */
+.cvh-navbar{
+background: linear-gradient(90deg, rgba(10,10,10,0.9), rgba(20,20,20,0.95));
+border-bottom: 1px solid var(--border-color);
+position: sticky;
+top: 0;
+z-index: 1100;
+}
+
+
+.cvh-navbar .navbar-brand{ color: var(--cyan-blue); font-weight:700; text-decoration:none; }
+.cvh-navbar .brand-left, .cvh-navbar .brand-right{ color: var(--purple); font-weight:700; margin:0 4px; }
+.cvh-navbar .cvh-brand{ font-size:1.05rem; letter-spacing:0.4px; }
+
+
+/* Nav links center */
+.cvh-nav-list .cvh-nav-link{ color:var(--text-secondary); padding:6px 12px; border-radius:8px; font-weight:600; }
+.cvh-nav-list .cvh-nav-link:hover{ color:var(--text-primary); background: rgba(0,229,255,0.04); transform:translateY(-1px); }
+.cvh-nav-list .cvh-nav-link.active{ color:var(--cyan-blue); box-shadow: inset 0 -3px 0 var(--cyan-blue); }
+
+
+/* Right side wrappers */
+.cvh-search-wrapper{ position:relative; display:flex; align-items:center; gap:6px; }
+.cvh-search-wrapper .search-toggle{ background:transparent; border:1px solid rgba(255,255,255,0.06); border-radius:8px; color:var(--text-secondary); padding:6px 10px; }
+.cvh-search-input{ width:0; opacity:0; transition: all .25s ease; padding:6px 8px; border-radius:8px; border:1px solid var(--border-color); background:var(--card-bg); color:var(--text-primary); }
+.cvh-search-input.visible{ width:220px; opacity:1; margin-left:6px; }
+
+
+/* Discord CTA reuse (already in your file) */
+.btn-cta-discord{ border:1px solid var(--cyan-blue); color:var(--cyan-blue); padding:.35rem .8rem; border-radius:10px; font-weight:700; }
+.btn-cta-discord:hover{ background:var(--cyan-blue); color:#000; box-shadow:0 6px 20px rgba(0,229,255,0.12); }
+
+
+/* User avatar */
+.user-avatar{ width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; background:linear-gradient(135deg,var(--blue),var(--purple)); color:#fff; }
+.user-dropdown-toggle{ color:var(--text-secondary); text-decoration:none; }
+.user-dropdown-toggle:hover{ color:var(--text-primary); }
+
+
+/* Dropdown visual tweaks (uses cvh-dropdown class already defined in your CSS) */
+.cvh-dropdown{ min-width:200px; }
+
+
+/* Small screens adjustments */
+@media (max-width: 991.98px){
+.cvh-search-input{ display:inline-block; width:100%; }
+.cvh-search-wrapper{ width:100%; }
+.btn-cta-discord{ display:block; width:100%; }
+}
+
+
+/* Toggler focus style */
+.cvh-toggler{ border-radius:8px; border:1px solid rgba(255,255,255,0.06); }
+.cvh-toggler:focus{ box-shadow:0 0 0 .15rem rgba(0,229,255,0.12); }
+
+
+/* small helpers */
+.navbar-nav .nav-item{ margin:0 6px; }
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

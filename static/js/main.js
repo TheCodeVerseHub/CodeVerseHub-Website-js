@@ -12,18 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl);
     });
-    
-    // Navbar scroll effect
-    const navbar = document.querySelector('.cvh-navbar');
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
 
     // Auto-hide alerts after 5 seconds
     setTimeout(function() {
