@@ -13,7 +13,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+<link rel="stylesheet" href="{% static 'css/home-styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact-section.css' %}">
+<link rel="stylesheet" href="{% static 'css/modern-footer.css' %}">
 
 <!-- Load navbar CSS -->
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -36,37 +38,21 @@
                 <a href="{% url 'home' %}" class="navbar-link {% if current == 'home' %}active{% endif %}">Home</a>
             </li>
             <li class="navbar-item">
-                <a href="{% url 'contests' %}" class="navbar-link {% if current == 'contests' %}active{% endif %}">Contests</a>
-            </li>
-            <li class="navbar-item">
-                <a href="{% url 'problems' %}" class="navbar-link {% if current == 'problems' %}active{% endif %}">Problems</a>
-            </li>
-            <li class="navbar-item">
                 <a href="{% url 'resources' %}" class="navbar-link {% if current == 'resources' %}active{% endif %}">Resources</a>
+            </li>
+            <li class="navbar-item">
+                <a href="{% url 'rules' %}" class="navbar-link {% if current == 'rules' %}active{% endif %}">Rules</a>
+            </li>
+            <li class="navbar-item">
+                <a href="{% url 'faq' %}" class="navbar-link {% if current == 'faq' %}active{% endif %}">FAQ</a>
             </li>
             <li class="navbar-item">
                 <a href="{% url 'about' %}" class="navbar-link {% if current == 'about' %}active{% endif %}">About</a>
             </li>
+            <li class="navbar-item">
+                <a href="{% url 'timeline' %}" class="navbar-link {% if current == 'timeline' %}active{% endif %}">Timeline</a>
+            </li>
         </ul>
-        
-        <div class="auth-links" id="authLinks">
-            {% if user.is_authenticated %}
-                <a href="{% url 'dashboard' %}" class="auth-link {% if current == 'dashboard' %}active{% endif %}">
-                    Dashboard
-                </a>
-                <div class="navbar-item">
-                    <a href="{% url 'profile' %}" class="auth-link">
-                        {{ user.username }}
-                    </a>
-                </div>
-                <a href="{% url 'logout' %}" class="auth-link">
-                    Logout
-                </a>
-            {% else %}
-                <a href="{% url 'login' %}" class="auth-link {% if current == 'login' %}active{% endif %}">Login</a>
-                <a href="{% url 'register' %}" class="auth-link register {% if current == 'register' %}active{% endif %}">Register</a>
-            {% endif %}
-        </div>
     </div>
 </header>
 {% endwith %}
@@ -92,45 +78,51 @@
     <footer class="footer mt-5">
         <div class="container">
             <!-- Main Footer Content -->
-            <div class="row py-5">
+            <div class="row">
                 <!-- Brand Section -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-brand">
-                        <h3 class="mb-3">
+                        <h3>
                             <i class="fas fa-code footer-icon"></i> 
                             CodeVerseHub
                         </h3>
-                        <p class="footer-description mb-4">
-                            Empowering programmers through competitive coding challenges, 
-                            comprehensive resources, and a vibrant Discord community.
+                        <p class="footer-description">
+                            Empowering programmers through comprehensive resources, 
+                            coding challenges, and a vibrant Discord community.
                         </p>
                         <!-- Social Links -->
                         <div class="social-links">
-                            <a href="https://discord.gg/3xKFvKhuGR" class="social-link" title="Discord Server">
+                            <a href="https://discord.gg/3xKFvKhuGR" class="social-icon" title="Discord Server">
                                 <i class="fab fa-discord"></i>
                             </a>
-                            <a href="https://github.com/youngcoder45/cvhnewpyweb" class="social-link" title="GitHub">
+                            <a href="https://github.com/youngcoder45/cvhnewpyweb" class="social-icon" title="GitHub">
                                 <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quick Links -->
+                <!-- Platform Links -->
                 <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="footer-title mb-3">Platform</h5>
+                    <h5 class="footer-title">Platform</h5>
                     <ul class="footer-links">
                         <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="{% url 'contests' %}"><i class="fas fa-trophy"></i> Contests</a></li>
-                        <li><a href="{% url 'problems' %}"><i class="fas fa-puzzle-piece"></i> Problems</a></li>
                         <li><a href="{% url 'resources' %}"><i class="fas fa-book"></i> Resources</a></li>
+                        <li><a href="{% url 'rules' %}"><i class="fas fa-gavel"></i> Rules</a></li>
+                        <li><a href="{% url 'faq' %}"><i class="fas fa-question-circle"></i> FAQ</a></li>
                         <li><a href="{% url 'timeline' %}"><i class="fas fa-clock"></i> Timeline</a></li>
                     </ul>
                 </div>
 
                 <!-- Community Links -->
                 <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="footer-title mb-3">Community</h5>
+                    <h5 class="footer-title">Community</h5>
                     <ul class="footer-links">
                         <li><a href="{% url 'rules' %}"><i class="fas fa-gavel"></i> Rules</a></li>
                         <li><a href="{% url 'faq' %}"><i class="fas fa-question-circle"></i> FAQ</a></li>
@@ -140,68 +132,49 @@
                     </ul>
                 </div>
 
-                <!-- Support & Help -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="footer-title mb-3">Support</h5>
-                    <ul class="footer-links">
-                        <li><a href="{% url 'faq' %}"><i class="fas fa-life-ring"></i> Help Center</a></li>
-                        <li><a href="https://discord.gg/3xKFvKhuGR"><i class="fas fa-bug"></i> Report Bug</a></li>
-                        <li><a href="https://discord.gg/3xKFvKhuGR"><i class="fas fa-lightbulb"></i> Suggestions</a></li>
-                        <li><a href="{% url 'about' %}"><i class="fas fa-envelope"></i> Contact Us</a></li>
-                        <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                    </ul>
-                </div>
-
-                <!-- Quick Stats -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="footer-title mb-3">Stats</h5>
-                    <div class="footer-stats">
-                        <div class="stat-item">
-                            <i class="fas fa-users"></i>
-                            <span class="stat-number">450+</span>
-                            <span class="stat-label">Members</span>
+                <!-- Discord Stats -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="footer-title">Discord Stats</h5>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <span class="stat-number">450+</span>
+                                <span class="stat-label">Members</span>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <i class="fas fa-code"></i>
-                            <span class="stat-number">32+</span>
-                            <span class="stat-label">Problems</span>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Channels</span>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <i class="fas fa-trophy"></i>
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Contests</span>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Bots</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Join Discord Section -->
-            <div class="row py-4 border-top border-secondary">
-                <div class="col-lg-8 col-md-12 mb-3">
-                    <h5 class="footer-title mb-2">Join Our Discord Community</h5>
-                    <p class="mb-0">Get real-time updates, chat with fellow coders, and participate in events!</p>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="text-center text-lg-end">
-                        <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-primary btn-lg">
-                            <i class="fab fa-discord me-2"></i> Join Discord Server
-                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Bottom Footer -->
-            <div class="row py-3 border-top border-secondary">
-                <div class="col-12 text-center">
-                    <p class="footer-copyright mb-0">
-                        &copy; 2025 <strong>CodeVerseHub</strong> • Made with <i class="fas fa-heart text-danger"></i> for the coding community
-                    </p>
-                </div>
+            <div class="footer-copyright">
+                &copy; 2025 <strong>CodeVerseHub</strong> • Made with <i class="fas fa-heart text-danger"></i> for the coding community
             </div>
 
             <!-- Back to Top Button -->
             <div class="back-to-top">
-                <button class="btn btn-primary rounded-circle" onclick="scrollToTop()" title="Back to Top">
+                <button class="btn btn-gradient rounded-circle" onclick="scrollToTop()" title="Back to Top">
                     <i class="fas fa-chevron-up"></i>
                 </button>
             </div>
@@ -261,6 +234,38 @@ input.addEventListener('keydown', function(e){ if(e.key === 'Escape') { input.cl
                 }
             });
         }
+    });
+    
+    // Add parallax and hover effects for gradient elements
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Fade in elements on scroll
+        window.addEventListener('scroll', function() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(elem => {
+                const elemPosition = elem.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+                if (elemPosition < screenHeight * 0.85) {
+                    elem.classList.add('visible');
+                }
+            });
+        });
     });
 </script>
 

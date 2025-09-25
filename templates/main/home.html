@@ -1,137 +1,138 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}CodeVerseHub - Competitive Programming Platform{% endblock %}
+{% block title %}CodeVerseHub - Discord Programming Community{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section">
+<section class="hero-section gradient-bg">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <h1 class="fade-in-up">CodeVerseHub</h1>
-                <p class="lead fade-in-up">Join our Discord community's premier competitive programming platform. Solve problems, participate in contests, and level up your coding skills.</p>
+                <h1 class="fade-in-up text-gradient">CodeVerseHub</h1>
+                <p class="lead fade-in-up">Join our Discord community's premier programming hub. Connect with like-minded programmers, share knowledge, and grow your skills together.</p>
                 <div class="fade-in-up">
-                    {% if not user.is_authenticated %}
-                        <a href="{% url 'register' %}" class="btn btn-light btn-lg me-3">Get Started</a>
-                        <a href="{% url 'contests' %}" class="btn btn-outline-light btn-lg">View Contests</a>
-                    {% else %}
-                        <a href="{% url 'dashboard' %}" class="btn btn-light btn-lg me-3">Go to Dashboard</a>
-                        <a href="{% url 'problems' %}" class="btn btn-outline-light btn-lg">Solve Problems</a>
-                    {% endif %}
+                    <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-gradient btn-lg me-3">Join Discord</a>
+                    <a href="{% url 'about' %}" class="btn btn-outline-gradient btn-lg">Learn More</a>
                 </div>
             </div>
             <div class="col-lg-6 text-center">
-                <i class="fas fa-code" style="font-size: 10rem; opacity: 0.3;"></i>
+                <div class="hero-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Platform Statistics -->
-<section class="py-5 bg-light">
+<!-- Discord Statistics -->
+<section class="py-5 stats-section dark-bg">
     <div class="container">
         <div class="row text-center">
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="stats-card">
-                    <span class="number">{{ total_users }}</span>
-                    <span class="label">Active Users</span>
+            <div class="col-md-4 col-sm-12 mb-4">
+                <div class="stats-card glass-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <span class="number">{{ discord_members }}+</span>
+                    <span class="label">Discord Members</span>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="stats-card">
-                    <span class="number">{{ total_contests }}</span>
-                    <span class="label">Contests Hosted</span>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="stats-card glass-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <span class="number">{{ discord_channels }}+</span>
+                    <span class="label">Active Channels</span>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="stats-card">
-                    <span class="number">{{ total_problems }}</span>
-                    <span class="label">Problems Available</span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="stats-card">
-                    <span class="number">{{ total_submissions }}</span>
-                    <span class="label">Solutions Submitted</span>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="stats-card glass-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <span class="number">{{ discord_bots }}+</span>
+                    <span class="label">Helpful Bots</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Upcoming Contests -->
-{% if upcoming_contests %}
-<section class="py-5">
+<!-- Discord Channels Showcase -->
+<section class="py-5 channels-section">
     <div class="container">
-        <h2 class="text-center mb-5">Upcoming Contests</h2>
+        <h2 class="text-center mb-5 section-title">Explore Our Discord Channels</h2>
         <div class="row">
-            {% for contest in upcoming_contests %}
-            <div class="col-md-4 mb-4">
-                <div class="card contest-card h-100">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">{{ contest.title }}</h5>
-                        <span class="contest-status status-{{ contest.status }}">{{ contest.get_status_display }}</span>
-                    </div>
+            <div class="col-md-6 mb-4">
+                <div class="card glass-card h-100">
                     <div class="card-body">
-                        <p class="card-text">{{ contest.description|truncatewords:20 }}</p>
-                        <div class="mb-2">
-                            <i class="fas fa-calendar text-muted"></i>
-                            <small class="text-muted">{{ contest.start_time|date:"M d, Y H:i" }}</small>
-                        </div>
-                        <div class="mb-2">
-                            <i class="fas fa-clock text-muted"></i>
-                            <small class="text-muted">{{ contest.duration_minutes }} minutes</small>
-                        </div>
-                        <div class="mb-2">
-                            <i class="fas fa-users text-muted"></i>
-                            <small class="text-muted">{{ contest.participant_count }}/{{ contest.max_participants }} participants</small>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{% url 'contest_detail' contest.id %}" class="btn btn-primary btn-sm">View Details</a>
-                        <span class="difficulty-badge difficulty-{{ contest.difficulty }}">{{ contest.get_difficulty_display }}</span>
+                        <h5 class="card-title"><i class="fas fa-hashtag gradient-icon"></i> General Channels</h5>
+                        <ul class="list-group channel-list">
+                            <li class="channel-item"><i class="fas fa-comment-dots"></i> #lobby</li>
+                            <li class="channel-item"><i class="fas fa-comment-dots"></i> #dev-discussion</li>
+                            <li class="channel-item"><i class="fas fa-comment-dots"></i> #introductions</li>
+                            <li class="channel-item"><i class="fas fa-comment-dots"></i> #announcements</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+            <div class="col-md-6 mb-4">
+                <div class="card glass-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-hashtag gradient-icon"></i> Programming Channels</h5>
+                        <ul class="list-group channel-list">
+                            <li class="channel-item"><i class="fas fa-comment-dots"></i> #ask-for-help</li>
+                            <li class="channel-item"><i class="fas fa-comment-dots"></i> #projects-showcase</li>
+                            <li class="channel-item"><i class="fas fa-comment-dots"></i> #resources</li>
+                            <li class="channel-item"><i class="fas fa-comment-dots"></i> #events</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="text-center mt-4">
-            <a href="{% url 'contests' %}" class="btn btn-outline-primary">View All Contests</a>
+            <a href="{% url 'resources' %}" class="btn btn-gradient-outline">Explore Resources</a>
         </div>
     </div>
 </section>
-{% endif %}
 
 <!-- Features Section -->
-<section class="py-5 bg-light">
+<section class="py-5 features-section dark-bg">
     <div class="container">
-        <h2 class="text-center mb-5">Platform Features</h2>
+        <h2 class="text-center mb-5 section-title">Discord Server Features</h2>
         <div class="row">
             <div class="col-md-4 mb-4">
-                <div class="card h-100 text-center">
+                <div class="feature-card glass-card h-100 text-center">
                     <div class="card-body">
-                        <i class="fas fa-trophy fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Competitive Contests</h5>
-                        <p class="card-text">Participate in regular coding contests with real-time leaderboards and comprehensive problem sets.</p>
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h5 class="card-title">Active Community</h5>
+                        <p class="card-text">Engage with a vibrant community of programmers, from beginners to experts, ready to help and collaborate.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card h-100 text-center">
+                <div class="feature-card glass-card h-100 text-center">
                     <div class="card-body">
-                        <i class="fas fa-puzzle-piece fa-3x text-success mb-3"></i>
-                        <h5 class="card-title">Problem Library</h5>
-                        <p class="card-text">Access hundreds of algorithmic problems categorized by difficulty and topic to improve your skills.</p>
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h5 class="card-title">Code Help</h5>
+                        <p class="card-text">Get assistance with your programming questions, code reviews, and debugging help from experienced members.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card h-100 text-center">
+                <div class="feature-card glass-card h-100 text-center">
                     <div class="card-body">
-                        <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
-                        <h5 class="card-title">Progress Tracking</h5>
-                        <p class="card-text">Monitor your improvement with detailed analytics, submission history, and performance metrics.</p>
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5 class="card-title">Fun Events</h5>
+                        <p class="card-text">Participate in coding challenges, tech discussions, and community events to learn and have fun.</p>
                     </div>
                 </div>
             </div>
@@ -140,21 +141,24 @@
 </section>
 
 <!-- Recent Announcements -->
-{% if recent_announcements %}
-<section class="py-5">
+{% if recent_announcements and recent_announcements|length > 0 %}
+<section class="py-5 announcements-section">
     <div class="container">
-        <h2 class="text-center mb-5">Recent Announcements</h2>
+        <h2 class="text-center mb-5 section-title">Recent Announcements</h2>
         <div class="row">
             {% for announcement in recent_announcements %}
             <div class="col-md-4 mb-4">
-                <div class="card">
+                <div class="card glass-card announcement-card">
                     <div class="card-body">
+                        <div class="announcement-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
                         <h6 class="card-title">{{ announcement.title }}</h6>
                         <p class="card-text">{{ announcement.content|truncatewords:15 }}</p>
-                        <small class="text-muted">
-                            <i class="fas fa-user"></i> {{ announcement.created_by.username }}
-                            • <i class="fas fa-calendar"></i> {{ announcement.created_at|date:"M d, Y" }}
-                        </small>
+                        <div class="announcement-meta">
+                            <span><i class="fas fa-user"></i> {{ announcement.created_by.username }}</span>
+                            <span><i class="fas fa-calendar"></i> {{ announcement.created_at|date:"M d, Y" }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -164,14 +168,227 @@
 </section>
 {% endif %}
 
-<!-- Call to Action -->
-{% if not user.is_authenticated %}
-<section class="py-5 bg-primary text-white">
-    <div class="container text-center">
-        <h2 class="mb-4">Ready to Start Your Coding Journey?</h2>
-        <p class="lead mb-4">Join thousands of programmers in our Discord community and take your skills to the next level.</p>
-        <a href="{% url 'register' %}" class="btn btn-light btn-lg">Create Account</a>
+<!-- Testimonials Section -->
+<section class="py-5 testimonials-section dark-bg">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">What Our Community Says</h2>
+        <div class="row">
+            <!-- Testimonial 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-card glass-card h-100">
+                    <div class="card-body">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="card-text">I've been on this server since July, and it's one of the best programming communities I've been part of. It is very active and friendly, and it also focuses on other things besides IT. Even if you're a complete beginner, this server is sure to welcome you and assist you if you are stuck or need help.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-user">
+                            <div class="testimonial-info">
+                                <h6 class="mb-0 gradient-text">Stefi Prokop</h6>
+                                <span class="testimonial-role">@hyscript7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-card glass-card h-100">
+                    <div class="card-body">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="card-text">The CodeVerse Hub is a very welcoming community with helpful and experienced people willing to help you at any moment. Everyone is supportive of each other and is treated nicely. It also has fun activities on the side to help you take a small break from hard coding sessions, relax and chill with other members. Overall a really good community to grow, connect and to have fun.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-user">
+                            <div class="testimonial-info">
+                                <h6 class="mb-0 gradient-text">MHIA</h6>
+                                <span class="testimonial-role">@oyasumi_star09</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-card glass-card h-100">
+                    <div class="card-body">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="card-text">CodeVerse Hub is a welcoming, organized Discord community for programmers at every level. Supportive members and active channels make it a great place to learn, collaborate, and grow, with fun bots, coding challenges, and events to keep things engaging.</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="testimonial-user">
+                            <div class="testimonial-info">
+                                <h6 class="mb-0 gradient-text">Aditya Verma</h6>
+                                <span class="testimonial-role">Community Founder</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-{% endif %}
+
+<!-- Contact Section -->
+<section class="py-5 contact-section dark-bg" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-5 section-title gradient-text">Get In Touch</h2>
+                <p class="lead mb-5">Ready to join our community? Have questions? Let's connect and create something amazing together!</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Contact Information -->
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <div class="glass-card contact-card h-100">
+                    <div class="card-body contact-info-wrap">
+                        <h5 class="card-title mb-4 gradient-text">Contact Information</h5>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-label">Email</span>
+                                <span><a href="mailto:contact@codeversehub.com" class="contact-link">contact@codeversehub.com</a></span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-label">Discord</span>
+                                <span>CodeVerseHub#1234</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-label">Server</span>
+                                <span><a href="https://discord.gg/3xKFvKhuGR" class="contact-link">Join Discord</a></span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h6 class="mb-3 gradient-text">Connect With Us</h6>
+                            <div class="social-links">
+                                <a href="https://discord.gg/3xKFvKhuGR" class="social-icon" aria-label="Discord">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                                <a href="https://github.com/youngcoder45/cvhnewpyweb" class="social-icon" aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="glass-card contact-card">
+                    <div class="card-body p-4 p-lg-5">
+                        <h5 class="card-title mb-4 gradient-text">Send Us A Message</h5>
+                        
+                        {% if contact_form %}
+                        <form method="post" class="contact-form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{ contact_form.name }}
+                                </div>
+                                <div class="col-md-6">
+                                    {{ contact_form.email }}
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                {{ contact_form.subject }}
+                            </div>
+                            <div class="mt-3">
+                                {{ contact_form.message }}
+                            </div>
+                            <div class="text-end mt-4">
+                                <button type="submit" class="btn btn-gradient btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
+                        {% else %}
+                        <form action="mailto:contact@codeversehub.com" method="post" enctype="text/plain" class="contact-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <div class="text-end mt-4">
+                                <button type="submit" class="btn btn-gradient btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 cta-section">
+    <div class="container text-center">
+        <h2 class="mb-4 gradient-text">Join Our Discord Community Today!</h2>
+        <p class="lead mb-4">Connect with fellow programmers, access exclusive resources, and become part of our growing tech community.</p>
+        <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-gradient btn-lg pulse-animation">
+            <i class="fab fa-discord me-2"></i> Join Discord Server
+        </a>
+    </div>
+</section>
 {% endblock %}

@@ -243,3 +243,33 @@ class Announcement(models.Model):
     
     class Meta:
         ordering = ['-created_at']
+
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    content = models.TextField()
+    image = models.ImageField(upload_to='testimonials', default='default.jpg')
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    
+    def __str__(self):
+        return f"Testimonial from {self.name}"
+    
+    class Meta:
+        ordering = ['-created_at']
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_read = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f"Message from {self.name}: {self.subject}"
+    
+    class Meta:
+        ordering = ['-created_at']

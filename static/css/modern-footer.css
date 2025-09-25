@@ -1,0 +1,179 @@
+/* Modern Footer Styles - Matching the dark design */
+.footer {
+    background: #13121a;
+    position: relative;
+    overflow: hidden;
+    border-top: none;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+}
+
+.footer::before {
+    display: none;
+}
+
+.footer-brand h3 {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.footer-icon {
+    margin-right: 10px;
+    color: #00E5FF;
+}
+
+.footer-description {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Footer column titles */
+.footer-title {
+    color: #00E5FF;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: #1e1d26;
+    color: #ffffff;
+    border-radius: 50%;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    background: #00E5FF;
+    color: #13121a;
+    transform: translateY(-3px);
+}
+
+.footer .footer-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer .footer-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer .footer-links a:hover {
+    color: #00E5FF;
+    transform: translateX(5px);
+}
+
+.footer .footer-links a i {
+    margin-right: 10px;
+    color: #00E5FF;
+    width: 20px;
+    text-align: center;
+}
+
+/* Discord Stats */
+.footer .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.footer .stat-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00E5FF;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    color: #13121a;
+}
+
+.footer .stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.footer .stat-label {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Bottom footer */
+.footer-copyright {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #2a293a;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #00E5FF, #9C27B0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Join button */
+.btn-gradient {
+    background: linear-gradient(45deg, #00E5FF, #9C27B0);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(45deg, #9C27B0, #00E5FF);
+    transform: translateY(-2px);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.back-to-top .btn-gradient {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

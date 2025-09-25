@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import authenticate
-from .models import User, Contest, Problem, TestCase, Submission
+from .models import User, Contest, Problem, TestCase, Submission, ContactMessage
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -59,32 +59,20 @@ class ContestForm(forms.ModelForm):
         widgets = {
             'start_time': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             'end_time': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-            'description': forms.Textarea(attrs={'rows': 4}),
+            'description': forms.Textarea(attrs={'rows': 6}),
         }
-    
-    def clean(self):
-        cleaned_data = super().clean()
-        start_time = cleaned_data.get('start_time')
-        end_time = cleaned_data.get('end_time')
-        
-        if start_time and end_time:
-            if end_time <= start_time:
-                raise forms.ValidationError("End time must be after start time.")
-        
-        return cleaned_data
 
 
 class ProblemForm(forms.ModelForm):
     class Meta:
         model = Problem
-        fields = ['title', 'description', 'input_format', 'output_format', 'sample_input', 'sample_output', 
-                 'difficulty', 'tags', 'time_limit', 'memory_limit']
+        fields = ['title', 'description', 'input_format', 'output_format', 'sample_input', 'sample_output', 'difficulty', 'tags', 'time_limit', 'memory_limit']
         widgets = {
-            'description': forms.Textarea(attrs={'rows': 6}),
-            'input_format': forms.Textarea(attrs={'rows': 3}),
-            'output_format': forms.Textarea(attrs={'rows': 3}),
-            'sample_input': forms.Textarea(attrs={'rows': 3}),
-            'sample_output': forms.Textarea(attrs={'rows': 3}),
+            'description': forms.Textarea(attrs={'rows': 8}),
+            'input_format': forms.Textarea(attrs={'rows': 4}),
+            'output_format': forms.Textarea(attrs={'rows': 4}),
+            'sample_input': forms.Textarea(attrs={'rows': 4}),
+            'sample_output': forms.Textarea(attrs={'rows': 4}),
         }
 
 
@@ -93,8 +81,8 @@ class TestCaseForm(forms.ModelForm):
         model = TestCase
         fields = ['input_data', 'expected_output', 'is_sample']
         widgets = {
-            'input_data': forms.Textarea(attrs={'rows': 3}),
-            'expected_output': forms.Textarea(attrs={'rows': 3}),
+            'input_data': forms.Textarea(attrs={'rows': 4}),
+            'expected_output': forms.Textarea(attrs={'rows': 4}),
         }
 
 
@@ -103,23 +91,27 @@ class SubmissionForm(forms.ModelForm):
         model = Submission
         fields = ['code', 'language']
         widgets = {
-            'code': forms.Textarea(attrs={'rows': 20, 'class': 'code-editor'}),
+            'code': forms.Textarea(attrs={'rows': 15, 'class': 'code-editor'}),
         }
-
-
-class ProblemFilterForm(forms.Form):
-    DIFFICULTY_CHOICES = [('', 'All Difficulties')] + Problem.DIFFICULTY_CHOICES
-    
-    difficulty = forms.ChoiceField(choices=DIFFICULTY_CHOICES, required=False)
-    tags = forms.CharField(max_length=200, required=False, help_text="Enter tags separated by commas")
-    solved = forms.ChoiceField(choices=[('', 'All'), ('solved', 'Solved'), ('unsolved', 'Unsolved')], required=False)
 
 
 class ContestFilterForm(forms.Form):
     STATUS_CHOICES = [('', 'All Status'), ('upcoming', 'Upcoming'), ('ongoing', 'Ongoing'), ('completed', 'Completed')]
-    TYPE_CHOICES = [('', 'All Types')] + Contest.TYPE_CHOICES
-    DIFFICULTY_CHOICES = [('', 'All Difficulties')] + Contest.DIFFICULTY_CHOICES
+    TYPE_CHOICES = [('', 'All Types')] + list(Contest.TYPE_CHOICES)
+    DIFFICULTY_CHOICES = [('', 'All Difficulties')] + list(Contest.DIFFICULTY_CHOICES)
     
     status = forms.ChoiceField(choices=STATUS_CHOICES, required=False)
     contest_type = forms.ChoiceField(choices=TYPE_CHOICES, required=False)
     difficulty = forms.ChoiceField(choices=DIFFICULTY_CHOICES, required=False)
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ['name', 'email', 'subject', 'message']
+        widgets = {
+            'message': forms.Textarea(attrs={'rows': 4, 'placeholder': 'Your message...'}),
+            'name': forms.TextInput(attrs={'placeholder': 'Your name'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Your email'}),
+            'subject': forms.TextInput(attrs={'placeholder': 'Subject'}),
+        }

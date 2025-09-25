@@ -60,43 +60,8 @@
     </div>
 
     <div class="row">
-        <!-- Upcoming Contests -->
-        <div class="col-lg-6 mb-4">
-            <div class="card h-100">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0"><i class="fas fa-trophy"></i> Upcoming Contests</h5>
-                    <a href="{% url 'contests' %}" class="btn btn-sm btn-outline-primary">View All</a>
-                </div>
-                <div class="card-body">
-                    {% if upcoming_contests %}
-                        {% for contest in upcoming_contests %}
-                        <div class="d-flex justify-content-between align-items-center mb-3 p-3 border rounded">
-                            <div>
-                                <h6 class="mb-1">{{ contest.title }}</h6>
-                                <small class="text-muted">
-                                    <i class="fas fa-calendar"></i> {{ contest.start_time|date:"M d, H:i" }}
-                                    <br><i class="fas fa-clock"></i> {{ contest.duration_minutes }} mins
-                                </small>
-                            </div>
-                            <div class="text-end">
-                                <span class="difficulty-badge difficulty-{{ contest.difficulty }}">
-                                    {{ contest.get_difficulty_display }}
-                                </span>
-                                <br>
-                                <a href="{% url 'contest_detail' contest.id %}" class="btn btn-sm btn-primary mt-1">View</a>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    {% else %}
-                        <div class="text-center text-muted py-4">
-                            <i class="fas fa-calendar-times fa-3x mb-3"></i>
-                            <p>No upcoming contests you're registered for.</p>
-                            <a href="{% url 'contests' %}" class="btn btn-primary">Browse Contests</a>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+        <!-- This section is intentionally left blank after removing contests -->
+        
 
         <!-- Recommended Problems -->
         <div class="col-lg-6 mb-4">

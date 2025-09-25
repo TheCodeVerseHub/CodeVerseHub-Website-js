@@ -1,21 +1,54 @@
-/* Custom CSS for CodeVerseHub - Dark Theme */
+/* Custom CSS for CodeVerseHub - Dark Theme with Cyan-Blue to Purple Gradient */
+
+/* Fade In Animation */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-up:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.fade-in-up:nth-child(3) {
+    transition-delay: 0.4s;
+}
 
 :root {
     /* Brand Colors */
     --cyan-blue: #00E5FF;          /* Cyan-Blue */
     --blue: #2979FF;               /* Blue */
     --purple: #9C27B0;             /* Purple */
+    --dark-purple: #6A1B9A;        /* Dark Purple */
+    --bright-cyan: #18FFFF;        /* Bright Cyan */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(45deg, var(--cyan-blue), var(--purple));
+    --gradient-secondary: linear-gradient(135deg, var(--bright-cyan), var(--dark-purple));
+    --gradient-buttons: linear-gradient(45deg, var(--bright-cyan), var(--purple));
+    --gradient-hover: linear-gradient(45deg, var(--purple), var(--bright-cyan));
     
     /* Dark Theme Colors */
-    --bg-primary: #0a0a0a;         /* Main background */
-    --bg-secondary: #1a1a1a;       /* Secondary background */
-    --bg-tertiary: #2a2a2a;        /* Cards and sections */
+    --bg-primary: #0a0a12;         /* Main background - darker */
+    --bg-secondary: #121220;       /* Secondary background */
+    --bg-tertiary: #1a1a2a;        /* Cards and sections */
     --text-primary: #ffffff;       /* Primary text */
     --text-secondary: #b0b0b0;     /* Secondary text */
     --text-muted: #808080;         /* Muted text */
-    --border-color: #333333;       /* Borders */
-    --card-bg: #1e1e1e;           /* Card backgrounds */
-    --card-hover: #252525;        /* Card hover state */
+    --border-color: #333344;       /* Borders */
+    --card-bg: #1e1e2e;            /* Card backgrounds */
+    --card-hover: #25253a;         /* Card hover state */
+    
+    /* Glass Effect */
+    --glass-bg: rgba(25, 25, 40, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: rgba(0, 0, 0, 0.25);
     
     /* Status Colors (adjusted for dark theme) */
     --success-color: #00ff88;
@@ -3020,4 +3053,77 @@ z-index: 1100;
     .timeline-date { left: -40px !important; right: auto !important; width: 60px; height: 60px; }
     .timeline-date .month { font-size: .7rem; }
     .timeline-date .day { font-size: 1rem; }
+}
+/* Testimonial Card Styles */
+.testimonial-card {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.testimonial-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--cyan-blue);
+}
+
+.testimonial-rating {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* Contact Form Styles */
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-form-control {
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.contact-form-control:focus {
+    border-color: var(--cyan-blue);
+    box-shadow: 0 0 0 0.2rem rgba(0,229,255,0.25);
+}
+
+/* Restore footer styles to match site theme */
+.footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1e1e1e 100%);
+    color: var(--text-secondary);
+    border-top: 3px solid;
+    border-image: linear-gradient(90deg, var(--cyan-blue), var(--blue), var(--purple)) 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan-blue), var(--blue), var(--purple), transparent);
+    animation: footerGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes footerGlow {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
 }

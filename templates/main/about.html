@@ -8,32 +8,32 @@
         <div class="col-lg-8 mx-auto">
             <div class="text-center mb-5">
                 <h1><i class="fas fa-info-circle"></i> About CodeVerseHub</h1>
-                <p class="lead">Learn more about our competitive programming platform</p>
+                <p class="lead">Learn more about our Discord programming community</p>
             </div>
 
             <div class="card mb-4">
                 <div class="card-body">
                     <h3>Our Mission</h3>
-                    <p>CodeVerseHub is a comprehensive competitive programming platform designed specifically for our Discord community. Our mission is to provide an engaging, educational, and competitive environment where programmers of all skill levels can improve their coding abilities, participate in contests, and connect with fellow developers.</p>
+                    <p>CodeVerseHub is a vibrant programming community on Discord. Our mission is to provide an engaging, educational, and supportive environment where programmers of all skill levels can improve their coding abilities, learn from each other, and connect with fellow developers.</p>
                 </div>
             </div>
 
             <div class="card mb-4">
                 <div class="card-body">
-                    <h3>What We Offer</h3>
+                    <h3>What Our Discord Server Offers</h3>
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><i class="fas fa-trophy text-primary"></i> Regular coding contests</li>
-                                <li class="list-group-item"><i class="fas fa-puzzle-piece text-success"></i> Extensive problem library</li>
-                                <li class="list-group-item"><i class="fas fa-chart-line text-info"></i> Performance analytics</li>
+                                <li class="list-group-item"><i class="fas fa-comments text-primary"></i> Active coding discussions</li>
+                                <li class="list-group-item"><i class="fas fa-code text-success"></i> Code help & reviews</li>
+                                <li class="list-group-item"><i class="fas fa-book text-info"></i> Learning resources</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><i class="fas fa-users text-warning"></i> Community interaction</li>
-                                <li class="list-group-item"><i class="fas fa-graduation-cap text-danger"></i> Learning resources</li>
-                                <li class="list-group-item"><i class="fas fa-medal text-secondary"></i> Achievement system</li>
+                                <li class="list-group-item"><i class="fas fa-users text-warning"></i> Supportive community</li>
+                                <li class="list-group-item"><i class="fas fa-laptop-code text-danger"></i> Project collaboration</li>
+                                <li class="list-group-item"><i class="fas fa-robot text-secondary"></i> Helpful coding bots</li>
                             </ul>
                         </div>
                     </div>
@@ -47,8 +47,7 @@
                     <ul>
                         <li><strong>Backend:</strong> Django (Python)</li>
                         <li><strong>Frontend:</strong> Bootstrap 5, JavaScript</li>
-                        <li><strong>Database:</strong> SQLite (development) / PostgreSQL (production)</li>
-                        <li><strong>Authentication:</strong> Django's built-in authentication system</li>
+                        <li><strong>Database:</strong> SQLite (development)</li>
                     </ul>
                 </div>
             </div>
@@ -67,15 +66,10 @@
             </div>
 
             <div class="text-center">
-                <h3>Get Started Today!</h3>
+                <h3>Join Our Discord Community!</h3>
                 <p class="mb-4">Ready to join our community of passionate programmers?</p>
-                {% if not user.is_authenticated %}
-                    <a href="{% url 'register' %}" class="btn btn-primary btn-lg me-3">Create Account</a>
-                    <a href="{% url 'contests' %}" class="btn btn-outline-primary btn-lg">View Contests</a>
-                {% else %}
-                    <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg me-3">Go to Dashboard</a>
-                    <a href="{% url 'problems' %}" class="btn btn-outline-primary btn-lg">Solve Problems</a>
-                {% endif %}
+                <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-primary btn-lg me-3">Join Discord</a>
+                <a href="{% url 'resources' %}" class="btn btn-outline-primary btn-lg">View Resources</a>
             </div>
         </div>
     </div>
