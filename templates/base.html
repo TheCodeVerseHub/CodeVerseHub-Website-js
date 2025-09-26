@@ -7,9 +7,9 @@
 <title>{% block title %}CodeVerseHub{% endblock %}</title>
 
 <!-- Favicon / App Icons -->
-<link rel="icon" type="image/jpeg" href="{% static 'images/logo.jpg' %}" sizes="180x180">
-<link rel="shortcut icon" href="{% static 'images/logo.jpg' %}">
-<link rel="apple-touch-icon" href="{% static 'images/logo.jpg' %}">
+<link rel="icon" type="image/svg+xml" href="{% static 'images/logo.svg' %}">
+<link rel="alternate icon" type="image/png" href="{% static 'images/logo.png' %}">
+<link rel="apple-touch-icon" href="{% static 'images/logo.svg' %}">
 <meta name="theme-color" content="#06121c">
 
 
@@ -26,6 +26,7 @@
 
 <!-- Load navbar CSS -->
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive-enhancements.css' %}">
 {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -186,81 +187,67 @@ input.addEventListener('keydown', function(e){ if(e.key === 'Escape') { input.cl
         const mobileToggle = document.getElementById('mobileToggle');
         const navbarLinks = document.getElementById('navbarLinks');
         const authLinks = document.getElementById('authLinks');
-        
+        const focusableSelector = 'a, button';
+        let lastFocused = null;
+
+        function openMenu(){
+            navbarLinks.classList.add('open');
+            authLinks && authLinks.classList.add('open');
+            document.body.classList.add('nav-open');
+            lastFocused = document.activeElement;
+            const first = navbarLinks.querySelector(focusableSelector);
+            first && first.focus();
+        }
+        function closeMenu(){
+            navbarLinks.classList.remove('open');
+            authLinks && authLinks.classList.remove('open');
+            document.body.classList.remove('nav-open');
+            if(lastFocused) lastFocused.focus();
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+
         if (mobileToggle) {
             mobileToggle.addEventListener('click', function() {
-                navbarLinks.classList.toggle('open');
-                authLinks.classList.toggle('open');
-                
-                // Change icon
-                const icon = mobileToggle.querySelector('i');
-                if (icon.classList.contains('fa-bars')) {
+                const isOpen = navbarLinks.classList.contains('open');
+                if(isOpen){ closeMenu(); }
+                else {
+                    openMenu();
+                    const icon = mobileToggle.querySelector('i');
                     icon.classList.remove('fa-bars');
                     icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
                 }
             });
         }
-    });
-    
-    // Add parallax and hover effects for gradient elements
-    document.addEventListener('DOMContentLoaded', function() {
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') === '#') return;
-                
-                const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: target.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+
+        // Close on link click (improves UX)
+        navbarLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>{
+            if(window.innerWidth <= 768){ closeMenu(); }
+        }));
+
+        // ESC to close
+        document.addEventListener('keydown', (e)=>{
+            if(e.key === 'Escape' && document.body.classList.contains('nav-open')){
+                closeMenu();
+            }
+            // basic focus trap
+            if(e.key === 'Tab' && document.body.classList.contains('nav-open')){
+                const focusables = [...navbarLinks.querySelectorAll(focusableSelector)];
+                if(!focusables.length) return;
+                const idx = focusables.indexOf(document.activeElement);
+                if(e.shiftKey && (idx === 0 || idx === -1)) { e.preventDefault(); focusables[focusables.length-1].focus(); }
+                else if(!e.shiftKey && idx === focusables.length-1){ e.preventDefault(); focusables[0].focus(); }
+            }
         });
-        
-        // Fade-in logic (initial + on scroll) with IntersectionObserver fallback
-        (function(){
-            const fadeClass = 'fade-in-up';
-            const visibleClass = 'visible';
-            const elems = document.querySelectorAll('.'+fadeClass);
-            if(!elems.length) return;
 
-            function legacyCheck(){
-                elems.forEach(el=>{
-                    if(el.classList.contains(visibleClass)) return;
-                    const rect = el.getBoundingClientRect();
-                    if(rect.top < window.innerHeight * 0.9){
-                        el.classList.add(visibleClass);
-                    }
-                });
+        // Click outside to close (mobile)
+        document.addEventListener('click', (e)=>{
+            if(window.innerWidth > 768) return;
+            if(!navbarLinks.contains(e.target) && e.target !== mobileToggle && !mobileToggle.contains(e.target) && document.body.classList.contains('nav-open')){
+                closeMenu();
             }
-
-            if('IntersectionObserver' in window){
-                const io = new IntersectionObserver((entries)=>{
-                    entries.forEach(entry=>{
-                        if(entry.isIntersecting){
-                            entry.target.classList.add(visibleClass);
-                            io.unobserve(entry.target);
-                        }
-                    });
-                }, { root:null, rootMargin:'0px 0px -10% 0px', threshold:0.01 });
-                elems.forEach(el=> io.observe(el));
-            } else {
-                window.addEventListener('scroll', legacyCheck, {passive:true});
-                window.addEventListener('resize', legacyCheck, {passive:true});
-                legacyCheck();
-            }
-            // Ensure first paint triggers for top hero even before any scroll
-            requestAnimationFrame(()=>{
-                legacyCheck();
-            });
-        })();
+        });
     });
 </script>
 
@@ -298,8 +285,6 @@ input.addEventListener('keydown', function(e){ if(e.key === 'Escape') { input.cl
 .site-footer .mini-stat:before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,rgba(0,229,255,0.18),rgba(156,39,176,0) 55%,rgba(156,39,176,0.25)); mix-blend-mode:screen; opacity:.7; pointer-events:none; }
 @media (max-width: 768px){ .site-footer .btn.btn-gradient { right:.5rem; bottom:.5rem; } }
 </style>
-</script>
-
 {% block extra_js %}{% endblock %}
 </body>
 </html>
