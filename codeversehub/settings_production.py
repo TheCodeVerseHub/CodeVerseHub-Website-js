@@ -15,7 +15,7 @@ from decouple import config, Csv
 # ----------------------------------------------------------------------------
 DEBUG = False
 
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = config("SECRET_KEY", default=config("DJANGO_SECRET_KEY"))
 
 _raw_allowed = config("ALLOWED_HOSTS", default="*")
 if isinstance(_raw_allowed, str):
