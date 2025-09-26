@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="{% static 'css/home-styles.css' %}">
 <link rel="stylesheet" href="{% static 'css/contact-section.css' %}">
 <link rel="stylesheet" href="{% static 'css/modern-footer.css' %}">
-<link rel="stylesheet" href="{% static 'css/footer-v2.css' %}"><!-- New futuristic footer styles -->
+<!-- Removed footer-v2.css to unify footer with hero/testimonials styling -->
 
 <!-- Load navbar CSS -->
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -76,88 +76,71 @@
 </main>
 
 <!-- Footer -->
-    <footer class="footer-v2 mt-5" role="contentinfo">
-        <div class="container">
-            <div class="footer-v2-grid" aria-label="Site footer navigation and info">
-                <!-- Brand / About -->
-                <section class="footer-v2-panel footer-v2-brand" aria-labelledby="footerBrandTitle">
-                    <h3 id="footerBrandTitle"><i class="fas fa-code"></i> CodeVerseHub</h3>
-                    <p class="footer-v2-desc">Empowering programmers through curated resources, live coding challenges, and a thriving Discord community where learning never stops.</p>
-                    <div class="footer-v2-social" aria-label="Social media and platform links">
-                        <a href="https://discord.gg/3xKFvKhuGR" aria-label="Discord server" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
-                        <a href="https://github.com/youngcoder45/cvhnewpyweb" aria-label="GitHub repository" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                        <a href="#" aria-label="Twitter" class="disabled"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram" class="disabled"><i class="fab fa-instagram"></i></a>
+    <footer class="site-footer dark-bg gradient-bg mt-5" role="contentinfo">
+        <div class="container py-5 position-relative" style="z-index:1;">
+            <div class="row g-4 mb-4">
+                <!-- Brand -->
+                <div class="col-md-4">
+                    <div class="glass-card h-100">
+                        <h3 class="gradient-text d-flex align-items-center gap-2 mb-3"><i class="fas fa-code"></i> CodeVerseHub</h3>
+                        <p class="mb-3">Empowering programmers through curated resources, coding challenges & a thriving Discord community where learning never stops.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a class="btn btn-gradient btn-sm" href="https://discord.gg/3xKFvKhuGR" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                            <a class="btn btn-gradient-outline btn-sm" href="https://github.com/youngcoder45/cvhnewpyweb" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
-                </section>
-
+                </div>
                 <!-- Platform Links -->
-                <nav class="footer-v2-panel" aria-labelledby="footerPlatformTitle">
-                    <h5 id="footerPlatformTitle">Platform</h5>
-                    <ul class="footer-v2-links">
-                        <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="{% url 'resources' %}"><i class="fas fa-book"></i> Resources</a></li>
-                        <li><a href="{% url 'rules' %}"><i class="fas fa-gavel"></i> Rules</a></li>
-                        <li><a href="{% url 'faq' %}"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                        <li><a href="{% url 'timeline' %}"><i class="fas fa-clock"></i> Timeline</a></li>
-                    </ul>
-                </nav>
-
+                <div class="col-6 col-md-2">
+                    <div class="glass-card h-100">
+                        <h6 class="gradient-text text-uppercase small fw-bold mb-3">Platform</h6>
+                        <ul class="list-unstyled small footer-links">
+                            <li><a href="{% url 'home' %}"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li><a href="{% url 'resources' %}"><i class="fas fa-book me-1"></i> Resources</a></li>
+                            <li><a href="{% url 'rules' %}"><i class="fas fa-gavel me-1"></i> Rules</a></li>
+                            <li><a href="{% url 'faq' %}"><i class="fas fa-question-circle me-1"></i> FAQ</a></li>
+                            <li><a href="{% url 'timeline' %}"><i class="fas fa-clock me-1"></i> Timeline</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <!-- Community Links -->
-                <nav class="footer-v2-panel" aria-labelledby="footerCommunityTitle">
-                    <h5 id="footerCommunityTitle">Community</h5>
-                    <ul class="footer-v2-links">
-                        <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
-                        <li><a href="{% url 'faq' %}"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                        <li><a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener"><i class="fab fa-discord"></i> Discord</a></li>
-                        <li><a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener"><i class="fas fa-users"></i> Join Community</a></li>
-                        <li><a href="{% url 'rules' %}"><i class="fas fa-shield-alt"></i> Server Rules</a></li>
-                    </ul>
-                </nav>
-
+                <div class="col-6 col-md-2">
+                    <div class="glass-card h-100">
+                        <h6 class="gradient-text text-uppercase small fw-bold mb-3">Community</h6>
+                        <ul class="list-unstyled small footer-links">
+                            <li><a href="{% url 'about' %}"><i class="fas fa-info-circle me-1"></i> About</a></li>
+                            <li><a href="{% url 'faq' %}"><i class="fas fa-question-circle me-1"></i> FAQ</a></li>
+                            <li><a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener"><i class="fab fa-discord me-1"></i> Discord</a></li>
+                            <li><a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener"><i class="fas fa-users me-1"></i> Join</a></li>
+                            <li><a href="{% url 'rules' %}"><i class="fas fa-shield-alt me-1"></i> Server Rules</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <!-- Stats -->
-                <section class="footer-v2-panel" aria-labelledby="footerStatsTitle">
-                    <h5 id="footerStatsTitle">Discord Stats</h5>
-                    <ul class="footer-v2-stats">
-                        <li>
-                            <i class="fas fa-users" aria-hidden="true"></i>
-                            <div>
-                                <span class="stat-number" aria-label="Over four hundred fifty members">450+</span>
-                                <span class="stat-label">Members</span>
+                <div class="col-md-4">
+                    <div class="glass-card h-100">
+                        <h6 class="gradient-text text-uppercase small fw-bold mb-3">Discord Stats</h6>
+                        <div class="d-flex flex-wrap gap-3">
+                            <div class="mini-stat glass-sub p-3 rounded-3 flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-1"><i class="fas fa-users text-info"></i><span class="small text-uppercase fw-semibold" style="letter-spacing:.12em;">Members</span></div>
+                                <span class="fw-bold h5 mb-0 gradient-text">450+</span>
                             </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-server" aria-hidden="true"></i>
-                            <div>
-                                <span class="stat-number">10+</span>
-                                <span class="stat-label">Channels</span>
+                            <div class="mini-stat glass-sub p-3 rounded-3 flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-1"><i class="fas fa-server text-info"></i><span class="small text-uppercase fw-semibold" style="letter-spacing:.12em;">Channels</span></div>
+                                <span class="fw-bold h5 mb-0 gradient-text">10+</span>
                             </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-robot" aria-hidden="true"></i>
-                            <div>
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">Bots</span>
+                            <div class="mini-stat glass-sub p-3 rounded-3 flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-1"><i class="fas fa-robot text-info"></i><span class="small text-uppercase fw-semibold" style="letter-spacing:.12em;">Bots</span></div>
+                                <span class="fw-bold h5 mb-0 gradient-text">5+</span>
                             </div>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-
-            <div class="footer-v2-divider" aria-hidden="true"></div>
-
-            <div class="footer-v2-bottom">
-                <small>&copy; 2025 <strong>CodeVerseHub</strong> • Crafted with <i class="fas fa-heart text-danger" aria-hidden="true"></i> for the coding community</small>
-                <div class="footer-v2-meta" aria-label="Legal and meta links">
-                    <a href="#" style="text-decoration:none; color:inherit; opacity:.6; margin-right:1rem;">Privacy</a>
-                    <a href="#" style="text-decoration:none; color:inherit; opacity:.6;">Terms</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Back To Top Floating -->
-        <div class="footer-v2-backtop" aria-hidden="true">
-            <button type="button" id="backToTopBtn" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+            <div class="text-center small mt-4 pt-3 border-top border-secondary" style="opacity:.75;">
+                &copy; 2025 <strong>CodeVerseHub</strong> • Crafted with <i class="fas fa-heart text-danger" aria-hidden="true"></i> for the coding community · <a href="#" class="text-decoration-none text-light" style="opacity:.7;">Privacy</a> · <a href="#" class="text-decoration-none text-light" style="opacity:.7;">Terms</a>
+            </div>
+            <button type="button" id="backToTopBtn" aria-label="Back to top" class="btn btn-gradient position-absolute" style="right:1rem; bottom:1rem; border-radius:14px; padding:.75rem 1rem;"><i class="fas fa-chevron-up"></i></button>
         </div>
     </footer>
 
@@ -250,29 +233,39 @@ input.addEventListener('keydown', function(e){ if(e.key === 'Escape') { input.cl
 </script>
 
 <script>
-// Footer Back To Top visibility + smooth scroll
+// Back To Top (updated for new footer)
 (function(){
-  const btn = document.getElementById('backToTopBtn');
-  if(!btn) return;
-  const showAt = 260;
-  function evaluate(){
-    if(window.scrollY > showAt){
-      btn.style.opacity='1';
-      btn.style.pointerEvents='auto';
-      btn.style.transform='translateY(0)';
-    } else {
-      btn.style.opacity='0';
-      btn.style.pointerEvents='none';
-      btn.style.transform='translateY(14px)';
+    const btn = document.getElementById('backToTopBtn');
+    if(!btn) return;
+    const revealAt = 240;
+    function toggle(){
+        const visible = window.scrollY > revealAt;
+        btn.style.opacity = visible ? '1' : '0';
+        btn.style.pointerEvents = visible ? 'auto' : 'none';
+        btn.style.transform = visible ? 'translateY(0)' : 'translateY(12px)';
     }
-  }
-  btn.style.transition='opacity .45s, transform .45s';
-  btn.style.opacity='0';
-  btn.style.transform='translateY(14px)';
-  window.addEventListener('scroll', evaluate, {passive:true});
-  evaluate();
-  btn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+    btn.style.transition='opacity .45s, transform .45s';
+    btn.style.opacity='0';
+    btn.style.transform='translateY(12px)';
+    window.addEventListener('scroll', toggle, {passive:true});
+    toggle();
+    btn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 })();
+</script>
+<style>
+/* Footer unified styling adjustments (leverages existing glass-card & gradient utilities) */
+.site-footer { position:relative; }
+.site-footer:before,
+.site-footer:after { content:""; position:absolute; width:420px; height:420px; border-radius:50%; filter:blur(110px); opacity:.25; pointer-events:none; }
+.site-footer:before { top:-140px; left:-120px; background:radial-gradient(circle at 40% 40%,rgba(0,229,255,.55),rgba(0,229,255,0)); }
+.site-footer:after { bottom:-160px; right:-140px; background:radial-gradient(circle at 60% 40%,rgba(156,39,176,.55),rgba(156,39,176,0)); }
+.site-footer .footer-links li { margin-bottom:.4rem; }
+.site-footer .footer-links a { color:var(--text-secondary, #b8c2d3); text-decoration:none; position:relative; transition:.3s; }
+.site-footer .footer-links a:hover { color:#fff; }
+.site-footer .mini-stat { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06); position:relative; overflow:hidden; }
+.site-footer .mini-stat:before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,rgba(0,229,255,0.18),rgba(156,39,176,0) 55%,rgba(156,39,176,0.25)); mix-blend-mode:screen; opacity:.7; pointer-events:none; }
+@media (max-width: 768px){ .site-footer .btn.btn-gradient { right:.5rem; bottom:.5rem; } }
+</style>
 </script>
 
 {% block extra_js %}{% endblock %}
