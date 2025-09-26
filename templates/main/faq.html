@@ -16,6 +16,23 @@
     </div>
 </div>
 
+<!-- Intro Notice -->
+<div class="container mt-4">
+  <div class="p-4 rounded-3" style="background:linear-gradient(135deg,#06121c,#0d1f33);border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 18px -6px rgba(0,0,0,.6);">
+    <div class="d-flex align-items-start gap-3 flex-wrap">
+      <div class="flex-shrink-0" style="font-size:2.1rem;line-height:1;color:#00e5ff;filter:drop-shadow(0 0 8px rgba(0,229,255,0.35));">
+        <i class="fas fa-circle-question"></i>
+      </div>
+      <div class="flex-grow-1 text-light small" style="max-width:900px;">
+        <h2 class="h5 text-info mb-2">Welcome to the Server FAQ Hub</h2>
+        <p class="mb-2">Before asking in public chats, take a moment to browse here — the answer to your doubt may already be listed. We’ve covered the most frequent questions about using bots, events, learning resources, roles, safety, and more.</p>
+        <p class="mb-2">Still stuck after reading? Ask in <strong>🗨️｜》lobby</strong> or <strong>❓｜》ask-for-help</strong>, or open a support ticket if it's account/server specific.</p>
+        <p class="mb-0 text-info" style="font-size:.8rem;letter-spacing:.08em;opacity:.85;">Community-first • Respectful help • Learn & Build Together</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FAQ Content -->
 <div class="container py-5">
     <div class="row">
@@ -35,12 +52,13 @@
             <!-- Category Buttons -->
             <div class="text-center mb-5">
                 <div class="btn-group flex-wrap" role="group">
-                    <button type="button" class="btn btn-outline-info active" onclick="filterFAQ('all')">All</button>
-                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('general')">General</button>
-                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('account')">Account</button>
-                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('contests')">Contests</button>
-                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('problems')">Problems</button>
-                    <button type="button" class="btn btn-outline-info" onclick="filterFAQ('technical')">Technical</button>
+                    <button type="button" class="btn btn-outline-info active category-btn" onclick="filterFAQ('all')">All</button>
+                    <button type="button" class="btn btn-outline-info category-btn" onclick="filterFAQ('general')">General</button>
+                    <button type="button" class="btn btn-outline-info category-btn" onclick="filterFAQ('account')">Account</button>
+                    <button type="button" class="btn btn-outline-info category-btn" onclick="filterFAQ('contests')">Contests</button>
+                    <button type="button" class="btn btn-outline-info category-btn" onclick="filterFAQ('problems')">Problems</button>
+                    <button type="button" class="btn btn-outline-info category-btn" onclick="filterFAQ('technical')">Technical</button>
+                    <button type="button" class="btn btn-outline-info category-btn" onclick="filterFAQ('server')">Server</button>
                 </div>
             </div>
             
@@ -307,6 +325,224 @@
                         <div id="technical3" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
                             <div class="accordion-body bg-dark text-secondary">
                                 Report technical issues through our Discord server or contact our moderators. Include details about the problem, your browser/system information, and steps to reproduce the issue for faster resolution.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Server (New) Questions -->
+            <div class="faq-category mb-5" data-category="server">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-server me-2"></i>Server & Community Operations
+                </h3>
+                <div class="accordion" id="serverAccordion">
+                    <!-- Bot Commands -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading1">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server1" aria-expanded="false" aria-controls="server1">
+                                How do I use bot commands?
+                            </button>
+                        </h2>
+                        <div id="server1" class="accordion-collapse collapse" aria-labelledby="serverHeading1" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Use bot commands mainly in <strong>🤖｜》bot-commands</strong> or <strong>💰｜》economy</strong> channels. Start typing <code>/</code> and select a command. Common examples:
+                                <ul class="mt-2 mb-2">
+                                    <li><code>/balance</code> – Check your coins</li>
+                                    <li><code>/work</code> – Earn in‑server currency</li>
+                                    <li><code>/level</code> – View your XP level</li>
+                                </ul>
+                                Some bots may use a prefix like <code>!</code>, <code>$</code>, or <code>?</code> — this is usually mentioned in the bot’s name or documentation.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Roles -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading2">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server2" aria-expanded="false" aria-controls="server2">
+                                What roles exist and how do I get them?
+                            </button>
+                        </h2>
+                        <div id="server2" class="accordion-collapse collapse" aria-labelledby="serverHeading2" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Main role categories:
+                                <ul class="mt-2">
+                                    <li><strong>Language Roles:</strong> Python, Java, C++, C, PHP, Rust, JavaScript, TypeScript, SQL, HTML, CSS, Go, Scala, Assembly, Dart, more… (Select during onboarding or via reactions in <strong>🎖️｜⌯⌲｜ʀᴏʟᴇs</strong>).</li>
+                                    <li><strong>Field Roles:</strong> Web Dev, ML, Cybersecurity, Blockchain, Game Dev, etc. (Onboarding / reaction roles).</li>
+                                    <li><strong>Team / Staff:</strong> Apply in <strong>📄｜⌯⌲｜staff-applications</strong>; every application is carefully reviewed.</li>
+                                    <li><strong>Event / Achievement:</strong> Temporary titles like “Genius” or “Codemaster” earned via <strong>⚔️｜⌯⌲｜ᴇᴠᴇɴᴛs</strong> and <strong>❓｜》questions</strong>.</li>
+                                    <li><strong>Booster:</strong> Boosting unlocks perks, exclusive access, early event entry, and highest visible role.</li>
+                                    <li><strong>Activity Ladder:</strong> Active → Very Active → Ultra Active → Elite Member → Honorably Active → Top Contributors (automatically via Arcane bot level; unlocks channels & perms).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Events Participation -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading3">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server3" aria-expanded="false" aria-controls="server3">
+                                How do I participate in coding events?
+                            </button>
+                        </h2>
+                        <div id="server3" class="accordion-collapse collapse" aria-labelledby="serverHeading3" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Events are announced in <strong>📢｜⌯⌲｜ᴀɴɴᴏᴜɴᴇᴍᴇɴᴛs</strong>, <strong>⚔️｜⌯⌲｜ᴇᴠᴇɴᴛs</strong>, and <strong>📊｜》polls</strong>. To join:
+                                <ol class="mt-2 mb-2">
+                                    <li>Watch <strong>📢｜⌯⌲｜ᴀɴɴᴏᴜɴᴇᴍᴇɴᴛs</strong> for dates.</li>
+                                    <li>Follow the instructions (react, register, or submit as instructed).</li>
+                                    <li>Winners + rewards announced in announcements.</li>
+                                    <li>Prizes: badges, roles, or public shout‑outs.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Resources -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading4">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server4" aria-expanded="false" aria-controls="server4">
+                                Where do I find study resources or project help?
+                            </button>
+                        </h2>
+                        <div id="server4" class="accordion-collapse collapse" aria-labelledby="serverHeading4" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Use the following channels:
+                                <ul class="mt-2 mb-2">
+                                    <li><strong>📚｜》resources</strong>: curated links, PDFs, tools, cheat sheets.</li>
+                                    <li><strong>🐙｜》github-links</strong>: open-source repos.</li>
+                                    <li><strong>🧠｜》cs-theory</strong>: DSA help & concepts.</li>
+                                </ul>
+                                Ask doubts in <strong>❓｜》ask-for-help</strong>. Showcase builds in <strong>🧪｜》projects-showcase</strong>.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Help Posting Guidance -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading5">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server5" aria-expanded="false" aria-controls="server5">
+                                How should I ask for help properly?
+                            </button>
+                        </h2>
+                        <div id="server5" class="accordion-collapse collapse" aria-labelledby="serverHeading5" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                In <strong>❓｜》ask-for-help</strong>:
+                                <ul class="mt-2 mb-2">
+                                    <li>Mention language / tech (e.g., Python, HTML).</li>
+                                    <li>Provide code or errors in fenced code blocks (<code>```</code>).</li>
+                                    <li>State expected vs. actual behavior.</li>
+                                    <li>Avoid vague lines like “it’s not working”.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Language & Tech Support -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading6">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server6" aria-expanded="false" aria-controls="server6">
+                                What languages & tech stacks are supported?
+                            </button>
+                        </h2>
+                        <div id="server6" class="accordion-collapse collapse" aria-labelledby="serverHeading6" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Broad support for languages: Python, C/C++, Java, JavaScript, TypeScript, HTML, CSS, SQL, NoSQL, Rust, Dart, Scala, PHP, Assembly, Go, and more. Fields: Game Dev (Unity / Roblox / Minecraft scripting), Web Dev, ML, AI, Data Science/Analytics, Blockchain, Cybersecurity, etc.
+                                <div class="mt-2">Helpful channels:</div>
+                                <ul class="mt-2 mb-2">
+                                    <li>🐍｜》python – Python</li>
+                                    <li>⚡｜》javascript – JS (Node, Next, React, Angular, Strapi, Vue)</li>
+                                    <li>🕸️｜》web-dev – HTML / CSS</li>
+                                    <li>💻｜》c-cpp – C / C++</li>
+                                    <li>🧮｜》databases – SQL / NoSQL</li>
+                                    <li>🌐｜》other-languages – Misc languages & new forums</li>
+                                </ul>
+                                Suggest a new language forum with <code>!suggest &lt;your idea&gt;</code> in <strong>🤖｜》bot-commands</strong>.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project / Answer Rules -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading7">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server7" aria-expanded="false" aria-controls="server7">
+                                Rules for submitting projects or challenge answers?
+                            </button>
+                        </h2>
+                        <div id="server7" class="accordion-collapse collapse" aria-labelledby="serverHeading7" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                When posting in <strong>🧪｜》projects-showcase</strong>:
+                                <ul class="mt-2 mb-2">
+                                    <li>Include source code (no <code>.exe</code> / <code>.bat</code> uploads).</li>
+                                    <li>Add a short descriptive summary.</li>
+                                    <li>No copied or AI‑generated content without credit.</li>
+                                    <li>Respect event deadlines.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Rule Violations -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading8">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server8" aria-expanded="false" aria-controls="server8">
+                                What happens if rules are broken?
+                            </button>
+                        </h2>
+                        <div id="server8" class="accordion-collapse collapse" aria-labelledby="serverHeading8" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Possible actions:
+                                <ul class="mt-2 mb-2">
+                                    <li>Warning</li>
+                                    <li>Mute / Timeout (Quarantine)</li>
+                                    <li>Temporary or permanent ban</li>
+                                </ul>
+                                Education is prioritized, but repeated violations escalate consequences.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Reporting -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading9">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server9" aria-expanded="false" aria-controls="server9">
+                                How do I report spam or offensive content?
+                            </button>
+                        </h2>
+                        <div id="server9" class="accordion-collapse collapse" aria-labelledby="serverHeading9" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Steps:
+                                <ol class="mt-2 mb-2">
+                                    <li>Right‑click message → Copy Message Link.</li>
+                                    <li>Create a ticket in <strong>🎟️｜⌯⌲｜ᴛɪᴄᴋᴇᴛs</strong>.</li>
+                                    <li>Optionally ping staff if urgent.</li>
+                                </ol>
+                                Do not engage with spammers — just report.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Off Topic -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading10">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server10" aria-expanded="false" aria-controls="server10">
+                                What counts as off‑topic?
+                            </button>
+                        </h2>
+                        <div id="server10" class="accordion-collapse collapse" aria-labelledby="serverHeading10" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Off‑topic = not matching the channel purpose. Examples:
+                                <ul class="mt-2 mb-2">
+                                    <li>Memes in <strong>❓｜》ask-for-help</strong></li>
+                                    <li>Food talk in <strong>💬｜》dev-discussion</strong></li>
+                                </ul>
+                                Use <strong>🗨️｜》lobby</strong> for casual chat, <strong>🎮｜》gaming-anime-talk</strong> for games/anime, and <strong>🤣｜》memes-and-media</strong> for memes.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Still Have Question -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="serverHeading11">
+                            <button class="accordion-button collapsed bg-dark text-light border-0" type="button" data-bs-toggle="collapse" data-bs-target="#server11" aria-expanded="false" aria-controls="server11">
+                                Still have a question not listed here?
+                            </button>
+                        </h2>
+                        <div id="server11" class="accordion-collapse collapse" aria-labelledby="serverHeading11" data-bs-parent="#serverAccordion">
+                            <div class="accordion-body bg-dark text-secondary small">
+                                Post it in <strong>💡｜⌯⌲｜sᴜɢɢᴇsᴛɪᴏɴs</strong> using <code>!suggest &lt;your suggestion&gt;</code> in <strong>🤖｜》bot-commands</strong>, open a ticket, or ask politely in <strong>❓｜》ask-for-help</strong>. We’re here to help you get the most from the community.
+                                <div class="mt-3 text-info">— Aditya ✧ YC45</div>
                             </div>
                         </div>
                     </div>

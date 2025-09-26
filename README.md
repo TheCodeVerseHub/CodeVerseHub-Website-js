@@ -248,3 +248,78 @@ For support and questions:
 ---
 
 **CodeVerseHub** - Built with ❤️ for the programming community
+
+---
+
+## 🚀 Production Deployment (Render)
+
+These steps prepare and deploy the Django app to Render's Python Web Service.
+
+### 1. Environment Variables
+Required (set in Render dashboard or blueprint):
+```
+DJANGO_SETTINGS_MODULE=codeversehub.settings_production
+SECRET_KEY=<generate a strong random key>
+DEBUG=False
+ALLOWED_HOSTS=codeversehub.onrender.com
+SECURE_SSL_REDIRECT=True
+# Provided automatically if you add a Render PostgreSQL: DATABASE_URL
+```
+
+Optional email / extras see `.env.example`.
+
+### 2. Build & Start (Already in render.yaml)
+```
+Build:  pip install -r requirements.txt
+   python manage.py collectstatic --noinput
+   python manage.py migrate --noinput
+Start:  gunicorn codeversehub.wsgi:application --log-file -
+```
+
+### 3. Static Files
+WhiteNoise serves collected assets from `staticfiles/`. Run `collectstatic` each deploy (handled in buildCommand). Do not commit `staticfiles/`.
+
+### 4. Database
+Local dev uses SQLite. In production attach a PostgreSQL instance (Render add-on) which injects `DATABASE_URL`. The `settings_production.py` will parse it with SSL and persistent connections.
+
+### 5. Migrations / Admin
+After first deploy run (if not automated):
+```
+python manage.py createsuperuser --settings=codeversehub.settings_production
+```
+You can run this via a one-off shell in Render.
+
+### 6. Security Checklist
+- DEBUG = False
+- SECRET_KEY set & secret
+- ALLOWED_HOSTS includes your Render domain + custom domains
+- HTTPS enforced (Render provides TLS; `SECURE_PROXY_SSL_HEADER` is set)
+- `collectstatic` completes without missing files
+
+### 7. Health & Logs
+Use Render logs to monitor startup. Gunicorn logs go to stdout.
+
+### 8. Scaling
+Start with single instance (free plan). For higher traffic: raise plan, add worker processes (e.g. `gunicorn --workers 3`). For WebSockets or async tasks consider moving to ASGI + Daphne/Uvicorn.
+
+### 9. Background Tasks
+If you later add async tasks (Celery/RQ) deploy a separate worker service. Not required for current feature set.
+
+### 10. Media Files
+Currently stored on disk (`/media`). Render disk is ephemeral; for persistence use an external storage (e.g. AWS S3, Backblaze). Adjust `DEFAULT_FILE_STORAGE` accordingly when you add that.
+
+### 11. Netlify Note
+Netlify cannot natively host this dynamic Django backend. If you build a separate SPA later you can deploy it to Netlify and point API calls to the Render backend domain.
+
+---
+
+### Quick Local Production Simulation
+```
+pip install -r requirements.txt
+export DJANGO_SETTINGS_MODULE=codeversehub.settings_production
+export SECRET_KEY=test-local
+export ALLOWED_HOSTS=localhost,127.0.0.1
+python manage.py collectstatic --noinput
+python manage.py migrate --noinput
+gunicorn codeversehub.wsgi:application
+```

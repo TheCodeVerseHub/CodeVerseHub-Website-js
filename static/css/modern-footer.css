@@ -86,44 +86,47 @@
 
 .footer .footer-links a i {
     margin-right: 10px;
-    color: #00E5FF;
     width: 20px;
     text-align: center;
 }
 
 /* Discord Stats */
-.footer .stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
+.footer .footer-stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.footer .stat-icon {
-    width: 60px;
-    height: 60px;
+.footer .footer-stats-list li {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: #00E5FF;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    font-size: 1.6rem;
-    color: #13121a;
+    margin-bottom: 1.25rem;
+}
+
+.footer .footer-stats-list li:last-child {
+    margin-bottom: 0;
+}
+
+.footer .footer-stats-list i {
+    font-size: 1.75rem;
+    color: #00E5FF;
+    margin-right: 15px;
+    width: 30px;
+    text-align: center;
 }
 
 .footer .stat-number {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 0.25rem;
+    display: block;
+    line-height: 1.2;
 }
 
 .footer .stat-label {
     font-size: 0.9rem;
     color: #b0b0b0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: block;
 }
 
 /* Bottom footer */

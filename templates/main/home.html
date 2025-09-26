@@ -3,6 +3,11 @@
 
 {% block title %}CodeVerseHub - Discord Programming Community{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/contact-v2.css' %}">
+<link rel="stylesheet" href="{% static 'css/cta-v2.css' %}">
+{% endblock %}
+
 {% block content %}
 <!-- Hero Section -->
 <section class="hero-section gradient-bg">
@@ -251,144 +256,155 @@
     </div>
 </section>
 
-<!-- Contact Section -->
-<section class="py-5 contact-section dark-bg" id="contact">
+<!-- Contact Section V2 -->
+<section id="contact" class="contact-v2-wrapper" aria-labelledby="contact-heading">
+    <div class="contact-v2-orb orb-1"></div>
+    <div class="contact-v2-orb orb-2"></div>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h2 class="mb-5 section-title gradient-text">Get In Touch</h2>
-                <p class="lead mb-5">Ready to join our community? Have questions? Let's connect and create something amazing together!</p>
-            </div>
-        </div>
-        
-        <div class="row g-4">
-            <!-- Contact Information -->
-            <div class="col-lg-5 mb-4 mb-lg-0">
-                <div class="glass-card contact-card h-100">
-                    <div class="card-body contact-info-wrap">
-                        <h5 class="card-title mb-4 gradient-text">Contact Information</h5>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-info">
-                                <span class="contact-label">Email</span>
-                                <span><a href="mailto:contact@codeversehub.com" class="contact-link">contact@codeversehub.com</a></span>
-                            </div>
+        <header class="contact-v2-header">
+            <span class="contact-v2-eyebrow">Connect</span>
+            <h2 id="contact-heading" class="contact-v2-title">Let's Build Something Together</h2>
+            <p class="contact-v2-subtitle">Collaborate, ask questions or just say hi. The CodeVerseHub core team reads every message.</p>
+        </header>
+        <div class="contact-v2-grid">
+            <!-- Info Panel -->
+            <div class="contact-v2-panel" aria-labelledby="contact-info-heading">
+                <h3 id="contact-info-heading" class="visually-hidden">Contact Information</h3>
+                <ul class="contact-v2-info-list">
+                    <li class="contact-v2-info-item">
+                        <div class="contact-v2-icon-wrap"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-v2-info-body">
+                            <span class="label">Email</span>
+                            <a href="mailto:contact@codeversehub.com">contact@codeversehub.com</a>
                         </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-discord"></i>
-                            </div>
-                            <div class="contact-info">
-                                <span class="contact-label">Discord</span>
-                                <span>CodeVerseHub#1234</span>
-                            </div>
+                    </li>
+                    <li class="contact-v2-info-item">
+                        <div class="contact-v2-icon-wrap"><i class="fab fa-discord"></i></div>
+                        <div class="contact-v2-info-body">
+                            <span class="label">Discord</span>
+                            <p>CodeVerseHub#1234</p>
                         </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="contact-info">
-                                <span class="contact-label">Server</span>
-                                <span><a href="https://discord.gg/3xKFvKhuGR" class="contact-link">Join Discord</a></span>
-                            </div>
+                    </li>
+                    <li class="contact-v2-info-item">
+                        <div class="contact-v2-icon-wrap"><i class="fas fa-globe"></i></div>
+                        <div class="contact-v2-info-body">
+                            <span class="label">Server Invite</span>
+                            <a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener">Join Discord</a>
                         </div>
-                        
-                        <div class="mt-5">
-                            <h6 class="mb-3 gradient-text">Connect With Us</h6>
-                            <div class="social-links">
-                                <a href="https://discord.gg/3xKFvKhuGR" class="social-icon" aria-label="Discord">
-                                    <i class="fab fa-discord"></i>
-                                </a>
-                                <a href="https://github.com/youngcoder45/cvhnewpyweb" class="social-icon" aria-label="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="social-icon" aria-label="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="social-icon" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="social-icon" aria-label="LinkedIn">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    </li>
+                </ul>
+                <div class="cvh-social-row" aria-label="Social links">
+                    <a class="cvh-social-link" href="https://discord.gg/3xKFvKhuGR" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a class="cvh-social-link" href="https://github.com/youngcoder45/cvhnewpyweb" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a class="cvh-social-link" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a class="cvh-social-link" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a class="cvh-social-link" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            
-            <!-- Contact Form -->
-            <div class="col-lg-7">
-                <div class="glass-card contact-card">
-                    <div class="card-body p-4 p-lg-5">
-                        <h5 class="card-title mb-4 gradient-text">Send Us A Message</h5>
-                        
-                        {% if contact_form %}
-                        <form method="post" class="contact-form">
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    {{ contact_form.name }}
-                                </div>
-                                <div class="col-md-6">
-                                    {{ contact_form.email }}
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                {{ contact_form.subject }}
-                            </div>
-                            <div class="mt-3">
-                                {{ contact_form.message }}
-                            </div>
-                            <div class="text-end mt-4">
-                                <button type="submit" class="btn btn-gradient btn-lg">
-                                    <i class="fas fa-paper-plane me-2"></i> Send Message
-                                </button>
-                            </div>
-                        </form>
-                        {% else %}
-                        <form action="mailto:contact@codeversehub.com" method="post" enctype="text/plain" class="contact-form">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                            </div>
-                            <div class="mt-3">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
-                            </div>
-                            <div class="text-end mt-4">
-                                <button type="submit" class="btn btn-gradient btn-lg">
-                                    <i class="fas fa-paper-plane me-2"></i> Send Message
-                                </button>
-                            </div>
-                        </form>
-                        {% endif %}
+            <!-- Form Panel -->
+            <div class="contact-v2-panel" aria-labelledby="contact-form-heading">
+                <h3 id="contact-form-heading" class="visually-hidden">Send a Message</h3>
+                {% if contact_form %}
+                <form method="post" class="contact-v2-form" novalidate>
+                    {% csrf_token %}
+                    <div class="contact-v2-form-row">
+                        <div class="field">{{ contact_form.name }}<label for="{{ contact_form.name.id_for_label }}"></label></div>
+                        <div class="field">{{ contact_form.email }}<label for="{{ contact_form.email.id_for_label }}"></label></div>
                     </div>
-                </div>
+                    <div class="field">{{ contact_form.subject }}<label for="{{ contact_form.subject.id_for_label }}"></label></div>
+                    <div class="field">{{ contact_form.message }}<label for="{{ contact_form.message.id_for_label }}"></label><div class="char-counter-v2" id="cvhMessageCounter" aria-live="polite">0 chars</div></div>
+                    <button type="submit" class="contact-v2-submit"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+                </form>
+                {% else %}
+                <form action="mailto:contact@codeversehub.com" method="post" enctype="text/plain" class="contact-v2-form" novalidate>
+                    <div class="contact-v2-form-row">
+                        <div class="field"><input type="text" name="name" id="v2Name" placeholder=" " required><label for="v2Name">Name</label></div>
+                        <div class="field"><input type="email" name="email" id="v2Email" placeholder=" " required><label for="v2Email">Email</label></div>
+                    </div>
+                    <div class="field"><input type="text" name="subject" id="v2Subject" placeholder=" " required><label for="v2Subject">Subject</label></div>
+                    <div class="field"><textarea name="message" id="v2Message" placeholder=" " required maxlength="1200"></textarea><label for="v2Message">Message</label><div class="char-counter-v2" id="cvhMessageCounter" aria-live="polite">0 chars</div></div>
+                    <button type="submit" class="contact-v2-submit"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
 
-<!-- Call to Action -->
-<section class="py-5 cta-section">
-    <div class="container text-center">
-        <h2 class="mb-4 gradient-text">Join Our Discord Community Today!</h2>
-        <p class="lead mb-4">Connect with fellow programmers, access exclusive resources, and become part of our growing tech community.</p>
-        <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-gradient btn-lg pulse-animation">
-            <i class="fab fa-discord me-2"></i> Join Discord Server
-        </a>
+<!-- Call to Action V2 -->
+<section class="cta-v2-wrapper" aria-labelledby="cta-heading">
+    <div class="cta-v2-orb orb-a"></div>
+    <div class="cta-v2-orb orb-b"></div>
+    <div class="container">
+        <div class="cta-v2-panel">
+            <div class="cta-v2-content">
+                <span class="cta-v2-eyebrow">Community</span>
+                <h2 id="cta-heading" class="cta-v2-title">Join the Discord & Level Up Your Coding Journey</h2>
+                <p class="cta-v2-text">Real-time collaboration, project feedback, curated resources, weekly events, coding challenges and a supportive network of developers across the globe. Dive in and build something awesome with us.</p>
+                <div class="cta-v2-actions">
+                    <a href="https://discord.gg/3xKFvKhuGR" class="cvh-btn-glow" aria-label="Join Discord Server">
+                        <i class="fab fa-discord"></i><span>Join Discord</span>
+                    </a>
+                    <a href="{% url 'about' %}" class="cvh-btn-outline" aria-label="Learn more about CodeVerseHub">
+                        <i class="fas fa-circle-info"></i><span>Learn More</span>
+                    </a>
+                </div>
+                <div class="cta-v2-badges" aria-hidden="true">
+                    <span class="cta-v2-badge">Friendly Moderation</span>
+                    <span class="cta-v2-badge">Weekly Events</span>
+                    <span class="cta-v2-badge">Project Reviews</span>
+                    <span class="cta-v2-badge">Resource Vault</span>
+                    <span class="cta-v2-badge">Beginner Friendly</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function(){
+    const msgField = document.querySelector('#v2Message') || document.querySelector('textarea[name$="message"]');
+    const counter = document.getElementById('cvhMessageCounter');
+    if(!msgField || !counter) return;
+    const warn = 900, danger = 1100, max = msgField.getAttribute('maxlength') || 1200;
+    function update(){
+        const len = msgField.value.length;
+        counter.textContent = len + ' / ' + max + ' chars';
+        counter.classList.remove('warning','danger');
+        if(len > danger) counter.classList.add('danger'); else if(len > warn) counter.classList.add('warning');
+    }
+    msgField.addEventListener('input', update); update();
+})();
+</script>
+<script>
+// Micro spark effect on CTA button hover (non-blocking, reduced motion safe)
+(function(){
+    const btn = document.querySelector('.cta-v2-actions .cvh-btn-glow');
+    if(!btn) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced) return;
+    function spawnSpark(e){
+        const spark = document.createElement('span');
+        spark.className='cta-spark';
+        const rect = btn.getBoundingClientRect();
+        const x = e.offsetX || rect.width/2;
+        const y = e.offsetY || rect.height/2;
+        spark.style.left = x+'px';
+        spark.style.top = y+'px';
+        btn.appendChild(spark);
+        setTimeout(()=>spark.remove(), 900);
+    }
+    btn.addEventListener('pointermove', function(ev){
+        if(Math.random() < 0.15){ spawnSpark(ev); }
+    });
+})();
+</script>
+<style>
+/* Inline tiny style for spark (kept local to CTA) */
+.cvh-btn-glow { position:relative; }
+.cvh-btn-glow .cta-spark { position:absolute; width:10px; height:10px; pointer-events:none; background:radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,0) 70%); border-radius:50%; filter:brightness(1.8) drop-shadow(0 0 4px rgba(0,229,255,0.9)); animation:ctaSpark 0.9s ease-out forwards; }
+@keyframes ctaSpark { 0% { transform:translate(-50%, -50%) scale(0.3); opacity:1;} 70% { opacity:1; } 100% { transform:translate(-50%, -50%) scale(1.8); opacity:0;} }
+</style>
 {% endblock %}

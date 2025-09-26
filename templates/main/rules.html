@@ -3,295 +3,241 @@
 
 {% block title %}Rules & Guidelines - CodeVerseHub{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/rules-v2.css' %}">
+{% endblock %}
 {% block content %}
-<!-- Rules Hero Section -->
-<section class="rules-hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1><i class="fas fa-gavel"></i> Rules & Guidelines</h1>
-            <p class="hero-subtitle">Fair play, respect, and integrity form the foundation of our competitive programming community.</p>
+<div class="rules-v2-wrapper">
+    <!-- Hero -->
+    <section class="rules-v2-hero fade-seq" aria-labelledby="rules-hero-heading">
+        <div class="container">
+            <h1 id="rules-hero-heading"><i class="fas fa-gavel" aria-hidden="true"></i> Rules & Guidelines</h1>
+            <p>Fair play, respect, and integrity form the foundation of our competitive programming community.</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Table of Contents -->
-<section class="toc-section">
-    <div class="container">
-        <div class="toc-card">
-            <h2><i class="fas fa-list"></i> Quick Navigation</h2>
-            <div class="toc-grid">
-                <a href="#general-conduct" class="toc-item">
-                    <i class="fas fa-users"></i>
-                    <span>General Conduct</span>
-                </a>
-                <a href="#contest-rules" class="toc-item">
-                    <i class="fas fa-trophy"></i>
-                    <span>Contest Rules</span>
-                </a>
-                <a href="#problem-submission" class="toc-item">
-                    <i class="fas fa-code"></i>
-                    <span>Problem Submission</span>
-                </a>
-                <a href="#discord-guidelines" class="toc-item">
-                    <i class="fab fa-discord"></i>
-                    <span>Discord Guidelines</span>
-                </a>
-                <a href="#violations" class="toc-item">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <span>Violations & Penalties</span>
-                </a>
-                <a href="#appeals" class="toc-item">
-                    <i class="fas fa-balance-scale"></i>
-                    <span>Appeals Process</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- General Conduct Section -->
-<section id="general-conduct" class="rules-section">
-    <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-users"></i> General Conduct</h2>
-            <p>These guidelines apply to all interactions within the CodeVerse Hub Discord community.</p>
-        </div>
-        <div class="rules-grid">
-            <div class="rule-card">
-                <div class="rule-icon"><i class="fas fa-heart"></i></div>
-                <h3>Respect & Conduct</h3>
-                <ul>
-                    <li>Be respectful to all members. No harassment, hate speech, discrimination, or personal attacks.</li>
-                    <li>Treat everyone with kindness regardless of skill level.</li>
-                    <li>Keep all content family-friendly and safe-for-work. No NSFW, offensive language, or inappropriate names/pictures.</li>
-                    <li>No political/religious discussions. No hate to any gender. Off-topic only in <b>#lobby</b>.</li>
-                </ul>
-            </div>
-            <div class="rule-card">
-                <div class="rule-icon"><i class="fas fa-comments"></i></div>
-                <h3>Communication</h3>
-                <ul>
-                    <li>No spam, flooding, excessive pinging, or wall texts. NO SELF PROMOTION.</li>
-                    <li>Use proper channels for discussions. Search before asking FAQs.</li>
-                    <li>Disclose AI-generated content when sharing. Credit sources and avoid plagiarism.</li>
-                    <li>No academic cheating, exam assistance, or illegal activities.</li>
-                </ul>
-            </div>
-            <div class="rule-card">
-                <div class="rule-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Privacy & Security</h3>
-                <ul>
-                    <li>Don't share personal information (yours or others'). No password sharing or account trading.</li>
-                    <li>No privacy-invasive plugins or bots that log messages.</li>
-                    <li>Report security issues responsibly. No malicious code or harmful software.</li>
-                </ul>
-            </div>
-            <div class="rule-card">
-                <div class="rule-icon"><i class="fas fa-user-shield"></i></div>
-                <h3>Staff & Channel Usage</h3>
-                <ul>
-                    <li>Respect staff decisions and instructions. Use <b>#support</b> for questions about rules.</li>
-                    <li>Follow channel topics and descriptions. Use bot commands in designated channels.</li>
-                    <li>No unauthorized advertising or server invites. No DMing random members for promotion.</li>
-                    <li>Follow Discord Terms of Service. Must be 13+ to participate. No impersonation of staff/users.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contest Rules Section -->
-<section id="contest-rules" class="rules-section alt-bg">
-    <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-trophy"></i> Contest Rules</h2>
-            <p>Specific guidelines for participating in CodeVerseHub contests.</p>
-        </div>
-        
-        <div class="contest-rules">
-            <div class="rule-category">
-                <h3><i class="fas fa-clock"></i> Contest Timing & Registration</h3>
-                <div class="rule-list">
-                    <div class="rule-item">
-                        <strong>Registration:</strong> Register before the contest deadline to participate
-                    </div>
-                    <div class="rule-item">
-                        <strong>Start Time:</strong> Contests begin at the scheduled time regardless of registration status
-                    </div>
-                    <div class="rule-item">
-                        <strong>Duration:</strong> Submit solutions within the specified contest duration
-                    </div>
-                    <div class="rule-item">
-                        <strong>Late Submissions:</strong> No submissions accepted after the contest ends
-                    </div>
+    <!-- TOC -->
+    <section class="rules-v2-toc">
+        <div class="container">
+            <div class="rules-v2-toc-inner fade-seq" aria-label="Quick navigation">
+                <h2><i class="fas fa-list" aria-hidden="true"></i> Quick Navigation</h2>
+                <div class="rules-v2-toc-grid" role="navigation">
+                    <a href="#general-conduct" class="rules-v2-toc-item"><i class="fas fa-users" aria-hidden="true"></i><span>General Conduct</span></a>
+                    <a href="#contest-rules" class="rules-v2-toc-item"><i class="fas fa-trophy" aria-hidden="true"></i><span>Contest Rules</span></a>
+                    <a href="#problem-submission" class="rules-v2-toc-item"><i class="fas fa-code" aria-hidden="true"></i><span>Problem Submission</span></a>
+                    <a href="#discord-guidelines" class="rules-v2-toc-item"><i class="fab fa-discord" aria-hidden="true"></i><span>Discord Guidelines</span></a>
+                    <a href="#violations" class="rules-v2-toc-item"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><span>Violations</span></a>
+                    <a href="#appeals" class="rules-v2-toc-item"><i class="fas fa-balance-scale" aria-hidden="true"></i><span>Appeals</span></a>
                 </div>
             </div>
-            
-            <div class="rule-category">
-                <h3><i class="fas fa-code"></i> Code Submission Guidelines</h3>
-                <div class="rule-list">
-                    <div class="rule-item">
-                        <strong>Original Work:</strong> All submissions must be your own original code
-                    </div>
-                    <div class="rule-item">
-                        <strong>Language Support:</strong> Use supported programming languages only
-                    </div>
-                    <div class="rule-item">
-                        <strong>External Libraries:</strong> Only standard libraries are permitted unless specified
-                    </div>
-                    <div class="rule-item">
-                        <strong>Code Clarity:</strong> Write clean, readable code with appropriate comments
-                    </div>
+        </div>
+    </section>
+
+    <!-- General Conduct -->
+    <section id="general-conduct" class="rules-v2-section">
+        <div class="container">
+            <div class="rules-v2-header fade-seq">
+                <h2><i class="fas fa-users" aria-hidden="true"></i> General Conduct</h2>
+                <p>These guidelines apply to all interactions within the CodeVerse Hub Discord community.</p>
+            </div>
+            <div class="rules-v2-grid">
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-heart" aria-hidden="true"></i></div>
+                    <h3>Respect & Conduct</h3>
+                    <ul>
+                        <li>Be respectful to all members. No harassment, hate speech, discrimination, or personal attacks.</li>
+                        <li>Treat everyone with kindness regardless of skill level.</li>
+                        <li>Keep all content family-friendly and safe-for-work. No NSFW, offensive language, or inappropriate names/pictures.</li>
+                        <li>No political/religious discussions. No hate to any gender. Off-topic only in <b>#lobby</b>.</li>
+                    </ul>
+                </div>
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-comments" aria-hidden="true"></i></div>
+                    <h3>Communication</h3>
+                    <ul>
+                        <li>No spam, flooding, excessive pinging, or wall texts. NO SELF PROMOTION.</li>
+                        <li>Use proper channels for discussions. Search before asking FAQs.</li>
+                        <li>Disclose AI-generated content when sharing. Credit sources and avoid plagiarism.</li>
+                        <li>No academic cheating, exam assistance, or illegal activities.</li>
+                    </ul>
+                </div>
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+                    <h3>Privacy & Security</h3>
+                    <ul>
+                        <li>Don't share personal information (yours or others'). No password sharing or account trading.</li>
+                        <li>No privacy-invasive plugins or bots that log messages.</li>
+                        <li>Report security issues responsibly. No malicious code or harmful software.</li>
+                    </ul>
+                </div>
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
+                    <h3>Staff & Channel Usage</h3>
+                    <ul>
+                        <li>Respect staff decisions and instructions. Use <b>#support</b> for questions about rules.</li>
+                        <li>Follow channel topics and descriptions. Use bot commands in designated channels.</li>
+                        <li>No unauthorized advertising or server invites. No DMing random members for promotion.</li>
+                        <li>Follow Discord Terms of Service. Must be 13+ to participate. No impersonation of staff/users.</li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="rule-category">
-                <h3><i class="fas fa-ban"></i> Prohibited During Contests</h3>
-                <div class="prohibition-grid">
-                    <div class="prohibition-item">
-                        <i class="fas fa-users-slash"></i>
-                        <span>Collaboration with other participants</span>
+        </div>
+    </section>
+
+    <!-- Contest Rules -->
+    <section id="contest-rules" class="rules-v2-section alt">
+        <div class="container">
+            <div class="rules-v2-header fade-seq">
+                <h2><i class="fas fa-trophy" aria-hidden="true"></i> Contest Rules</h2>
+                <p>Specific guidelines for participating in CodeVerseHub contests.</p>
+            </div>
+            <div class="rules-v2-flex">
+                <div class="rules-v2-subcat fade-seq">
+                    <h3><i class="fas fa-clock" aria-hidden="true"></i> Contest Timing & Registration</h3>
+                    <div class="rule-list">
+                        <div class="rule-item"><strong>Registration:</strong> Register before the contest deadline to participate</div>
+                        <div class="rule-item"><strong>Start Time:</strong> Contests begin at the scheduled time regardless of registration status</div>
+                        <div class="rule-item"><strong>Duration:</strong> Submit solutions within the specified contest duration</div>
+                        <div class="rule-item"><strong>Late Submissions:</strong> No submissions accepted after the contest ends</div>
                     </div>
-                    <div class="prohibition-item">
-                        <i class="fas fa-search"></i>
-                        <span>Searching for problem solutions online</span>
+                </div>
+                <div class="rules-v2-subcat fade-seq">
+                    <h3><i class="fas fa-code" aria-hidden="true"></i> Code Submission Guidelines</h3>
+                    <div class="rule-list">
+                        <div class="rule-item"><strong>Original Work:</strong> All submissions must be your own original code</div>
+                        <div class="rule-item"><strong>Language Support:</strong> Use supported programming languages only</div>
+                        <div class="rule-item"><strong>External Libraries:</strong> Only standard libraries are permitted unless specified</div>
+                        <div class="rule-item"><strong>Code Clarity:</strong> Write clean, readable code with appropriate comments</div>
                     </div>
-                    <div class="prohibition-item">
-                        <i class="fas fa-copy"></i>
-                        <span>Copying code from external sources</span>
-                    </div>
-                    <div class="prohibition-item">
-                        <i class="fas fa-robot"></i>
-                        <span>Using AI assistance for solutions</span>
-                    </div>
-                    <div class="prohibition-item">
-                        <i class="fas fa-exchange-alt"></i>
-                        <span>Sharing solutions during contest</span>
-                    </div>
-                    <div class="prohibition-item">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Multiple accounts by same person</span>
+                </div>
+                <div class="rules-v2-subcat fade-seq">
+                    <h3><i class="fas fa-ban" aria-hidden="true"></i> Prohibited During Contests</h3>
+                    <div class="prohibition-grid">
+                        <div class="prohibition-item"><i class="fas fa-users-slash" aria-hidden="true"></i><span>Collaboration with other participants</span></div>
+                        <div class="prohibition-item"><i class="fas fa-search" aria-hidden="true"></i><span>Searching for problem solutions online</span></div>
+                        <div class="prohibition-item"><i class="fas fa-copy" aria-hidden="true"></i><span>Copying code from external sources</span></div>
+                        <div class="prohibition-item"><i class="fas fa-robot" aria-hidden="true"></i><span>Using AI assistance for solutions</span></div>
+                        <div class="prohibition-item"><i class="fas fa-exchange-alt" aria-hidden="true"></i><span>Sharing solutions during contest</span></div>
+                        <div class="prohibition-item"><i class="fas fa-user-friends" aria-hidden="true"></i><span>Multiple accounts by same person</span></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Problem Submission Section -->
-<section id="problem-submission" class="rules-section">
-    <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-code"></i> Problem Submission Guidelines</h2>
-            <p>Rules for submitting solutions to practice problems and contest challenges.</p>
-        </div>
-        
-        <div class="submission-guidelines">
-            <div class="guideline-card">
-                <h3><i class="fas fa-file-code"></i> Code Quality Standards</h3>
-                <ul>
-                    <li>Write clean, well-structured, and efficient code</li>
-                    <li>Include meaningful variable and function names</li>
-                    <li>Add comments for complex logic or algorithms</li>
-                    <li>Follow consistent indentation and formatting</li>
-                    <li>Handle edge cases and error conditions properly</li>
-                </ul>
+    <!-- Problem Submission -->
+    <section id="problem-submission" class="rules-v2-section">
+        <div class="container">
+            <div class="rules-v2-header fade-seq">
+                <h2><i class="fas fa-code" aria-hidden="true"></i> Problem Submission Guidelines</h2>
+                <p>Rules for submitting solutions to practice problems and contest challenges.</p>
             </div>
-            
-            <div class="guideline-card">
-                <h3><i class="fas fa-tachometer-alt"></i> Performance Requirements</h3>
-                <ul>
-                    <li>Optimize solutions to meet time complexity requirements</li>
-                    <li>Consider memory usage for large input datasets</li>
-                    <li>Test with provided sample inputs and edge cases</li>
-                    <li>Ensure solutions work within specified constraints</li>
-                    <li>Avoid unnecessary loops or redundant operations</li>
-                </ul>
-            </div>
-            
-            <div class="guideline-card">
-                <h3><i class="fas fa-check-circle"></i> Testing & Validation</h3>
-                <ul>
-                    <li>Test your solution with all provided sample cases</li>
-                    <li>Create additional test cases for thorough validation</li>
-                    <li>Verify correct output format and precision</li>
-                    <li>Check for off-by-one errors and boundary conditions</li>
-                    <li>Validate input parsing and output formatting</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Discord Guidelines Section -->
-<section id="discord-guidelines" class="rules-section alt-bg">
-    <div class="container">
-        <div class="section-header">
-            <h2><i class="fab fa-discord"></i> Discord Server Guidelines</h2>
-            <p>How to make the most of our programming Discord community!</p>
-        </div>
-        <div class="discord-rules">
-            <div class="discord-category">
-                <h3><i class="fas fa-bolt"></i> Learn, Build & Master Programming</h3>
-                <ul>
-                    <li>Explore, ask, share, and level up in: <b>#html-css</b>, <b>#javascript</b>, <b>#python</b>, <b>#c-cpp</b>, <b>#databases</b>, <b>#Java</b>, <b>#TypeScript</b>, <b>#Rust</b>, <b>#GoLang</b></li>
-                    <li>Dive deeper into: <b>#dsa</b>, <b>#advanced-topics</b> (Game Dev, Blockchain, AI, and more!)</li>
-                </ul>
-            </div>
-            <div class="discord-category">
-                <h3><i class="fas fa-fire"></i> Events & Fun</h3>
-                <ul>
-                    <li>Join the fun in our Events Category: <b>#questions</b> (QOTD), <b>#events</b> (coding battles), <b>#polls</b> (vote on what's next!)</li>
-                    <li>Try /commands, run code snippets, or mess with fun bots in: <b>#bot-commands</b>, <b>#economy</b>, <b>#owo</b></li>
-                </ul>
-            </div>
-            <div class="discord-category">
-                <h3><i class="fas fa-comments"></i> Connect & Discuss</h3>
-                <ul>
-                    <li>Hang out, talk tech, or chill in: <b>#lobby</b>, <b>#memes-and-media</b>, <b>#gaming-anime-talk</b>, <b>#dev-discussion</b></li>
-                    <li>Got ideas or feedback? Use <b>#suggestions</b> or type <b>!suggest</b> in <b>#lobby</b> – we listen to every suggestion!</li>
-                </ul>
-            </div>
-            <div class="discord-category">
-                <h3><i class="fas fa-microphone"></i> Voice Channels</h3>
-                <ul>
-                    <li>No mic spamming, or playing music without permission or when not needed.</li>
-                    <li>Use push-to-talk if you have background noise. Respect others in voice chat.</li>
-                </ul>
-            </div>
-            <div class="discord-category">
-                <h3><i class="fas fa-user-tag"></i> Nickname & Profile</h3>
-                <ul>
-                    <li>Use appropriate nicknames that don't impersonate others. No offensive names or profile pictures.</li>
-                    <li>Don't use nicknames to bypass channel permissions.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Violations Section -->
-<section id="violations" class="rules-section">
-    <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-exclamation-triangle"></i> Violations & Penalties</h2>
-            <p>Violations of server rules may result in the following actions:</p>
-        </div>
-        <div class="violations-grid">
-            <div class="violation-card minor">
-                <div class="violation-header">
-                    <i class="fas fa-info-circle"></i>
-                    <h3>Minor Violations</h3>
+            <div class="rules-v2-grid">
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-file-code" aria-hidden="true"></i></div>
+                    <h3>Code Quality Standards</h3>
+                    <ul>
+                        <li>Write clean, well-structured, and efficient code</li>
+                        <li>Include meaningful variable and function names</li>
+                        <li>Add comments for complex logic or algorithms</li>
+                        <li>Follow consistent indentation and formatting</li>
+                        <li>Handle edge cases and error conditions properly</li>
+                    </ul>
                 </div>
-                <div class="violation-examples">
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-tachometer-alt" aria-hidden="true"></i></div>
+                    <h3>Performance Requirements</h3>
+                    <ul>
+                        <li>Optimize solutions to meet time complexity requirements</li>
+                        <li>Consider memory usage for large input datasets</li>
+                        <li>Test with provided sample inputs and edge cases</li>
+                        <li>Ensure solutions work within specified constraints</li>
+                        <li>Avoid unnecessary loops or redundant operations</li>
+                    </ul>
+                </div>
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
+                    <h3>Testing & Validation</h3>
+                    <ul>
+                        <li>Test your solution with all provided sample cases</li>
+                        <li>Create additional test cases for thorough validation</li>
+                        <li>Verify correct output format and precision</li>
+                        <li>Check for off-by-one errors and boundary conditions</li>
+                        <li>Validate input parsing and output formatting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Guidelines -->
+    <section id="discord-guidelines" class="rules-v2-section alt">
+        <div class="container">
+            <div class="rules-v2-header fade-seq">
+                <h2><i class="fab fa-discord" aria-hidden="true"></i> Discord Server Guidelines</h2>
+                <p>How to make the most of our programming Discord community!</p>
+            </div>
+            <div class="rules-v2-grid">
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
+                    <h3>Learn, Build & Master Programming</h3>
+                    <ul>
+                        <li>Explore, ask, share, and level up in: <b>#html-css</b>, <b>#javascript</b>, <b>#python</b>, <b>#c-cpp</b>, <b>#databases</b>, <b>#Java</b>, <b>#TypeScript</b>, <b>#Rust</b>, <b>#GoLang</b></li>
+                        <li>Dive deeper into: <b>#dsa</b>, <b>#advanced-topics</b> (Game Dev, Blockchain, AI, and more!)</li>
+                    </ul>
+                </div>
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
+                    <h3>Events & Fun</h3>
+                    <ul>
+                        <li>Join the fun in our Events Category: <b>#questions</b> (QOTD), <b>#events</b> (coding battles), <b>#polls</b> (vote on what's next!)</li>
+                        <li>Try /commands, run code snippets, or mess with fun bots in: <b>#bot-commands</b>, <b>#economy</b>, <b>#owo</b></li>
+                    </ul>
+                </div>
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-comments" aria-hidden="true"></i></div>
+                    <h3>Connect & Discuss</h3>
+                    <ul>
+                        <li>Hang out, talk tech, or chill in: <b>#lobby</b>, <b>#memes-and-media</b>, <b>#gaming-anime-talk</b>, <b>#dev-discussion</b></li>
+                        <li>Got ideas or feedback? Use <b>#suggestions</b> or type <b>!suggest</b> in <b>#lobby</b> – we listen to every suggestion!</li>
+                    </ul>
+                </div>
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-microphone" aria-hidden="true"></i></div>
+                    <h3>Voice Channels</h3>
+                    <ul>
+                        <li>No mic spamming, or playing music without permission or when not needed.</li>
+                        <li>Use push-to-talk if you have background noise. Respect others in voice chat.</li>
+                    </ul>
+                </div>
+                <div class="rules-v2-card fade-seq">
+                    <div class="rules-v2-icon"><i class="fas fa-user-tag" aria-hidden="true"></i></div>
+                    <h3>Nickname & Profile</h3>
+                    <ul>
+                        <li>Use appropriate nicknames that don't impersonate others. No offensive names or profile pictures.</li>
+                        <li>Don't use nicknames to bypass channel permissions.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Violations -->
+    <section id="violations" class="rules-v2-section">
+        <div class="container">
+            <div class="rules-v2-header fade-seq">
+                <h2><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Violations & Penalties</h2>
+                <p>Violations of server rules may result in the following actions:</p>
+            </div>
+            <div class="violations-v2-grid">
+                <div class="violation-v2 minor fade-seq">
+                    <h3><i class="fas fa-info-circle" aria-hidden="true"></i> Minor Violations</h3>
                     <h4>Examples:</h4>
                     <ul>
                         <li>Off-topic discussions in wrong channels</li>
                         <li>Minor spam or excessive messaging</li>
                         <li>First-time minor misconduct</li>
                     </ul>
-                </div>
-                <div class="violation-penalty">
                     <h4>Penalties:</h4>
                     <ul>
                         <li>Warning</li>
@@ -299,13 +245,8 @@
                         <li>Kick</li>
                     </ul>
                 </div>
-            </div>
-            <div class="violation-card moderate">
-                <div class="violation-header">
-                    <i class="fas fa-exclamation"></i>
-                    <h3>Major Violations</h3>
-                </div>
-                <div class="violation-examples">
+                <div class="violation-v2 moderate fade-seq">
+                    <h3><i class="fas fa-exclamation" aria-hidden="true"></i> Major Violations</h3>
                     <h4>Examples:</h4>
                     <ul>
                         <li>Harassment, hate speech, discrimination</li>
@@ -313,119 +254,105 @@
                         <li>Advertising, DM spam, or server invites</li>
                         <li>Repeated minor violations</li>
                     </ul>
-                </div>
-                <div class="violation-penalty">
                     <h4>Penalties:</h4>
                     <ul>
                         <li>Temporary Ban</li>
                         <li>Permanent Ban</li>
                     </ul>
                 </div>
-            </div>
-            <div class="violation-card severe">
-                <div class="violation-header">
-                    <i class="fas fa-ban"></i>
-                    <h3>Severe Violations</h3>
-                </div>
-                <div class="violation-examples">
+                <div class="violation-v2 severe fade-seq">
+                    <h3><i class="fas fa-ban" aria-hidden="true"></i> Severe Violations</h3>
                     <h4>Examples:</h4>
                     <ul>
                         <li>Impersonation of staff or users</li>
                         <li>Severe harassment or threats</li>
                         <li>Malicious code, hacking, or illegal activity</li>
                     </ul>
-                </div>
-                <div class="violation-penalty">
                     <h4>Penalties:</h4>
                     <ul>
                         <li>Immediate Permanent Ban</li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div style="margin-top:2rem;text-align:center;color:#888;font-size:1rem;">
-            Our goal: Create a safe, supportive learning environment where all developers can grow together.<br>
-            Use common sense and act maturely. If you have to ask whether something is appropriate to post, you probably shouldn't post it.
-        </div>
-    </div>
-</section>
-
-<!-- Appeals Process Section -->
-<section id="appeals" class="rules-section alt-bg">
-    <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-balance-scale"></i> Appeals Process</h2>
-            <p>If you believe a penalty was issued unfairly, you can appeal by opening a support ticket. Appeals are NOT accepted via DM to staff.</p>
-        </div>
-        <div class="appeals-process">
-            <div class="appeal-steps">
-                <div class="appeal-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Open a Support Ticket</h3>
-                        <p>Go to <b>#support</b> and open a ticket within 7 days of the penalty. Clearly explain your situation and provide any evidence. ban/kick/mute appeals via WICK bot</p>
-                    </div>
-                </div>
-                <div class="appeal-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Review Process</h3>
-                        <p>Staff will review your case, examine evidence, and respond in the ticket. Be patient and respectful during this process.</p>
-                    </div>
-                </div>
-                <div class="appeal-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Decision & Response</h3>
-                        <p>You'll receive a response in the ticket with the final decision and reasoning.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="appeal-tips">
-                <h3><i class="fas fa-lightbulb"></i> Tips for Appeals</h3>
-                <ul>
-                    <li>Be specific and honest about the incident</li>
-                    <li>Include any relevant evidence or context</li>
-                    <li>Remain respectful and professional</li>
-                    <li>Appeals are only considered via support ticket</li>
-                </ul>
+            <div style="margin-top:2rem;text-align:center;color:#788793;font-size:.8rem;" class="fade-seq">
+                Our goal: Create a safe, supportive learning environment where all developers can grow together.<br>
+                Use common sense and act maturely. If you have to ask whether something is appropriate to post, you probably shouldn't post it.
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Section -->
-<section class="contact-section">
-    <div class="container">
-        <div class="contact-content">
+    <!-- Appeals Process -->
+    <section id="appeals" class="rules-v2-section alt">
+        <div class="container">
+            <div class="rules-v2-header fade-seq">
+                <h2><i class="fas fa-balance-scale" aria-hidden="true"></i> Appeals Process</h2>
+                <p>If you believe a penalty was issued unfairly, you can appeal by opening a support ticket. Appeals are NOT accepted via DM to staff.</p>
+            </div>
+            <div class="appeals-v2-layout">
+                <div class="appeal-v2-step fade-seq">
+                    <div class="num">1</div>
+                    <h3><i class="fas fa-ticket-alt" aria-hidden="true"></i> Open a Support Ticket</h3>
+                    <p>Go to <b>#support</b> and open a ticket within 7 days of the penalty. Clearly explain your situation and provide any evidence. ban/kick/mute appeals via WICK bot</p>
+                </div>
+                <div class="appeal-v2-step fade-seq">
+                    <div class="num">2</div>
+                    <h3><i class="fas fa-search" aria-hidden="true"></i> Review Process</h3>
+                    <p>Staff will review your case, examine evidence, and respond in the ticket. Be patient and respectful during this process.</p>
+                </div>
+                <div class="appeal-v2-step fade-seq">
+                    <div class="num">3</div>
+                    <h3><i class="fas fa-check-circle" aria-hidden="true"></i> Decision & Response</h3>
+                    <p>You'll receive a response in the ticket with the final decision and reasoning.</p>
+                </div>
+                <div class="appeal-v2-tips fade-seq">
+                    <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> Tips for Appeals</h3>
+                    <ul>
+                        <li>Be specific and honest about the incident</li>
+                        <li>Include any relevant evidence or context</li>
+                        <li>Remain respectful and professional</li>
+                        <li>Appeals are only considered via support ticket</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="rules-v2-cta">
+        <div class="container fade-seq">
             <h2>Questions About These Rules?</h2>
             <p>If you have any questions about our rules and guidelines, don't hesitate to reach out to our moderation team.</p>
-            <div class="contact-actions">
-                <a href="https://discord.gg/3xKFvKhuGR" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-discord"></i> Contact on Discord
-                </a>
-                <a href="{% url 'faq' %}" class="btn btn-outline-light">
-                    <i class="fas fa-question-circle"></i> Check FAQ
-                </a>
+            <div class="rules-v2-btn-row">
+                <a href="https://discord.gg/3xKFvKhuGR" target="_blank" class="rules-v2-btn"><i class="fab fa-discord" aria-hidden="true"></i> Contact on Discord</a>
+                <a href="{% url 'faq' %}" class="rules-v2-btn outline"><i class="fas fa-question-circle" aria-hidden="true"></i> Check FAQ</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
 <script>
-    // Smooth scrolling for TOC items
-    document.querySelectorAll('.toc-item').forEach(item => {
-        item.addEventListener('click', function(e) {
+    // Smooth scrolling for TOC
+    document.querySelectorAll('.rules-v2-toc-item').forEach(item => {
+        item.addEventListener('click', e => {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const targetId = item.getAttribute('href');
+            const el = document.querySelector(targetId);
+            if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+    });
+
+    // Fade-in observer
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
+    }, { threshold: 0.16 });
+    document.querySelectorAll('.fade-seq').forEach((el, i) => {
+        el.style.transitionDelay = (i * 60) + 'ms';
+        observer.observe(el);
     });
 </script>
 {% endblock %}

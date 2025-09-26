@@ -1,77 +1,180 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}About - CodeVerseHub{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/about-v2.css' %}">
+{% endblock %}
+
 {% block content %}
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <div class="text-center mb-5">
-                <h1><i class="fas fa-info-circle"></i> About CodeVerseHub</h1>
-                <p class="lead">Learn more about our Discord programming community</p>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3>Our Mission</h3>
-                    <p>CodeVerseHub is a vibrant programming community on Discord. Our mission is to provide an engaging, educational, and supportive environment where programmers of all skill levels can improve their coding abilities, learn from each other, and connect with fellow developers.</p>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3>What Our Discord Server Offers</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><i class="fas fa-comments text-primary"></i> Active coding discussions</li>
-                                <li class="list-group-item"><i class="fas fa-code text-success"></i> Code help & reviews</li>
-                                <li class="list-group-item"><i class="fas fa-book text-info"></i> Learning resources</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><i class="fas fa-users text-warning"></i> Supportive community</li>
-                                <li class="list-group-item"><i class="fas fa-laptop-code text-danger"></i> Project collaboration</li>
-                                <li class="list-group-item"><i class="fas fa-robot text-secondary"></i> Helpful coding bots</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3>Technology Stack</h3>
-                    <p>CodeVerseHub is built using modern web technologies to ensure a fast, reliable, and scalable platform:</p>
-                    <ul>
-                        <li><strong>Backend:</strong> Django (Python)</li>
-                        <li><strong>Frontend:</strong> Bootstrap 5, JavaScript</li>
-                        <li><strong>Database:</strong> SQLite (development)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3>Community Guidelines</h3>
-                    <p>We foster a respectful and inclusive environment where everyone can learn and grow. Please:</p>
-                    <ul>
-                        <li>Be respectful to all community members</li>
-                        <li>Help others when possible</li>
-                        <li>Follow fair play practices in contests</li>
-                        <li>Report any issues or concerns to moderators</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <h3>Join Our Discord Community!</h3>
-                <p class="mb-4">Ready to join our community of passionate programmers?</p>
-                <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-primary btn-lg me-3">Join Discord</a>
-                <a href="{% url 'resources' %}" class="btn btn-outline-primary btn-lg">View Resources</a>
-            </div>
-        </div>
+<div class="about-v2">
+  <!-- Hero -->
+  <section class="abt-hero">
+    <div class="abt-hero-inner px-3">
+      <h1 class="abt-hero-title">Build • Learn • Collaborate</h1>
+      <p class="abt-hero-sub">Welcome to <strong>CodeVerseHub</strong> — a connected space for coders, technologists, and curious builders of every level. Dive into language help channels, real projects, contests, mentorship moments, and a culture built on shared growth.</p>
+      <div class="abt-hero-badges">
+        <span>Community Driven</span>
+        <span>Multi‑Language</span>
+        <span>Events & Contests</span>
+        <span>Project Collabs</span>
+        <span>Learning First</span>
+      </div>
     </div>
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="abt-section">
+    <div class="container">
+      <div class="abt-mission text-center mb-4">
+        <h2 class="mb-3" style="font-size:1.9rem;background:linear-gradient(90deg,#00e5ff,#6a5acd);-webkit-background-clip:text;background-clip:text;color:transparent;">Our Mission</h2>
+        <p class="abt-mission-lead">To empower learners and professionals through open knowledge sharing, accessible guidance, and collaborative creation. Whether you're debugging your first loop or optimizing distributed systems, there's a place here for you.</p>
+      </div>
+      <div class="abt-grid">
+        <div class="abt-panel"><h3>Inclusive Growth</h3><p>Beginner friendly pathways and advanced discussions co‑exist. Ask anything—curiosity is culture.</p></div>
+        <div class="abt-panel"><h3>Real Collaboration</h3><p>From small scripts to team builds—share repos, iterate faster, learn code review and version control habits.</p></div>
+        <div class="abt-panel"><h3>Practical Learning</h3><p>Contests, challenges, and peer feedback create momentum that theory alone can’t.</p></div>
+        <div class="abt-panel"><h3>Recognition</h3><p>Progressive roles, contribution highlights, and event badges celebrate effort & consistency.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages & Technologies -->
+  <section class="abt-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="abt-panel">
+            <h3>Languages Supported</h3>
+            <p>We support a wide variety of languages & paradigms:</p>
+            <div class="abt-tags">
+              <span class="abt-tag">Python</span><span class="abt-tag">C</span><span class="abt-tag">C++</span><span class="abt-tag">Java</span><span class="abt-tag">JavaScript</span><span class="abt-tag">TypeScript</span><span class="abt-tag">HTML</span><span class="abt-tag">CSS</span><span class="abt-tag">SQL</span><span class="abt-tag">NoSQL</span><span class="abt-tag">Rust</span><span class="abt-tag">Dart</span><span class="abt-tag">Scala</span><span class="abt-tag">PHP</span><span class="abt-tag">Assembly</span><span class="abt-tag">Swift</span><span class="abt-tag">C#</span><span class="abt-tag">Go</span>
+            </div>
+            <p class="mt-3" style="font-size:.72rem;opacity:.7;">Need a new channel? Use <code>!suggest</code> in bot commands—staff reviews all valid requests.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="abt-panel">
+            <h3>Fields & Domains</h3>
+            <p>Explore specialized threads & forums:</p>
+            <div class="abt-tags">
+              <span class="abt-tag">Web Dev</span><span class="abt-tag">Machine Learning</span><span class="abt-tag">AI</span><span class="abt-tag">Data Science</span><span class="abt-tag">Analytics</span><span class="abt-tag">Game Dev</span><span class="abt-tag">Roblox</span><span class="abt-tag">Unity</span><span class="abt-tag">Minecraft</span><span class="abt-tag">Cybersecurity</span><span class="abt-tag">Blockchain</span><span class="abt-tag">Cloud</span><span class="abt-tag">DevOps</span><span class="abt-tag">Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Help Channels -->
+  <section class="abt-section">
+    <div class="container">
+      <div class="abt-panel">
+        <h3>Language Help Channels</h3>
+        <p>Find a space dedicated to your stack. Representative mapping below (Discord channel references omitted for web view):</p>
+        <div class="abt-channel-grid">
+          <div class="abt-channel"><strong>Python</strong> General scripting, automation, frameworks.</div>
+          <div class="abt-channel"><strong>JavaScript</strong> Node, React, Next, Angular, Vue, Strapi.</div>
+          <div class="abt-channel"><strong>HTML & CSS</strong> Layouts, responsive design, UI craft.</div>
+          <div class="abt-channel"><strong>C / C++</strong> Low-level, performance, memory mgmt.</div>
+          <div class="abt-channel"><strong>SQL / NoSQL</strong> Queries, schema design, indexing.</div>
+          <div class="abt-channel"><strong>Assembly</strong> Architecture, registers, optimization.</div>
+          <div class="abt-channel"><strong>PHP</strong> Backend scripting, APIs, frameworks.</div>
+          <div class="abt-channel"><strong>TypeScript</strong> Types, tooling, advanced JS patterns.</div>
+          <div class="abt-channel"><strong>Go</strong> Concurrency, services, tooling.</div>
+          <div class="abt-channel"><strong>Rust</strong> Ownership, safety, systems dev.</div>
+          <div class="abt-channel"><strong>Java</strong> OOP, Spring, backend workflows.</div>
+          <div class="abt-channel"><strong>Swift</strong> iOS, tooling, platform APIs.</div>
+          <div class="abt-channel"><strong>C#</strong> .NET, Unity integration, tooling.</div>
+          <div class="abt-channel"><strong>Other Languages</strong> Emerging & niche stacks.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activity Roles Progression -->
+  <section class="abt-section">
+    <div class="container">
+      <div class="abt-panel">
+        <h3>Activity Roles & Recognition</h3>
+        <p>Progress unlocks visibility, access, and perks. Consistency + contribution = advancement.</p>
+        <div class="abt-progress">
+          <div class="abt-role-track">
+            <span class="abt-role-pill">Active</span>
+            <span class="abt-role-sep"></span>
+            <span class="abt-role-pill">Very Active</span>
+            <span class="abt-role-sep"></span>
+            <span class="abt-role-pill">Ultra Active</span>
+            <span class="abt-role-sep"></span>
+            <span class="abt-role-pill">Elite Member</span>
+            <span class="abt-role-sep"></span>
+            <span class="abt-role-pill">Honorably Active</span>
+            <span class="abt-role-sep"></span>
+            <span class="abt-role-pill">Top Contributors</span>
+          </div>
+        </div>
+        <p class="mt-3" style="font-size:.7rem;opacity:.7;">Earn top tiers by ranking in the weekly leaderboard. Boosters gain elevated access instantly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff Roles -->
+  <section class="abt-section">
+    <div class="container">
+      <div class="abt-panel">
+        <h3>Staff Roles & Path</h3>
+        <p>Our staff keeps the environment constructive & safe. Progression reflects trust and contribution.</p>
+        <ul class="abt-staff-list mb-3">
+          <li class="abt-staff-item"><span class="role">Rookie Staff</span><small>Entry support tier</small></li>
+          <li class="abt-staff-item"><span class="role">Community Staff</span><small>Guidance & channel health</small></li>
+          <li class="abt-staff-item"><span class="role">Moderator</span><small>Rule enforcement</small></li>
+          <li class="abt-staff-item"><span class="role">Senior Moderator</span><small>High priority oversight</small></li>
+          <li class="abt-staff-item"><span class="role">Community Manager</span><small>Programs & engagement</small></li>
+          <li class="abt-staff-item"><span class="role">Head Staff</span><small>Strategic direction</small></li>
+          <li class="abt-staff-item"><span class="role">Admin</span><small>Core leadership</small></li>
+        </ul>
+        <p style="font-size:.7rem;opacity:.75;">Support Teams: Ticket Support • Social Media • Mod Team Shared • Staff of the Week honors.</p>
+        <p class="mt-2" style="font-size:.75rem;">Apply once you reach at least <strong>Very Active</strong> and complete the form in the staff applications channel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Moderation & Reporting -->
+  <section class="abt-section">
+    <div class="container">
+      <div class="abt-grid">
+        <div class="abt-panel">
+          <h3>Reporting Issues</h3>
+          <p>See something off? Help us keep standards high:</p>
+          <ol class="abt-steps">
+            <li>Copy the message link.</li>
+            <li>Create a report ticket.</li>
+            <li>Optionally ping staff for urgent matters.</li>
+          </ol>
+          <p class="mt-3" style="font-size:.7rem;opacity:.75;">Avoid engaging with spam—report and move forward.</p>
+        </div>
+        <div class="abt-panel">
+          <h3>Channel Access</h3>
+          <p>Some areas are role-gated. Grab language & domain roles via onboarding or reaction panels to unlock specialized discussions & archives.</p>
+          <p style="font-size:.7rem;opacity:.75;">Need something new? Suggest it—community demand shapes growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="abt-section abt-cta">
+    <div class="container">
+      <div class="abt-cta-inner">
+        <h2>Ready to Dive In?</h2>
+        <p>Join a culture of iterative learning, constructive critique, and authentic collaboration. Your next breakthrough might start with a single message.</p>
+        <div class="abt-btn-row">
+          <a href="https://discord.gg/3xKFvKhuGR" class="abt-btn">Join Discord</a>
+          <a href="{% url 'resources' %}" class="abt-btn outline">Browse Resources</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 {% endblock %}
