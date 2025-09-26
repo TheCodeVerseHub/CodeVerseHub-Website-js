@@ -17,16 +17,22 @@ DEBUG = False
 
 SECRET_KEY = config("SECRET_KEY", default=config("DJANGO_SECRET_KEY"))
 
-_raw_allowed = config("ALLOWED_HOSTS", default="*")
-if isinstance(_raw_allowed, str):
+_raw_allowed = config("ALLOWED_HOSTS", default="")
+if isinstance(_raw_allowed, str) and _raw_allowed.strip():
     if "," in _raw_allowed:
         ALLOWED_HOSTS = [h.strip() for h in _raw_allowed.split(",") if h.strip()]
     else:
         ALLOWED_HOSTS = [_raw_allowed.strip()]
-elif isinstance(_raw_allowed, (list, tuple)):
+elif isinstance(_raw_allowed, (list, tuple)) and _raw_allowed:
     ALLOWED_HOSTS = list(_raw_allowed)
 else:
-    ALLOWED_HOSTS = ["*"]
+    # Start with localhost/dev safe values; rely on explicit env config in production
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+
+# Render automatically injects RENDER_EXTERNAL_HOSTNAME; include it if present
+_render_host = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+if _render_host and _render_host not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_render_host)
 
 # ----------------------------------------------------------------------------
 # Security
