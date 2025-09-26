@@ -88,8 +88,8 @@ celerybeat.pid
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# pyenv
-.python-version
+# pyenv (allow committing .python-version for Render Python pin)
+# (Removed .python-version ignore)
 
 # pipenv
 Pipfile.lock
