@@ -7,9 +7,13 @@
 <title>{% block title %}CodeVerseHub{% endblock %}</title>
 
 <!-- Favicon / App Icons -->
+<!-- Primary SVG favicon -->
 <link rel="icon" type="image/svg+xml" href="{% static 'images/logo.svg' %}">
-<link rel="alternate icon" type="image/png" href="{% static 'images/logo.png' %}">
+<!-- Fallback ICO (served via /favicon.ico) and PNG sizes -->
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="{% static 'images/logo.svg' %}">
+<!-- Optional: 32x32 PNG fallback generated from SVG if added later -->
+<!-- <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo-32.png' %}"> -->
 <meta name="theme-color" content="#06121c">
 
 
