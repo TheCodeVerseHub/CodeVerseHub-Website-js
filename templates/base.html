@@ -9,11 +9,11 @@
 <!-- Favicon / App Icons -->
 <!-- Primary SVG favicon -->
 <link rel="icon" type="image/svg+xml" href="{% static 'images/logo.svg' %}">
-<!-- Fallback ICO (served via /favicon.ico) and PNG sizes -->
-<link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
+<!-- Fallback ICO & Apple touch (use existing svg + generated ico) -->
+<link rel="alternate icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 <link rel="apple-touch-icon" href="{% static 'images/logo.svg' %}">
-<!-- Optional: 32x32 PNG fallback generated from SVG if added later -->
-<!-- <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo-32.png' %}"> -->
+{# Add a PNG favicon only after placing the file to avoid manifest errors. Example:
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/logo-32.png"> #}
 <meta name="theme-color" content="#06121c">
 
 
