@@ -64,6 +64,12 @@
             <li class="navbar-item">
                 <a href="{% url 'timeline' %}" class="navbar-link {% if current == 'timeline' %}active{% endif %}">Timeline</a>
             </li>
+            <li class="navbar-item nav-theme-toggle">
+                <button id="themeToggleBtn" class="navbar-link" type="button" aria-label="Toggle color theme" title="Toggle theme">
+                    <span class="theme-icon sun" aria-hidden="true">🌞</span>
+                    <span class="theme-icon moon" aria-hidden="true">🌜</span>
+                </button>
+            </li>
         </ul>
     </div>
 </header>
@@ -289,6 +295,61 @@ input.addEventListener('keydown', function(e){ if(e.key === 'Escape') { input.cl
 .site-footer .mini-stat:before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,rgba(0,229,255,0.18),rgba(156,39,176,0) 55%,rgba(156,39,176,0.25)); mix-blend-mode:screen; opacity:.7; pointer-events:none; }
 @media (max-width: 768px){ .site-footer .btn.btn-gradient { right:.5rem; bottom:.5rem; } }
 </style>
+<style>
+/* Theme Toggle + Enhancements */
+:root { --transition-speed:.35s; --focus-outline:2px solid var(--cyan-blue,#00e5ff); }
+html.light-theme { --bg-primary:#f5f7fb; --bg-secondary:#ffffff; --bg-tertiary:#f0f3f9; --text-primary:#1b2330; --text-secondary:#4a5b70; --card-border:rgba(0,0,0,.07); color-scheme:light; }
+html.light-theme body { background:var(--bg-primary); }
+html.light-theme .glass-card { background:rgba(255,255,255,.72); backdrop-filter:blur(14px); border:1px solid var(--card-border); }
+html.light-theme .gradient-bg { background:linear-gradient(135deg,#e8f7ff,#f2e8ff); }
+html.light-theme .dark-bg { background:var(--bg-secondary)!important; }
+html.light-theme .navbar-link.active { color:var(--purple); }
+html.light-theme .site-footer:before { background:radial-gradient(circle at 40% 40%,rgba(0,229,255,.35),rgba(0,229,255,0)); }
+html.light-theme .site-footer:after { background:radial-gradient(circle at 60% 40%,rgba(156,39,176,.35),rgba(156,39,176,0)); }
+.nav-theme-toggle { display:flex; align-items:center; }
+#themeToggleBtn { background:none; border:none; cursor:pointer; position:relative; padding:.4rem .6rem; line-height:1; display:flex; align-items:center; }
+#themeToggleBtn .theme-icon { font-size:1.05rem; display:block; transition:opacity var(--transition-speed), transform var(--transition-speed); }
+#themeToggleBtn .sun { opacity:0; transform:translateY(6px) rotate(-20deg); }
+html.light-theme #themeToggleBtn .sun { opacity:1; transform:translateY(0) rotate(0); }
+html.light-theme #themeToggleBtn .moon { opacity:0; transform:translateY(-6px) rotate(25deg); }
+#themeToggleBtn:focus-visible { outline:var(--focus-outline); outline-offset:4px; border-radius:8px; }
+body.theme-transition * { transition:background-color .5s ease,color .5s ease,border-color .5s ease; }
+/* Card Hover Polish */
+.glass-card { transition:transform .5s cubic-bezier(.16,.8,.24,1), box-shadow .5s; }
+.glass-card:hover { transform:translateY(-4px); box-shadow:0 8px 26px -8px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.04); }
+/* Focus styles */
+a:focus-visible, button:focus-visible { outline:var(--focus-outline); outline-offset:3px; }
+</style>
+<script>
+// Theme toggle with localStorage & prefers-color-scheme fallback
+(function(){
+    const KEY='cvh-theme'; const root=document.documentElement; const btn=document.getElementById('themeToggleBtn');
+    const prefersDark=window.matchMedia('(prefers-color-scheme: dark)');
+    function apply(theme){ root.classList.toggle('light-theme', theme==='light'); }
+    const saved=localStorage.getItem(KEY); const start = saved || (prefersDark.matches? 'dark':'light'); apply(start);
+    prefersDark.addEventListener('change',e=>{ if(!localStorage.getItem(KEY)) apply(e.matches?'dark':'light'); });
+    btn && btn.addEventListener('click', ()=> { const next=root.classList.contains('light-theme')? 'dark':'light'; document.body.classList.add('theme-transition'); apply(next); localStorage.setItem(KEY,next); setTimeout(()=>document.body.classList.remove('theme-transition'),600); });
+})();
+</script>
+<script>
+// IntersectionObserver reveal for .fade-in-up (progressive enhancement)
+(function(){
+    if(!('IntersectionObserver' in window)) return; // graceful fallback uses initial visibility or existing script
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const items = [].slice.call(document.querySelectorAll('.fade-in-up'));
+    if(!items.length) return;
+    const rootMargin = '0px 0px -5% 0px';
+    const observer = new IntersectionObserver((entries)=>{
+            entries.forEach(entry=>{
+                    if(entry.isIntersecting){
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                    }
+            });
+    }, { threshold: prefersReduced? 0 : 0.15, rootMargin });
+    items.forEach(el=>{ if(!el.classList.contains('visible')) observer.observe(el); });
+})();
+</script>
 {% block extra_js %}{% endblock %}
 </body>
 </html>

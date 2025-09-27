@@ -14,9 +14,10 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <h1 class="fade-in-up text-gradient">CodeVerseHub</h1>
-                <p class="lead fade-in-up">Join our Discord community's premier programming hub. Connect with like-minded programmers, share knowledge, and grow your skills together.</p>
-                <div class="fade-in-up">
+                <!-- Added 'visible' to prevent blank first paint if JS scroll logic not present -->
+                <h1 class="fade-in-up visible text-gradient">CodeVerseHub</h1>
+                <p class="lead fade-in-up visible">Join our Discord community's premier programming hub. Connect with like-minded programmers, share knowledge, and grow your skills together.</p>
+                <div class="fade-in-up visible">
                     <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-gradient btn-lg me-3">Join Discord</a>
                     <a href="{% url 'about' %}" class="btn btn-outline-gradient btn-lg">Learn More</a>
                 </div>
@@ -363,6 +364,19 @@
 {% endblock %}
 
 {% block extra_js %}
+<script>
+// Ensure fade-in-up elements become visible on initial load (fallback if classes not preset)
+(function(){
+    window.addEventListener('DOMContentLoaded', function(){
+        const els = document.querySelectorAll('.fade-in-up');
+        // If none of them are visible yet (older markup), progressively reveal to keep subtle animation
+        const anyAlreadyVisible = Array.from(els).some(e=>e.classList.contains('visible'));
+        if(!anyAlreadyVisible){
+            els.forEach((el,i)=> setTimeout(()=> el.classList.add('visible'), i*120));
+        }
+    });
+})();
+</script>
 <script>
 (function(){
     const msgField = document.querySelector('#v2Message') || document.querySelector('textarea[name$="message"]');
