@@ -948,6 +948,11 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+/* ---- Visibility Override Fix ----
+   Duplicate definitions earlier caused .fade-in-up elements with only animation (no opacity reset) to stay hidden.
+   Ensure elements explicitly marked visible are fully shown regardless of earlier rules. */
+.fade-in-up.visible { opacity:1 !important; transform:none !important; animation:fadeInUp .6s ease-out both; }
+
 /* Tags */
 .tag {
     display: inline-block;
