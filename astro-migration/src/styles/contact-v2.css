@@ -130,7 +130,7 @@
 .field textarea { min-height:170px; resize:vertical; }
 .field input:focus, .field textarea:focus { border-color:var(--cvh-contact-accent); box-shadow:0 0 0 3px rgba(0,229,255,.18), 0 0 0 1px rgba(0,229,255,.3) inset; background:rgba(11,16,27,0.8); }
 
-.field label { position:absolute; left:14px; top:12px; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:#8aa4c2; pointer-events:none; background:linear-gradient(90deg,#8aa4c2,#b2bed0); -webkit-background-clip:text; background-clip:text; color:transparent; opacity:.75; transition:.35s; font-weight:600; }
+.field label { position:absolute; left:14px; top:12px; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:#8aa4c2; pointer-events:none; background:linear-gradient(90deg,#8aa4c2,#b2bed0); -webkit-background-clip:text; color:transparent; opacity:.75; transition:.35s; font-weight:600; }
 .field input:focus + label, .field input:not(:placeholder-shown) + label,
 .field textarea:focus + label, .field textarea:not(:placeholder-shown) + label { transform:translateY(-8px) scale(.9); opacity:1; filter:drop-shadow(0 2px 6px rgba(0,229,255,0.15)); }
 

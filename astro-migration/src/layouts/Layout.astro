@@ -1,0 +1,225 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'CodeVerseHub', description = 'Join our Discord coding community' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="/images/favicon.ico" />
+    <meta name="theme-color" content="#06121c" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <title>{title}</title>
+  </head>
+  <body class="dark-theme">
+    <header class="compact-navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">CodeVerseHub</a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="navbar-links" id="navbarLinks">
+                <li class="navbar-item">
+                    <a href="/" class="navbar-link">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/resources" class="navbar-link">Resources</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/rules" class="navbar-link">Rules</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/faq" class="navbar-link">FAQ</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/about" class="navbar-link">About</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/timeline" class="navbar-link">Timeline</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer dark-bg gradient-bg mt-5" role="contentinfo">
+        <div class="container py-5 position-relative" style="z-index:1;">
+            <div class="row g-4 mb-4">
+                <!-- Brand -->
+                <div class="col-md-4">
+                    <div class="glass-card h-100">
+                        <h3 class="gradient-text d-flex align-items-center gap-2 mb-3"><i class="fas fa-code"></i> CodeVerseHub</h3>
+                        <p class="mb-3">Empowering programmers through curated resources, coding challenges & a thriving Discord community where learning never stops.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a class="btn btn-gradient btn-sm" href="https://discord.gg/3xKFvKhuGR" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                            <a class="btn btn-gradient-outline btn-sm" href="https://github.com/youngcoder45/cvhnewpyweb" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Platform Links -->
+                <div class="col-6 col-md-2">
+                    <div class="glass-card h-100">
+                        <h6 class="gradient-text text-uppercase small fw-bold mb-3">Platform</h6>
+                        <ul class="list-unstyled small footer-links">
+                            <li><a href="/"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li><a href="/resources"><i class="fas fa-book me-1"></i> Resources</a></li>
+                            <li><a href="/rules"><i class="fas fa-gavel me-1"></i> Rules</a></li>
+                            <li><a href="/faq"><i class="fas fa-question-circle me-1"></i> FAQ</a></li>
+                            <li><a href="/timeline"><i class="fas fa-clock me-1"></i> Timeline</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Community Links -->
+                <div class="col-6 col-md-2">
+                    <div class="glass-card h-100">
+                        <h6 class="gradient-text text-uppercase small fw-bold mb-3">Community</h6>
+                        <ul class="list-unstyled small footer-links">
+                            <li><a href="/about"><i class="fas fa-info-circle me-1"></i> About</a></li>
+                            <li><a href="/faq"><i class="fas fa-question-circle me-1"></i> FAQ</a></li>
+                            <li><a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener"><i class="fab fa-discord me-1"></i> Discord</a></li>
+                            <li><a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener"><i class="fas fa-users me-1"></i> Join</a></li>
+                            <li><a href="/rules"><i class="fas fa-shield-alt me-1"></i> Server Rules</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Stats -->
+                <div class="col-md-4">
+                    <div class="glass-card h-100">
+                        <h6 class="gradient-text text-uppercase small fw-bold mb-3">Discord Stats</h6>
+                        <div class="d-flex flex-wrap gap-3">
+                            <div class="mini-stat glass-sub p-3 rounded-3 flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-1"><i class="fas fa-users text-info"></i><span class="small text-uppercase fw-semibold" style="letter-spacing:.12em;">Members</span></div>
+                                <span class="fw-bold h5 mb-0 gradient-text">450+</span>
+                            </div>
+                            <div class="mini-stat glass-sub p-3 rounded-3 flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-1"><i class="fas fa-server text-info"></i><span class="small text-uppercase fw-semibold" style="letter-spacing:.12em;">Channels</span></div>
+                                <span class="fw-bold h5 mb-0 gradient-text">10+</span>
+                            </div>
+                            <div class="mini-stat glass-sub p-3 rounded-3 flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-1"><i class="fas fa-robot text-info"></i><span class="small text-uppercase fw-semibold" style="letter-spacing:.12em;">Self Made Useful Bots</span></div>
+                                <span class="fw-bold h5 mb-0 gradient-text">5+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center small mt-4 pt-3 border-top border-secondary" style="opacity:.75;">
+                &copy; {new Date().getFullYear()} <strong>CodeVerseHub</strong> • Crafted with <i class="fas fa-heart text-danger" aria-hidden="true"></i> for the coding community · <a href="#" class="text-decoration-none text-light" style="opacity:.7;">Privacy</a> · <a href="#" class="text-decoration-none text-light" style="opacity:.7;">Terms</a>
+            </div>
+            <button type="button" id="backToTopBtn" aria-label="Back to top" class="btn btn-gradient position-absolute" style="right:1rem; bottom:1rem; border-radius:14px; padding:.75rem 1rem;"><i class="fas fa-chevron-up"></i></button>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    // Navbar Mobile Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navbarLinks = document.getElementById('navbarLinks');
+        const focusableSelector = 'a, button';
+        let lastFocused = null;
+
+        function openMenu(){
+            navbarLinks.classList.add('open');
+            document.body.classList.add('nav-open');
+            lastFocused = document.activeElement;
+            const first = navbarLinks.querySelector(focusableSelector);
+            first && first.focus();
+        }
+        function closeMenu(){
+            navbarLinks.classList.remove('open');
+            document.body.classList.remove('nav-open');
+            if(lastFocused) lastFocused.focus();
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                const isOpen = navbarLinks.classList.contains('open');
+                if(isOpen){ closeMenu(); }
+                else {
+                    openMenu();
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+        }
+
+        navbarLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>{
+            if(window.innerWidth <= 768){ closeMenu(); }
+        }));
+
+        document.addEventListener('keydown', (e)=>{
+            if(e.key === 'Escape' && document.body.classList.contains('nav-open')){
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('click', (e)=>{
+            if(window.innerWidth > 768) return;
+            if(!navbarLinks.contains(e.target) && e.target !== mobileToggle && !mobileToggle.contains(e.target) && document.body.classList.contains('nav-open')){
+                closeMenu();
+            }
+        });
+    });
+    
+    // Back To Top
+    (function(){
+        const btn = document.getElementById('backToTopBtn');
+        if(!btn) return;
+        const revealAt = 240;
+        function toggle(){
+            const visible = window.scrollY > revealAt;
+            btn.style.opacity = visible ? '1' : '0';
+            btn.style.pointerEvents = visible ? 'auto' : 'none';
+            btn.style.transform = visible ? 'translateY(0)' : 'translateY(12px)';
+        }
+        btn.style.transition='opacity .45s, transform .45s';
+        btn.style.opacity='0';
+        btn.style.transform='translateY(12px)';
+        window.addEventListener('scroll', toggle, {passive:true});
+        toggle();
+        btn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+    })();
+    </script>
+    
+    <style is:global>
+      @import '../styles/global.css';
+      @import '../styles/style.css';
+      @import '../styles/navbar.css';
+      @import '../styles/modern-footer.css';
+      @import '../styles/footer-v2.css';
+      @import '../styles/home-styles.css';
+      @import '../styles/contact-v2.css';
+      @import '../styles/cta-v2.css';
+      @import '../styles/about-v2.css';
+      @import '../styles/rules-v2.css';
+      @import '../styles/rules-modern.css';
+      @import '../styles/responsive-enhancements.css';
+    </style>
+  </body>
+</html>

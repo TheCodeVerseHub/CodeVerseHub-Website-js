@@ -23,7 +23,7 @@
 .footer-v2-panel h5, .footer-v2-panel h4, .footer-v2-panel h3 { font-size:1.05rem; letter-spacing:.05em; text-transform:uppercase; font-weight:600; margin:0 0 1.1rem; background:linear-gradient(90deg,var(--ftr-accent-a),var(--ftr-accent-b)); -webkit-background-clip:text; background-clip:text; color:transparent; }
 
 .footer-v2-brand h3 { display:flex; align-items:center; gap:.55rem; font-size:1.4rem; letter-spacing:.5px; margin-bottom:.85rem; }
-.footer-v2-brand h3 i { font-size:1.25rem; background:linear-gradient(90deg,var(--ftr-accent-a),var(--ftr-accent-b)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.footer-v2-brand h3 i { font-size:1.25rem; background:linear-gradient(90deg,var(--ftr-accent-a),var(--ftr-accent-b)); -webkit-background-clip:text; color:transparent; }
 .footer-v2-desc { font-size:.9rem; line-height:1.55; margin:0 0 1.4rem; color:var(--ftr-text); }
 
 .footer-v2-social { display:flex; gap:.6rem; flex-wrap:wrap; }
