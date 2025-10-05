@@ -329,8 +329,18 @@
 
 /* ========== CONTEST RULES ========== */
 .contest-rules-layout {
-    display: grid;
-    gap: 2rem;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fill,minmax(340px,1fr));
+        align-items: start;
+}
+
+/* Force the prohibited box to break to a new full row (prevents tall empty column area) */
+.contest-prohibited-box { grid-column: 1 / -1; }
+
+@media (max-width: 760px) {
+    .contest-rules-layout { grid-template-columns: 1fr; }
+    .contest-prohibited-box { grid-column: auto; }
 }
 
 .contest-rule-box,
