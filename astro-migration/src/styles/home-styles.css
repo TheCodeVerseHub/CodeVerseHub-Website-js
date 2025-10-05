@@ -941,3 +941,16 @@ body {
 .contact-unified.contact-modern { background:transparent; }
 .contact-unified.contact-modern:before, .contact-unified.contact-modern:after { display:none; }
 .contact-unified .contact-modern-bg, .contact-unified .contact-accent-grid { display:none !important; }
+/* CTA unified variant */
+.cta-unified { background:transparent; }
+.cta-unified .cta-v2-orb { display:none !important; }
+.cta-panel-unified { backdrop-filter:blur(18px) saturate(155%); background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.16); box-shadow:0 16px 50px -15px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.03); }
+.cta-actions-unified .cta-primary { --btn-grad:linear-gradient(45deg,var(--cyan-blue),var(--purple)); background:var(--btn-grad); color:#fff; padding:1rem 1.8rem; font-weight:600; border-radius:18px; border:0; position:relative; overflow:hidden; display:flex; align-items:center; gap:.55rem; box-shadow:0 12px 34px -12px rgba(0,0,0,.7); }
+.cta-actions-unified .cta-primary:before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,rgba(255,255,255,.35),rgba(255,255,255,0) 65%); mix-blend-mode:overlay; opacity:.55; }
+.cta-actions-unified .cta-primary:hover { filter:brightness(1.1); transform:translateY(-3px); }
+.cta-actions-unified .cta-secondary { background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.25); padding:.95rem 1.7rem; font-weight:600; border-radius:18px; backdrop-filter:blur(14px); position:relative; overflow:hidden; display:flex; align-items:center; gap:.55rem; }
+.cta-actions-unified .cta-secondary:before { content:""; position:absolute; inset:0; background:linear-gradient(95deg,rgba(255,255,255,.18),rgba(255,255,255,0) 70%); opacity:.4; }
+.cta-actions-unified .cta-secondary:hover { background:linear-gradient(45deg,var(--cyan-blue),var(--purple)); color:#fff; border-color:transparent; box-shadow:0 10px 30px -10px rgba(0,0,0,.7); }
+.cta-badges-unified .cta-v2-badge { background:linear-gradient(120deg,rgba(255,255,255,.14),rgba(255,255,255,.05)); border:1px solid rgba(255,255,255,.18); color:#b6c6d8; }
+.cta-badges-unified .cta-v2-badge:before { background:linear-gradient(100deg,rgba(0,229,255,.4),rgba(156,39,176,0)); }
+@media (max-width:720px){ .cta-actions-unified { flex-direction:column; } .cta-actions-unified .cta-primary, .cta-actions-unified .cta-secondary { width:100%; justify-content:center; } }
