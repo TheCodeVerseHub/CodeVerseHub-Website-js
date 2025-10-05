@@ -1,0 +1,13 @@
+:root {
+  --bg-primary: #06121c;
+  --bg-secondary: #0a192f;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --cyan-blue: #00B5D8;
+  --purple: #0078D7;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --gradient-primary: linear-gradient(90deg, var(--cyan-blue), var(--purple));
+}

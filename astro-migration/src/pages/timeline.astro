@@ -1,205 +1,303 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+interface TimelineEvent {
+  date: string;
+  month: string;
+  year: number;
+  icon: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+interface RoadmapItem {
+  icon: string;
+  title: string;
+  description: string;
+  timeline: string;
+}
+
+const timelineEvents: TimelineEvent[] = [
+  { date: '15', month: 'SEP', year: 2025, icon: 'fa-users', title: '400 Members Milestone', description: 'Celebrated reaching 400 members! The community continues to thrive and attract passionate programmers.', tags: ['Milestone', 'Growth'] },
+  { date: '25', month: 'AUG', year: 2025, icon: 'fa-image', title: 'Official Server Logo Released', description: 'Unveiled the official CodeVerseHub server logo, giving the community a unique and recognizable identity.', tags: ['Logo', 'Identity'] },
+  { date: '23', month: 'AUG', year: 2025, icon: 'fa-users', title: '300 Members Milestone', description: 'Community reached 300 members, continuing the rapid growth and engagement.', tags: ['Milestone', 'Community'] },
+  { date: '01', month: 'AUG', year: 2025, icon: 'fa-robot', title: 'Official Bot Launched', description: 'Launched our official server bot "Codeverse" to automate tasks, manage contests, and enhance the community experience.', tags: ['Bot', 'Automation'] },
+  { date: '28', month: 'JUL', year: 2025, icon: 'fa-users', title: '200 Members Milestone', description: 'Community doubled to 200 members, showing the growing interest in CodeVerseHub.', tags: ['Milestone', 'Growth'] },
+  { date: '06', month: 'JUL', year: 2025, icon: 'fa-users', title: '100 Members Milestone', description: 'Our community reached its first 100 members, marking the beginning of a rapidly growing journey.', tags: ['Milestone', 'Community'] },
+  { date: '01', month: 'JUN', year: 2025, icon: 'fa-lightbulb', title: 'CodeVerseHub Activation', description: 'Decision made to actively develop and grow CodeVerseHub. The community started gaining new members daily and the vision became a reality.', tags: ['Activation', 'Growth'] },
+  { date: '17', month: 'JUL', year: 2024, icon: 'fa-seedling', title: 'CodeVerseHub Founded (Inactive)', description: 'Founded with the vision to build a vibrant programming community, remained inactive for several months as the idea matured.', tags: ['Founded', 'Vision'] },
+];
+
+const roadmap: RoadmapItem[] = [
+  { icon: 'fa-trophy', title: 'More Contests', description: 'Weekly and monthly contests with diverse problem sets.', timeline: 'Q4 2025' },
+  { icon: 'fa-users', title: '1000 Members Milestone', description: 'Scale community to 1000+ active members.', timeline: 'Q1 2026' },
+  { icon: 'fa-code', title: 'Problem Bank Expansion', description: 'Expand curated problems to 500+ items.', timeline: 'Q2 2026' },
+  { icon: 'fa-chalkboard-teacher', title: 'Mentor Sessions', description: 'Launch mentor-led cohorts for interview prep and peer learning.', timeline: 'Q3 2026' },
+];
+
+const years = [...new Set(timelineEvents.map((event) => event.year))].sort((a, b) => b - a);
+const latestYear = years[0];
+const uniqueTags = [...new Set(timelineEvents.flatMap((event) => event.tags))].sort();
+const milestoneEvents = timelineEvents.filter((event) => event.tags.includes('Milestone'));
+const highlightStats = {
+  totalEvents: timelineEvents.length,
+  milestoneCount: milestoneEvents.length,
+  activeYears: years.length,
+  roadmapGoals: roadmap.length,
+};
+const latestMilestone = milestoneEvents[0] ?? timelineEvents[0];
+const foundingEvent = timelineEvents[timelineEvents.length - 1];
+const eventsByYear = years.map((year) => ({
+  year,
+  events: timelineEvents.filter((event) => event.year === year),
+}));
 ---
 
-<Layout title="Timeline - CodeVerseHub">
-<div class="timeline-scope">
-<!-- Hero -->
-<section class="timeline-hero">
-    <div class="container text-center">
-        <h1 class="mb-2"><i class="fas fa-clock text-info me-2"></i>CodeVerseHub — Timeline</h1>
-        <p class="lead mx-auto">Short highlights from our community growth, releases, and milestones.</p>
-    </div>
-</section>
-
-<!-- Center-line Timeline -->
-<section class="timeline-content">
+<Layout title="Timeline - CodeVerseHub" description="Chart CodeVerseHub's community milestones and roadmap of future initiatives.">
+  <section class="timeline-hero-section">
     <div class="container">
-        <div class="timeline">
-            <div class="text-center timeline-year"><h2>2025</h2></div>
+      <div class="timeline-hero-content">
+        <span class="timeline-hero-badge">
+          <i class="fas fa-bolt"></i>
+          {foundingEvent.year} – Present
+        </span>
+        <h1>
+          <i class="fas fa-clock text-info me-2" aria-hidden="true"></i>
+          CodeVerseHub — Living Timeline
+        </h1>
+        <p>
+          From a quiet idea in {foundingEvent.month} {foundingEvent.year} to a thriving hub today, this live timeline
+          captures the community wins, releases, and experiments powering CodeVerseHub.
+        </p>
 
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"><span class="month">Sep</span><span class="day">15</span></div>
-                <div class="timeline-card">
-                    <div class="timeline-title"><i class="fas fa-users text-info me-2"></i>400 Members Milestone</div>
-                    <p class="timeline-text">Celebrated reaching 400 members! The community continues to thrive and attract passionate programmers.</p>
-                    <div class="timeline-tags">
-                        <span class="badge bg-info text-dark">Milestone</span>
-                        <span class="badge bg-primary">Growth</span>
-                    </div>
-                </div>
+        <div class="timeline-hero-grid">
+          <div class="hero-stat glass-card" aria-label={`${highlightStats.totalEvents} recorded community milestones`}>
+            <span class="stat-label">Tracked Moments</span>
+            <strong class="stat-value">{highlightStats.totalEvents}</strong>
+            <span class="stat-meta">documented highlights so far</span>
+          </div>
+          <div class="hero-stat glass-card" aria-label={`${highlightStats.milestoneCount} milestone achievements`}>
+            <span class="stat-label">Milestone Wins</span>
+            <strong class="stat-value">{highlightStats.milestoneCount}</strong>
+            <span class="stat-meta">major member milestones</span>
+          </div>
+          <div class="hero-stat glass-card" aria-label={`${highlightStats.activeYears} active years`}>
+            <span class="stat-label">Active Years</span>
+            <strong class="stat-value">{highlightStats.activeYears}</strong>
+            <span class="stat-meta">and counting</span>
+          </div>
+          <div class="hero-highlight glass-card" role="note">
+            <div class="highlight-meta">
+              <span class="highlight-label">Latest Milestone</span>
+              <span class="highlight-date">{latestMilestone.month} {latestMilestone.date}, {latestMilestone.year}</span>
             </div>
-
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"><span class="month">Aug</span><span class="day">25</span></div>
-                <div class="timeline-card">
-                    <div class="timeline-title"><i class="fas fa-image text-info me-2"></i>Official Server Logo Released</div>
-                    <p class="timeline-text">Unveiled the official CodeVerseHub server logo, giving the community a unique and recognizable identity.</p>
-                    <div class="timeline-tags">
-                        <span class="badge bg-info text-dark">Logo</span>
-                        <span class="badge bg-primary">Identity</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"><span class="month">Aug</span><span class="day">23</span></div>
-                <div class="timeline-card">
-                    <div class="timeline-title"><i class="fas fa-users text-info me-2"></i>300 Members Milestone</div>
-                    <p class="timeline-text">Community reached 300 members, continuing the rapid growth and engagement.</p>
-                    <div class="timeline-tags">
-                        <span class="badge bg-info text-dark">Milestone</span>
-                        <span class="badge bg-primary">Community</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"><span class="month">Aug</span><span class="day">01</span></div>
-                <div class="timeline-card">
-                    <div class="timeline-title"><i class="fas fa-robot text-info me-2"></i>Official Bot Launched</div>
-                    <p class="timeline-text">Launched our official server bot "Codeverse" to automate tasks, manage contests, and enhance the community experience.</p>
-                    <div class="timeline-tags">
-                        <span class="badge bg-info text-dark">Bot</span>
-                        <span class="badge bg-primary">Automation</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"><span class="month">Jul</span><span class="day">28</span></div>
-                <div class="timeline-card">
-                    <div class="timeline-title"><i class="fas fa-users text-info me-2"></i>200 Members Milestone</div>
-                    <p class="timeline-text">Community doubled to 200 members, showing the growing interest in CodeVerseHub.</p>
-                    <div class="timeline-tags">
-                        <span class="badge bg-info text-dark">Milestone</span>
-                        <span class="badge bg-primary">Growth</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"><span class="month">Jul</span><span class="day">06</span></div>
-                <div class="timeline-card">
-                    <div class="timeline-title"><i class="fas fa-users text-info me-2"></i>100 Members Milestone</div>
-                    <p class="timeline-text">Our community reached its first 100 members, marking the beginning of a rapidly growing journey.</p>
-                    <div class="timeline-tags">
-                        <span class="badge bg-info text-dark">Milestone</span>
-                        <span class="badge bg-primary">Community</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"><span class="month">Jun</span><span class="day">01</span></div>
-                <div class="timeline-card">
-                    <div class="timeline-title"><i class="fas fa-lightbulb text-info me-2"></i>CodeVerseHub Activation</div>
-                    <p class="timeline-text">Decision made to actively develop and grow CodeVerseHub. The community started gaining new members daily and the vision became a reality.</p>
-                    <div class="timeline-tags">
-                        <span class="badge bg-info text-dark">Activation</span>
-                        <span class="badge bg-primary">Growth</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center timeline-year"><h2>2024</h2></div>
-
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date"><span class="month">Jul</span><span class="day">17</span></div>
-                <div class="timeline-card">
-                    <div class="timeline-title"><i class="fas fa-seedling text-info me-2"></i>CodeVerseHub Founded (Inactive)</div>
-                    <p class="timeline-text">Founded with the vision to build a vibrant programming community, remained inactive for several months as the idea matured.</p>
-                    <div class="timeline-tags">
-                        <span class="badge bg-info text-dark">Founded</span>
-                        <span class="badge bg-primary">Vision</span>
-                    </div>
-                </div>
-            </div>
+            <h3>{latestMilestone.title}</h3>
+            <p>{latestMilestone.description}</p>
+            <a class="highlight-link" href="#year-{latestMilestone.year}">
+              View the story <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
-    </div>
-</section>
 
-<!-- Plans + Join -->
-<section class="future-plans py-5">
+        <div class="timeline-legend glass-sub">
+          <div class="legend-text">
+            <i class="fas fa-tags" aria-hidden="true"></i>
+            <span>Tag legend</span>
+          </div>
+          <div class="legend-tags" role="list">
+            {uniqueTags.map((tag) => (
+              <span class={`timeline-tag legend ${tag.toLowerCase()}`} role="listitem">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section dark-bg">
     <div class="container">
-        <div class="section-header text-center mb-4">
-            <h2><i class="fas fa-forward"></i> Looking Ahead</h2>
-            <p class="mb-0">Short roadmap for the next phases</p>
-        </div>
-        <div class="plans-grid">
-            <div class="plan-card">
-                <div class="plan-icon"><i class="fas fa-trophy"></i></div>
-                <h3>More Contests</h3>
-                <p>Weekly and monthly contests with diverse problem sets.</p>
-                <div class="plan-timeline">Q4 2025</div>
-            </div>
-            <div class="plan-card">
-                <div class="plan-icon"><i class="fas fa-users"></i></div>
-                <h3>1000 Members Milestone</h3>
-                <p>Scale community to 1000+ active members.</p>
-                <div class="plan-timeline">Q1 2026</div>
-            </div>
-            <div class="plan-card">
-                <div class="plan-icon"><i class="fas fa-code"></i></div>
-                <h3>Problem Bank Expansion</h3>
-                <p>Expand curated problems to 500+ items.</p>
-                <div class="plan-timeline">Q2 2026</div>
-            </div>
-        </div>
-    </div>
-</section>
+      <div class="timeline-controls">
+        <nav class="timeline-year-nav" aria-label="Timeline years">
+          {eventsByYear.map(({ year, events }) => (
+            <a href={`#year-${year}`} class={`year-link ${year === latestYear ? 'active' : ''}`} data-year={year}>
+              <span class="year-number">{year}</span>
+              <span class="year-count">{events.length} events</span>
+            </a>
+          ))}
+        </nav>
 
-<section class="join-journey py-5 text-center">
-    <div class="container">
-        <h2 class="mb-3">Be Part of Our Journey</h2>
-        <p class="mb-3 text-secondary">Join our community and help shape the future of competitive programming.</p>
-        <a href="https://discord.gg/3xKFvKhuGR" class="btn btn-outline-info btn-lg"><i class="fab fa-discord me-2"></i>Join Our Discord</a>
+        <div class="timeline-filter-controls" role="group" aria-label="Filter timeline events by tag">
+          <span class="filter-label">Filter by tag</span>
+          <div class="filter-group">
+            <button type="button" class="timeline-filter-btn active" data-filter="all">All</button>
+            {uniqueTags.map((tag) => (
+              <button type="button" class="timeline-filter-btn" data-filter={tag}>{tag}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {eventsByYear.map(({ year, events }) => (
+        <div class="timeline-year-group" id={`year-${year}`} data-year={year}>
+          <div class="year-badge">
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+            <span>{year}</span>
+          </div>
+
+          <div class="timeline-track">
+            {events.map((event, index) => (
+              <article class="timeline-item" data-tags={event.tags.join('|')} data-month={event.month} data-index={index}>
+                <div class="timeline-connector" aria-hidden="true"></div>
+                <div class="timeline-marker" aria-hidden="true"></div>
+                <div class="timeline-date-badge" aria-hidden="true">
+                  <span class="date-day">{event.date}</span>
+                  <span class="date-month">{event.month}</span>
+                </div>
+
+                <div class="timeline-content">
+                  <div class="timeline-meta">
+                    <span class="timeline-meta-chip">
+                      <i class={`fas ${event.icon}`} aria-hidden="true"></i>
+                      <span>{event.month} {event.date}, {event.year}</span>
+                    </span>
+                  </div>
+                  <h3>{event.title}</h3>
+                  <p>{event.description}</p>
+                  <div class="timeline-tags" role="list">
+                    {event.tags.map((tag) => (
+                      <span class={`timeline-tag ${tag.toLowerCase()}`} role="listitem">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
-</section>
-</div>
+  </section>
+
+  <section class="roadmap-section">
+    <div class="container">
+      <div class="section-header-modern">
+        <span class="section-badge"><i class="fas fa-route"></i> Roadmap</span>
+        <h2>Looking Ahead</h2>
+        <p>Here’s a peek at what the team is actively building to supercharge the community experience.</p>
+      </div>
+      <div class="roadmap-grid">
+        {roadmap.map((item) => (
+          <div class="roadmap-card glass-card" data-timeline={item.timeline}>
+            <div class="roadmap-icon">
+              <i class={`fas ${item.icon}`} aria-hidden="true"></i>
+            </div>
+            <div class="roadmap-meta">
+              <span class="roadmap-timeline-chip">{item.timeline}</span>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-cta-section dark-bg">
+    <div class="container">
+      <div class="cta-content-modern">
+        <h2>Be Part of Our Journey</h2>
+        <p>Jump into the Discord server, join a contest, or mentor someone new — every contribution shifts the timeline forward.</p>
+        <a href="https://discord.gg/3xKFvKhuGR" class="btn-gradient-modern">
+          <i class="fab fa-discord" aria-hidden="true"></i>
+          <span>Join Our Discord</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const timelineItems: HTMLElement[] = Array.from(document.querySelectorAll<HTMLElement>('.timeline-item'));
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px',
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll<HTMLElement>('.timeline-item, .roadmap-card')
+        .forEach((element) => {
+          revealObserver.observe(element);
+        });
+
+      timelineItems.forEach((item, index) => item.style.setProperty('--item-index', index.toString()));
+
+      const filterButtons: HTMLButtonElement[] = Array.from(
+        document.querySelectorAll<HTMLButtonElement>('.timeline-filter-btn'),
+      );
+      let activeFilter: string = 'all';
+
+      const applyFilters = (tag: string) => {
+        timelineItems.forEach((item) => {
+          const tags = (item.dataset.tags ?? '').split('|').filter(Boolean);
+          const matches = tag === 'all' || tags.includes(tag);
+          item.classList.toggle('is-hidden', !matches);
+        });
+      };
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const filterValue = button.dataset.filter ?? 'all';
+          if (filterValue === activeFilter) return;
+          activeFilter = filterValue;
+
+          filterButtons.forEach((btn) => {
+            btn.classList.toggle('active', (btn.dataset.filter ?? '') === activeFilter);
+          });
+
+          applyFilters(activeFilter);
+
+          if (activeFilter !== 'all') {
+            const firstVisible = timelineItems.find((item) => !item.classList.contains('is-hidden'));
+            firstVisible?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+
+      const yearSections: HTMLElement[] = Array.from(
+        document.querySelectorAll<HTMLElement>('.timeline-year-group'),
+      );
+      const yearLinks: HTMLAnchorElement[] = Array.from(
+        document.querySelectorAll<HTMLAnchorElement>('.year-link'),
+      );
+
+      const updateActiveYear = () => {
+        const scrollMarker = window.scrollY + window.innerHeight * 0.3;
+        let currentYear: string | null = null;
+
+        yearSections.forEach((section) => {
+          const top = section.offsetTop;
+          if (scrollMarker >= top) {
+            currentYear = section.dataset.year ?? null;
+          }
+        });
+
+        if (!currentYear) return;
+
+        yearLinks.forEach((link) => {
+          link.classList.toggle('active', (link.dataset.year ?? '') === currentYear);
+        });
+      };
+
+      updateActiveYear();
+      window.addEventListener('scroll', () => window.requestAnimationFrame(updateActiveYear), { passive: true });
+    });
+  </script>
 </Layout>
-
-<style>
-  .timeline {
-    position: relative;
-    padding: 2rem 0;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--cyan-blue), var(--purple));
-  }
-  .timeline-item {
-    position: relative;
-    padding-left: 60px;
-    margin-bottom: 2rem;
-  }
-  .timeline-marker {
-    position: absolute;
-    left: 11px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--cyan-blue);
-    border: 3px solid var(--bg-primary);
-  }
-  .timeline-content {
-    padding: 1.5rem;
-  }
-  .timeline-content h3 {
-    color: var(--cyan-blue);
-    margin-bottom: 0.5rem;
-  }
-</style>

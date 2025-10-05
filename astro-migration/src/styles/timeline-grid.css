@@ -1,0 +1,93 @@
+/* Timeline grid layout styling */
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.timeline-year-group {
+  margin-bottom: 2rem;
+}
+
+.year-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--cyan-blue), var(--blue));
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+}
+
+.year-badge i {
+  color: #fff;
+}
+
+/* Reset any previous styling from timeline-modern.css */
+.timeline-track::before {
+  display: none;
+}
+
+.timeline-marker {
+  display: none;
+}
+
+.timeline-date-badge {
+  display: none;
+}
+
+/* Timeline section styling */
+.timeline-section {
+  background-color: var(--bg-primary);
+  padding: 4rem 0;
+}
+
+/* Container width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Timeline hero section */
+.timeline-hero-section {
+  background: linear-gradient(135deg, var(--cyan-blue), var(--blue));
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.timeline-hero-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.timeline-hero-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .timeline-hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .timeline-hero-section p {
+    font-size: 1rem;
+  }
+}

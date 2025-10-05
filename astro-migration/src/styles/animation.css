@@ -1,0 +1,46 @@
+/* Animation styles for timeline elements */
+.timeline-item.animate-in,
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Staggered animation for timeline items */
+.timeline-grid .timeline-item:nth-child(1) { transition-delay: 0.1s; }
+.timeline-grid .timeline-item:nth-child(2) { transition-delay: 0.2s; }
+.timeline-grid .timeline-item:nth-child(3) { transition-delay: 0.3s; }
+.timeline-grid .timeline-item:nth-child(4) { transition-delay: 0.4s; }
+.timeline-grid .timeline-item:nth-child(5) { transition-delay: 0.5s; }
+.timeline-grid .timeline-item:nth-child(6) { transition-delay: 0.6s; }
+.timeline-grid .timeline-item:nth-child(7) { transition-delay: 0.7s; }
+.timeline-grid .timeline-item:nth-child(8) { transition-delay: 0.8s; }
+
+/* Animation for roadmap cards */
+.roadmap-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.roadmap-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.roadmap-grid .roadmap-card:nth-child(1) { transition-delay: 0.2s; }
+.roadmap-grid .roadmap-card:nth-child(2) { transition-delay: 0.4s; }
+.roadmap-grid .roadmap-card:nth-child(3) { transition-delay: 0.6s; }
+
+/* Subtle hover animations */
+.timeline-icon {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-tag {
+  transition: transform 0.2s ease;
+}
+
+.timeline-tag:hover {
+  transform: translateY(-2px);
+}
