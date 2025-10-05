@@ -12,7 +12,8 @@
 /* ========== HERO SECTION ========== */
 .rules-hero-modern {
     position: relative;
-    padding: 8rem 0 6rem;
+    /* compacted from 8rem 0 6rem */
+    padding: 5.2rem 0 3.8rem;
     overflow: hidden;
     background: linear-gradient(135deg, #0a0f18 0%, #111b29 50%, #141e2d 100%);
 }
@@ -35,15 +36,15 @@
 }
 
 .rules-hero-icon {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 2rem;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 1.4rem;
     background: linear-gradient(135deg, var(--cyan-blue), var(--purple));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.4rem;
     color: white;
     box-shadow: 
         0 0 40px rgba(0, 229, 255, 0.4),
@@ -57,10 +58,10 @@
 }
 
 .rules-hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.3rem, 4.4vw, 3.4rem);
     font-weight: 800;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
+    margin-bottom: 1rem;
+    line-height: 1.15;
 }
 
 .rules-hero-subtitle {
@@ -859,15 +860,10 @@
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
-    .rules-hero-modern {
-        padding: 5rem 0 4rem;
-    }
-    
-    .rules-hero-icon {
-        width: 80px;
-        height: 80px;
-        font-size: 2.5rem;
-    }
+    .rules-hero-modern { padding: 3.8rem 0 2.6rem; }
+    .rules-hero-icon { width: 70px; height: 70px; font-size: 2rem; margin-bottom: 1rem; }
+    .rules-hero-title { font-size: clamp(2rem, 6vw, 2.7rem); margin-bottom: 0.75rem; }
+    .rules-hero-subtitle { font-size: 1rem; }
     
     .rules-nav-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
