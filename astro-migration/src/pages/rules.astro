@@ -31,18 +31,6 @@ import Layout from '../layouts/Layout.astro';
                     </div>
                     <span>General Conduct</span>
                 </a>
-                <a href="#contest-rules" class="rules-nav-card glass-card">
-                    <div class="rules-nav-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <span>Contest Rules</span>
-                </a>
-                <a href="#problem-submission" class="rules-nav-card glass-card">
-                    <div class="rules-nav-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <span>Problem Submission</span>
-                </a>
                 <a href="#discord-guidelines" class="rules-nav-card glass-card">
                     <div class="rules-nav-icon">
                         <i class="fab fa-discord"></i>
@@ -135,160 +123,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </section>
 
-    <!-- Contest Rules -->
-    <section id="contest-rules" class="rules-section-modern tight-bottom">
-        <div class="container">
-            <div class="rules-section-header">
-                <div class="section-icon-badge">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h2 class="section-title-modern">Contest Rules</h2>
-                <p class="section-subtitle">Specific guidelines for participating in CodeVerseHub contests.</p>
-            </div>
-            <div class="contest-rules-layout">
-                <div class="contest-rule-box glass-card">
-                    <div class="contest-rule-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Contest Timing & Registration</h3>
-                    <div class="contest-rule-items">
-                        <div class="contest-rule-item">
-                            <strong>Registration:</strong>
-                            <span>Register before the contest deadline to participate</span>
-                        </div>
-                        <div class="contest-rule-item">
-                            <strong>Start Time:</strong>
-                            <span>Contests begin at the scheduled time regardless of registration status</span>
-                        </div>
-                        <div class="contest-rule-item">
-                            <strong>Duration:</strong>
-                            <span>Submit solutions within the specified contest duration</span>
-                        </div>
-                        <div class="contest-rule-item">
-                            <strong>Late Submissions:</strong>
-                            <span>No submissions accepted after the contest ends</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="contest-rule-box glass-card">
-                    <div class="contest-rule-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Code Submission Guidelines</h3>
-                    <div class="contest-rule-items">
-                        <div class="contest-rule-item">
-                            <strong>Original Work:</strong>
-                            <span>All submissions must be your own original code</span>
-                        </div>
-                        <div class="contest-rule-item">
-                            <strong>Language Support:</strong>
-                            <span>Use supported programming languages only</span>
-                        </div>
-                        <div class="contest-rule-item">
-                            <strong>External Libraries:</strong>
-                            <span>Only standard libraries are permitted unless specified</span>
-                        </div>
-                        <div class="contest-rule-item">
-                            <strong>Code Clarity:</strong>
-                            <span>Write clean, readable code with appropriate comments</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="contest-prohibited-box glass-card">
-                    <div class="contest-rule-icon danger">
-                        <i class="fas fa-ban"></i>
-                    </div>
-                    <h3>Prohibited During Contests</h3>
-                    <div class="prohibited-grid-modern">
-                        <div class="prohibited-item-modern">
-                            <i class="fas fa-users-slash"></i>
-                            <span>Collaboration with other participants</span>
-                        </div>
-                        <div class="prohibited-item-modern">
-                            <i class="fas fa-search"></i>
-                            <span>Searching for problem solutions online</span>
-                        </div>
-                        <div class="prohibited-item-modern">
-                            <i class="fas fa-copy"></i>
-                            <span>Copying code from external sources</span>
-                        </div>
-                        <div class="prohibited-item-modern">
-                            <i class="fas fa-robot"></i>
-                            <span>Using AI assistance for solutions</span>
-                        </div>
-                        <div class="prohibited-item-modern">
-                            <i class="fas fa-exchange-alt"></i>
-                            <span>Sharing solutions during contest</span>
-                        </div>
-                        <div class="prohibited-item-modern">
-                            <i class="fas fa-user-friends"></i>
-                            <span>Multiple accounts by same person</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Submission -->
-    <section id="problem-submission" class="rules-section-modern dark-bg tight-top">
-        <div class="container">
-            <div class="rules-section-header">
-                <div class="section-icon-badge">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h2 class="section-title-modern">Problem Submission Guidelines</h2>
-                <p class="section-subtitle">Rules for submitting solutions to practice problems and contest challenges.</p>
-            </div>
-            <div class="rules-cards-grid three-col">
-                <div class="rule-card-modern glass-card">
-                    <div class="rule-card-header">
-                        <div class="rule-icon-wrap">
-                            <i class="fas fa-file-code"></i>
-                        </div>
-                        <h3>Code Quality Standards</h3>
-                    </div>
-                    <ul class="rule-list-modern">
-                        <li><i class="fas fa-check"></i> Write clean, well-structured, and efficient code</li>
-                        <li><i class="fas fa-check"></i> Include meaningful variable and function names</li>
-                        <li><i class="fas fa-check"></i> Add comments for complex logic or algorithms</li>
-                        <li><i class="fas fa-check"></i> Follow consistent indentation and formatting</li>
-                        <li><i class="fas fa-check"></i> Handle edge cases and error conditions properly</li>
-                    </ul>
-                </div>
-                <div class="rule-card-modern glass-card">
-                    <div class="rule-card-header">
-                        <div class="rule-icon-wrap">
-                            <i class="fas fa-tachometer-alt"></i>
-                        </div>
-                        <h3>Performance Requirements</h3>
-                    </div>
-                    <ul class="rule-list-modern">
-                        <li><i class="fas fa-check"></i> Optimize solutions to meet time complexity requirements</li>
-                        <li><i class="fas fa-check"></i> Consider memory usage for large input datasets</li>
-                        <li><i class="fas fa-check"></i> Test with provided sample inputs and edge cases</li>
-                        <li><i class="fas fa-check"></i> Ensure solutions work within specified constraints</li>
-                        <li><i class="fas fa-check"></i> Avoid unnecessary loops or redundant operations</li>
-                    </ul>
-                </div>
-                <div class="rule-card-modern glass-card">
-                    <div class="rule-card-header">
-                        <div class="rule-icon-wrap">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h3>Testing & Validation</h3>
-                    </div>
-                    <ul class="rule-list-modern">
-                        <li><i class="fas fa-check"></i> Test your solution with all provided sample cases</li>
-                        <li><i class="fas fa-check"></i> Create additional test cases for thorough validation</li>
-                        <li><i class="fas fa-check"></i> Verify correct output format and precision</li>
-                        <li><i class="fas fa-check"></i> Check for off-by-one errors and boundary conditions</li>
-                        <li><i class="fas fa-check"></i> Validate input parsing and output formatting</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Discord Guidelines -->
     <section id="discord-guidelines" class="rules-section-modern">
@@ -607,7 +441,7 @@ import Layout from '../layouts/Layout.astro';
     }, observerOptions);
     
     // Observe all animated elements (added .contest-prohibited-box so it doesn't stay invisible)
-    document.querySelectorAll('.rule-card-modern, .contest-rule-box, .contest-prohibited-box, .violation-card-modern, .appeal-step-card').forEach(el => {
+    document.querySelectorAll('.rule-card-modern, .violation-card-modern, .appeal-step-card').forEach(el => {
         observer.observe(el);
     });
 </script>
