@@ -328,19 +328,40 @@
 }
 
 /* ========== CONTEST RULES ========== */
+/* Contest section layout polish: use auto-fit (collapse unused tracks) and constrain width */
 .contest-rules-layout {
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: repeat(auto-fill,minmax(340px,1fr));
-        align-items: start;
+    display: grid;
+    gap: 2.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Force the prohibited box to break to a new full row (prevents tall empty column area) */
-.contest-prohibited-box { grid-column: 1 / -1; }
+/* Prohibited box spans full row; add elevated border accent so area feels intentional */
+.contest-prohibited-box { 
+    grid-column: 1 / -1; 
+    position: relative;
+}
+.contest-prohibited-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255,87,34,0.25);
+    border-radius: 18px;
+    pointer-events: none;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    padding: 2px; /* creates an inner frame gap */
+}
 
 @media (max-width: 760px) {
     .contest-rules-layout { grid-template-columns: 1fr; }
     .contest-prohibited-box { grid-column: auto; }
+    .contest-prohibited-box::before { display: none; }
 }
 
 .contest-rule-box,
