@@ -204,13 +204,17 @@
 
 /* ========== SECTIONS ========== */
 .rules-section-modern {
-    padding: 5rem 0;
+    padding: 5rem 0; /* default spacious section spacing */
     position: relative;
 }
+/* When two rules sections are stacked directly one after another, reduce the combined gap */
+.rules-section-modern + .rules-section-modern { padding-top: 2rem; }
+/* Dark background variant stacked after another keeps reduced top padding */
+.rules-section-modern.dark-bg + .rules-section-modern { padding-top: 2rem; }
 
 .rules-section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3.2rem; /* slightly tighter to avoid large blank areas */
 }
 
 .section-icon-badge {
