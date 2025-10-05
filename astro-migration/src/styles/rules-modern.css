@@ -328,48 +328,43 @@
 }
 
 /* ========== CONTEST RULES ========== */
-/* Contest section layout polish: use auto-fit (collapse unused tracks) and constrain width */
+/* Contest section layout: force clear column logic to avoid awkward white space */
 .contest-rules-layout {
     display: grid;
-    gap: 2.2rem;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-    align-items: start;
+    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(300px, 1fr)); /* base: two columns */
+    align-items: stretch;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /* Force the prohibited box to break to a new full row (prevents tall empty column area) */
-/* Prohibited box spans full row; add elevated border accent so area feels intentional */
-.contest-prohibited-box { 
-    grid-column: 1 / -1; 
-    position: relative;
-}
-.contest-prohibited-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 1px solid rgba(255,87,34,0.25);
-    border-radius: 18px;
-    pointer-events: none;
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    padding: 2px; /* creates an inner frame gap */
-}
+/* Default: prohibited box behaves like a normal column card */
+.contest-prohibited-box { position: relative; }
 
-@media (max-width: 760px) {
+/* Large screens: show three columns so prohibited fits same row (eliminates vertical void) */
+@media (min-width: 1000px) {
+    .contest-rules-layout {
+        grid-template-columns: repeat(3, minmax(260px, 1fr));
+    }
+}
+/* Medium screens: two columns, prohibited drops below spanning full width */
+@media (max-width: 999px) and (min-width: 600px) {
+    .contest-prohibited-box { grid-column: 1 / -1; }
+}
+/* Small screens: single column stack */
+@media (max-width: 599px) {
     .contest-rules-layout { grid-template-columns: 1fr; }
     .contest-prohibited-box { grid-column: auto; }
-    .contest-prohibited-box::before { display: none; }
 }
 
+/* Remove fade delay for prohibited so user doesn't perceive gap */
 .contest-rule-box,
 .contest-prohibited-box {
     padding: 2.5rem 2rem;
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
 }
 
 .contest-rule-box.animate-in,
