@@ -937,3 +937,7 @@ body {
 .cta-panel-adv .cta-panel-border { position:absolute; inset:0; border-radius:inherit; background:linear-gradient(130deg,rgba(0,229,255,.28),rgba(156,39,176,0) 55%,rgba(156,39,176,.4)); opacity:.25; mix-blend-mode:screen; animation:ctaHue 12s linear infinite; pointer-events:none; }
 @keyframes ctaHue { 0% { filter:hue-rotate(0deg); } 100% { filter:hue-rotate(360deg); } }
 .trust-row { margin-top:2.3rem; }
+/* Contact unified background variant */
+.contact-unified.contact-modern { background:transparent; }
+.contact-unified.contact-modern:before, .contact-unified.contact-modern:after { display:none; }
+.contact-unified .contact-modern-bg, .contact-unified .contact-accent-grid { display:none !important; }
