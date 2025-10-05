@@ -277,56 +277,48 @@ const discordStats = { members: 450, channels: 10, bots: 5 };
     </div>
 </section>
 
-<!-- Contact Section V2 -->
-<section id="contact" class="contact-v2-wrapper gradient-bg dark-bg" aria-labelledby="contact-heading">
-    <div class="contact-v2-orb orb-1"></div>
-    <div class="contact-v2-orb orb-2"></div>
-    <div class="container">
-        <header class="contact-v2-header">
-            <span class="contact-v2-eyebrow">Connect</span>
-            <h2 id="contact-heading" class="contact-v2-title">Let's Build Something Together</h2>
-            <p class="contact-v2-subtitle">Collaborate, ask questions or just say hi. The CodeVerseHub core team reads every message.</p>
+<!-- Contact Section (Modern, unified with hero aesthetic) -->
+<section id="contact" class="contact-modern" aria-labelledby="contact-heading">
+    <div class="contact-modern-orb orb-a" aria-hidden="true"></div>
+    <div class="contact-modern-orb orb-b" aria-hidden="true"></div>
+    <div class="contact-modern-bg" aria-hidden="true"></div>
+    <div class="container contact-inner">
+        <header class="contact-head">
+            <span class="contact-eyebrow">Connect</span>
+            <h2 id="contact-heading" class="contact-title">Let's Build Something Together</h2>
+            <p class="contact-sub">Collaborate, ask questions or just say hi. The CodeVerseHub core team reads every message.</p>
         </header>
-        <div class="contact-v2-grid">
-            <!-- Info Panel -->
-            <div class="contact-v2-panel glass-card" aria-labelledby="contact-info-heading">
+        <div class="contact-grid">
+            <!-- Info / Social Panel -->
+            <div class="contact-info glass-card" aria-labelledby="contact-info-heading">
                 <h3 id="contact-info-heading" class="visually-hidden">Contact Information</h3>
-                <ul class="contact-v2-info-list">
-                    <li class="contact-v2-info-item">
-                        <div class="contact-v2-icon-wrap"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-v2-info-body">
-                            <span class="label">Email</span>
-                            <a href="mailto:contact@codeversehub.com">contact@codeversehub.com</a>
-                        </div>
+                <ul class="contact-info-list">
+                    <li>
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div class="meta"><span class="lbl">Email</span><a href="mailto:contact@codeversehub.com">contact@codeversehub.com</a></div>
                     </li>
-                    <li class="contact-v2-info-item">
-                        <div class="contact-v2-icon-wrap"><i class="fab fa-discord"></i></div>
-                        <div class="contact-v2-info-body">
-                            <span class="label">Discord</span>
-                            <a href="https://discord.gg/3xKFvKhuGR">THE CODEVERSE HUB</a>
-                        </div>
+                    <li>
+                        <div class="icon"><i class="fab fa-discord"></i></div>
+                        <div class="meta"><span class="lbl">Discord</span><a href="https://discord.gg/3xKFvKhuGR">THE CODEVERSE HUB</a></div>
                     </li>
-                    <li class="contact-v2-info-item">
-                        <div class="contact-v2-icon-wrap"><i class="fas fa-globe"></i></div>
-                        <div class="contact-v2-info-body">
-                            <span class="label">Server Invite</span>
-                            <a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener">Join Discord</a>
-                        </div>
+                    <li>
+                        <div class="icon"><i class="fas fa-globe"></i></div>
+                        <div class="meta"><span class="lbl">Server Invite</span><a href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener">Join Discord</a></div>
                     </li>
                 </ul>
-                <div class="cvh-social-row" aria-label="Social links">
-                    <a class="cvh-social-link" href="https://discord.gg/3xKFvKhuGR" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                    <a class="cvh-social-link" href="https://github.com/youngcoder45/cvhnewpyweb" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a class="cvh-social-link" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a class="cvh-social-link" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a class="cvh-social-link" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <div class="contact-social" aria-label="Social links">
+                    <a class="soc" href="https://discord.gg/3xKFvKhuGR" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a class="soc" href="https://github.com/youngcoder45/cvhnewpyweb" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a class="soc" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a class="soc" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a class="soc" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <!-- Form Panel -->
-            <div class="contact-v2-panel glass-card" aria-labelledby="contact-form-heading">
+            <div class="contact-form glass-card" aria-labelledby="contact-form-heading">
                 <h3 id="contact-form-heading" class="visually-hidden">Send a Message</h3>
-                <form id="contactForm" class="contact-v2-form" novalidate>
-                    <div class="contact-v2-form-row">
+                <form id="contactForm" class="contact-form-fields" novalidate>
+                    <div class="row-2">
                         <div class="field">
                             <input type="text" name="name" id="v2Name" placeholder=" " required />
                             <label for="v2Name">Name</label>
@@ -340,13 +332,13 @@ const discordStats = { members: 450, channels: 10, bots: 5 };
                         <input type="text" name="subject" id="v2Subject" placeholder=" " required />
                         <label for="v2Subject">Subject</label>
                     </div>
-                    <div class="field">
-                        <textarea name="message" id="v2Message" placeholder=" " required maxlength="1200"></textarea>
-                        <label for="v2Message">Message</label>
-                        <div class="char-counter-v2" id="cvhMessageCounter" aria-live="polite">0 / 1200 chars</div>
-                    </div>
-                    <button type="submit" class="contact-v2-submit"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
-                    <div id="formMessage" class="mt-3" style="display: none;"></div>
+                        <div class="field">
+                            <textarea name="message" id="v2Message" placeholder=" " required maxlength="1200"></textarea>
+                            <label for="v2Message">Message</label>
+                            <div class="char-counter-v2" id="cvhMessageCounter" aria-live="polite">0 / 1200 chars</div>
+                        </div>
+                    <button type="submit" class="contact-v2-submit contact-submit"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+                    <div id="formMessage" class="mt-3" style="display:none;"></div>
                 </form>
             </div>
         </div>
