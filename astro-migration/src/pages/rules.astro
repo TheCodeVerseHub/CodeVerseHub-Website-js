@@ -606,8 +606,8 @@ import Layout from '../layouts/Layout.astro';
         });
     }, observerOptions);
     
-    // Observe all animated elements
-    document.querySelectorAll('.rule-card-modern, .contest-rule-box, .violation-card-modern, .appeal-step-card').forEach(el => {
+    // Observe all animated elements (added .contest-prohibited-box so it doesn't stay invisible)
+    document.querySelectorAll('.rule-card-modern, .contest-rule-box, .contest-prohibited-box, .violation-card-modern, .appeal-step-card').forEach(el => {
         observer.observe(el);
     });
 </script>
