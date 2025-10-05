@@ -211,6 +211,9 @@
 .rules-section-modern + .rules-section-modern { padding-top: 2rem; }
 /* Dark background variant stacked after another keeps reduced top padding */
 .rules-section-modern.dark-bg + .rules-section-modern { padding-top: 2rem; }
+/* Fine-grained utilities for specific adjacent compression */
+.rules-section-modern.tight-bottom { padding-bottom: 2.2rem; }
+.rules-section-modern.tight-top { padding-top: 1.5rem; }
 
 .rules-section-header {
     text-align: center;
