@@ -1,1 +1,0 @@
-web: gunicorn codeversehub.wsgi:application --log-file -

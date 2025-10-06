@@ -37,267 +37,502 @@ const roadmap: RoadmapItem[] = [
 ];
 
 const years = [...new Set(timelineEvents.map((event) => event.year))].sort((a, b) => b - a);
-const latestYear = years[0];
-const uniqueTags = [...new Set(timelineEvents.flatMap((event) => event.tags))].sort();
-const milestoneEvents = timelineEvents.filter((event) => event.tags.includes('Milestone'));
-const highlightStats = {
-  totalEvents: timelineEvents.length,
-  milestoneCount: milestoneEvents.length,
-  activeYears: years.length,
-  roadmapGoals: roadmap.length,
-};
-const latestMilestone = milestoneEvents[0] ?? timelineEvents[0];
-const foundingEvent = timelineEvents[timelineEvents.length - 1];
 const eventsByYear = years.map((year) => ({
   year,
   events: timelineEvents.filter((event) => event.year === year),
 }));
+const foundingEvent = timelineEvents[timelineEvents.length - 1];
 ---
 
 <Layout title="Timeline - CodeVerseHub" description="Chart CodeVerseHub's community milestones and roadmap of future initiatives.">
-  <section class="timeline-hero-section">
-    <div class="container">
-      <div class="timeline-hero-content">
-        <span class="timeline-hero-badge">
-          <i class="fas fa-bolt"></i>
-          {foundingEvent.year} – Present
-        </span>
-        <h1>
-          <i class="fas fa-clock text-info me-2" aria-hidden="true"></i>
-          CodeVerseHub — Living Timeline
+  <div class="timeline-page-container">
+    <header class="timeline-hero">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <i class="fas fa-rocket" aria-hidden="true"></i>
+          The Journey of CodeVerseHub
         </h1>
-        <p>
-          From a quiet idea in {foundingEvent.month} {foundingEvent.year} to a thriving hub today, this live timeline
-          captures the community wins, releases, and experiments powering CodeVerseHub.
+        <p class="hero-subtitle">
+          From a simple idea in {foundingEvent.year} to a thriving community. Explore our milestones and see what's next on our roadmap.
         </p>
-
-        <div class="timeline-hero-grid">
-          <div class="hero-stat glass-card" aria-label={`${highlightStats.totalEvents} recorded community milestones`}>
-            <span class="stat-label">Tracked Moments</span>
-            <strong class="stat-value">{highlightStats.totalEvents}</strong>
-            <span class="stat-meta">documented highlights so far</span>
-          </div>
-          <div class="hero-stat glass-card" aria-label={`${highlightStats.milestoneCount} milestone achievements`}>
-            <span class="stat-label">Milestone Wins</span>
-            <strong class="stat-value">{highlightStats.milestoneCount}</strong>
-            <span class="stat-meta">major member milestones</span>
-          </div>
-          <div class="hero-stat glass-card" aria-label={`${highlightStats.activeYears} active years`}>
-            <span class="stat-label">Active Years</span>
-            <strong class="stat-value">{highlightStats.activeYears}</strong>
-            <span class="stat-meta">and counting</span>
-          </div>
-          <div class="hero-highlight glass-card" role="note">
-            <div class="highlight-meta">
-              <span class="highlight-label">Latest Milestone</span>
-              <span class="highlight-date">{latestMilestone.month} {latestMilestone.date}, {latestMilestone.year}</span>
-            </div>
-            <h3>{latestMilestone.title}</h3>
-            <p>{latestMilestone.description}</p>
-            <a class="highlight-link" href="#year-{latestMilestone.year}">
-              View the story <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="timeline-legend glass-sub">
-          <div class="legend-text">
-            <i class="fas fa-tags" aria-hidden="true"></i>
-            <span>Tag legend</span>
-          </div>
-          <div class="legend-tags" role="list">
-            {uniqueTags.map((tag) => (
-              <span class={`timeline-tag legend ${tag.toLowerCase()}`} role="listitem">{tag}</span>
-            ))}
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="timeline-section dark-bg">
-    <div class="container">
-      <div class="timeline-controls">
-        <nav class="timeline-year-nav" aria-label="Timeline years">
-          {eventsByYear.map(({ year, events }) => (
-            <a href={`#year-${year}`} class={`year-link ${year === latestYear ? 'active' : ''}`} data-year={year}>
-              <span class="year-number">{year}</span>
-              <span class="year-count">{events.length} events</span>
-            </a>
-          ))}
-        </nav>
-
-        <div class="timeline-filter-controls" role="group" aria-label="Filter timeline events by tag">
-          <span class="filter-label">Filter by tag</span>
-          <div class="filter-group">
-            <button type="button" class="timeline-filter-btn active" data-filter="all">All</button>
-            {uniqueTags.map((tag) => (
-              <button type="button" class="timeline-filter-btn" data-filter={tag}>{tag}</button>
-            ))}
-          </div>
-        </div>
-      </div>
-
+    <main class="timeline-main">
       {eventsByYear.map(({ year, events }) => (
-        <div class="timeline-year-group" id={`year-${year}`} data-year={year}>
-          <div class="year-badge">
-            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-            <span>{year}</span>
-          </div>
-
-          <div class="timeline-track">
+        <div class="timeline-year-section" id={`year-${year}`}>
+          <h2 class="year-heading">{year}</h2>
+          <div class="timeline">
             {events.map((event, index) => (
-              <article class="timeline-item" data-tags={event.tags.join('|')} data-month={event.month} data-index={index}>
-                <div class="timeline-connector" aria-hidden="true"></div>
-                <div class="timeline-marker" aria-hidden="true"></div>
-                <div class="timeline-date-badge" aria-hidden="true">
-                  <span class="date-day">{event.date}</span>
-                  <span class="date-month">{event.month}</span>
-                </div>
-
-                <div class="timeline-content">
-                  <div class="timeline-meta">
-                    <span class="timeline-meta-chip">
-                      <i class={`fas ${event.icon}`} aria-hidden="true"></i>
-                      <span>{event.month} {event.date}, {event.year}</span>
-                    </span>
+              <div class={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+                <div class="timeline-content-wrapper">
+                  <div class="timeline-date">
+                    <span>{event.month} {event.date}</span>
                   </div>
-                  <h3>{event.title}</h3>
-                  <p>{event.description}</p>
-                  <div class="timeline-tags" role="list">
-                    {event.tags.map((tag) => (
-                      <span class={`timeline-tag ${tag.toLowerCase()}`} role="listitem">{tag}</span>
-                    ))}
+                  <div class="timeline-icon">
+                    <i class={`fas ${event.icon}`}></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h3 class="event-title">{event.title}</h3>
+                    <p class="event-description">{event.description}</p>
+                    <div class="event-tags">
+                      {event.tags.map(tag => <span class={`tag ${tag.toLowerCase()}`}>{tag}</span>)}
+                    </div>
                   </div>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>
       ))}
-    </div>
-  </section>
+    </main>
 
-  <section class="roadmap-section">
-    <div class="container">
-      <div class="section-header-modern">
-        <span class="section-badge"><i class="fas fa-route"></i> Roadmap</span>
-        <h2>Looking Ahead</h2>
-        <p>Here’s a peek at what the team is actively building to supercharge the community experience.</p>
+    <section class="roadmap-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-route" aria-hidden="true"></i>
+          Our Roadmap
+        </h2>
+        <p class="section-subtitle">What we're building next to empower the community.</p>
       </div>
       <div class="roadmap-grid">
-        {roadmap.map((item) => (
-          <div class="roadmap-card glass-card" data-timeline={item.timeline}>
-            <div class="roadmap-icon">
-              <i class={`fas ${item.icon}`} aria-hidden="true"></i>
+        {roadmap.map((item, index) => (
+          <div class="roadmap-card" style={`--card-index: ${index};`}>
+            <div class="roadmap-card-header">
+              <i class={`fas ${item.icon} roadmap-icon`} aria-hidden="true"></i>
+              <span class="roadmap-timeline">{item.timeline}</span>
             </div>
-            <div class="roadmap-meta">
-              <span class="roadmap-timeline-chip">{item.timeline}</span>
-            </div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
+            <h3 class="roadmap-title">{item.title}</h3>
+            <p class="roadmap-description">{item.description}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="timeline-cta-section dark-bg">
-    <div class="container">
-      <div class="cta-content-modern">
-        <h2>Be Part of Our Journey</h2>
-        <p>Jump into the Discord server, join a contest, or mentor someone new — every contribution shifts the timeline forward.</p>
-        <a href="https://discord.gg/3xKFvKhuGR" class="btn-gradient-modern">
+    <footer class="timeline-footer">
+      <div class="cta-content">
+        <h2 class="cta-title">Become Part of Our Story</h2>
+        <p class="cta-text">Your next chapter in coding starts here. Join us and help shape the future of CodeVerseHub.</p>
+        <a href="https://discord.gg/3xKFvKhuGR" class="cta-button" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-discord" aria-hidden="true"></i>
-          <span>Join Our Discord</span>
+          Join the Community
         </a>
       </div>
-    </div>
-  </section>
+    </footer>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const timelineItems: HTMLElement[] = Array.from(document.querySelectorAll<HTMLElement>('.timeline-item'));
       const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -80px 0px',
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
       };
 
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
           }
         });
       }, observerOptions);
 
-      document
-        .querySelectorAll<HTMLElement>('.timeline-item, .roadmap-card')
-        .forEach((element) => {
-          revealObserver.observe(element);
-        });
-
-      timelineItems.forEach((item, index) => item.style.setProperty('--item-index', index.toString()));
-
-      const filterButtons: HTMLButtonElement[] = Array.from(
-        document.querySelectorAll<HTMLButtonElement>('.timeline-filter-btn'),
-      );
-      let activeFilter: string = 'all';
-
-      const applyFilters = (tag: string) => {
-        timelineItems.forEach((item) => {
-          const tags = (item.dataset.tags ?? '').split('|').filter(Boolean);
-          const matches = tag === 'all' || tags.includes(tag);
-          item.classList.toggle('is-hidden', !matches);
-        });
-      };
-
-      filterButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const filterValue = button.dataset.filter ?? 'all';
-          if (filterValue === activeFilter) return;
-          activeFilter = filterValue;
-
-          filterButtons.forEach((btn) => {
-            btn.classList.toggle('active', (btn.dataset.filter ?? '') === activeFilter);
-          });
-
-          applyFilters(activeFilter);
-
-          if (activeFilter !== 'all') {
-            const firstVisible = timelineItems.find((item) => !item.classList.contains('is-hidden'));
-            firstVisible?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        });
+      document.querySelectorAll('.timeline-item, .roadmap-card').forEach(el => {
+        observer.observe(el);
       });
-
-      const yearSections: HTMLElement[] = Array.from(
-        document.querySelectorAll<HTMLElement>('.timeline-year-group'),
-      );
-      const yearLinks: HTMLAnchorElement[] = Array.from(
-        document.querySelectorAll<HTMLAnchorElement>('.year-link'),
-      );
-
-      const updateActiveYear = () => {
-        const scrollMarker = window.scrollY + window.innerHeight * 0.3;
-        let currentYear: string | null = null;
-
-        yearSections.forEach((section) => {
-          const top = section.offsetTop;
-          if (scrollMarker >= top) {
-            currentYear = section.dataset.year ?? null;
-          }
-        });
-
-        if (!currentYear) return;
-
-        yearLinks.forEach((link) => {
-          link.classList.toggle('active', (link.dataset.year ?? '') === currentYear);
-        });
-      };
-
-      updateActiveYear();
-      window.addEventListener('scroll', () => window.requestAnimationFrame(updateActiveYear), { passive: true });
     });
   </script>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-bg: #111827;
+      --color-bg-secondary: #1f2937;
+      --color-border: #374151;
+      --color-text: #d1d5db;
+      --color-text-heading: #f9fafb;
+      --color-primary: #38bdf8;
+      --color-primary-glow: rgba(56, 189, 248, 0.3);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --border-radius: 0.75rem;
+      --transition-speed: 0.3s;
+    }
+
+    .timeline-page-container {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      padding-bottom: 4rem;
+    }
+
+    .timeline-hero {
+      padding: 6rem 2rem;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0) 0%, var(--color-bg) 100%),
+                  radial-gradient(circle at 50% 0%, var(--color-primary-glow) 0%, transparent 40%);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-text-heading);
+      margin-bottom: 1rem;
+      letter-spacing: -0.025em;
+    }
+
+    .hero-title .fas {
+      color: var(--color-primary);
+      margin-right: 0.75rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .timeline-main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .timeline-year-section {
+      margin-bottom: 4rem;
+    }
+
+    .year-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-text-heading);
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .year-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background-color: var(--color-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1rem 0;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .timeline-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item.left {
+      left: 0;
+      padding-right: 3rem;
+      text-align: right;
+    }
+
+    .timeline-item.right {
+      left: 50%;
+      padding-left: 3rem;
+    }
+
+    .timeline-content-wrapper {
+      position: relative;
+      padding: 0.5rem 0; /* Reduced padding */
+    }
+
+    .timeline-item:hover .event-title {
+      color: var(--color-primary);
+    }
+    
+    .timeline-item:hover .timeline-icon {
+      border-color: var(--color-primary);
+    }
+
+    .timeline-date {
+      position: absolute;
+      top: -12px; /* Adjusted position */
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      padding: 0.2rem 0.6rem; /* Smaller padding */
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.7rem; /* Smaller font */
+    }
+
+    .left .timeline-date {
+      right: 1.5rem;
+    }
+
+    .right .timeline-date {
+      left: 1.5rem;
+    }
+
+    .timeline-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px; /* Smaller icon */
+      height: 40px; /* Smaller icon */
+      background-color: transparent; /* No background */
+      border: 2px solid var(--color-border); /* Thinner border */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem; /* Smaller icon font */
+      color: var(--color-primary);
+      z-index: 10;
+      transition: border-color var(--transition-speed) ease;
+    }
+
+    .left .timeline-icon {
+      right: -20px; /* Adjusted position */
+    }
+
+    .right .timeline-icon {
+      left: -20px; /* Adjusted position */
+    }
+
+    .timeline-content {
+      background-color: transparent !important; /* Ensure no background */
+    }
+
+    .event-title {
+      font-size: 1.05rem; /* Smaller title */
+      font-weight: 600;
+      color: var(--color-text-heading);
+      margin-top: 0.5rem;
+      margin-bottom: 0.4rem;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .event-description {
+      font-size: 0.85rem; /* Smaller description */
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+      color: var(--color-text);
+    }
+
+    .event-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      background-color: var(--color-border);
+      color: var(--color-text);
+    }
+    
+    .tag.milestone { background-color: #1d4ed8; color: #eff6ff; }
+    .tag.growth { background-color: #047857; color: #ecfdf5; }
+    .tag.community { background-color: #be123c; color: #fff1f2; }
+    .tag.logo, .tag.identity { background-color: #7e22ce; color: #f5f3ff; }
+    .tag.bot, .tag.automation { background-color: #b91c1c; color: #fef2f2; }
+    .tag.activation { background-color: #166534; color: #f0fdf4; }
+    .tag.founded, .tag.vision { background-color: #854d0e; color: #fefce8; }
+
+    /* Roadmap Section */
+    .roadmap-section {
+      padding: 4rem 2rem;
+      background-color: var(--color-bg);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--color-text-heading);
+      margin-bottom: 0.5rem;
+    }
+    
+    .section-title .fas {
+        color: var(--color-primary);
+        margin-right: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .roadmap-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transition-delay: calc(var(--card-index) * 100ms);
+    }
+    
+    .roadmap-card.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .roadmap-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .roadmap-icon {
+      font-size: 2.5rem;
+      color: var(--color-primary);
+    }
+    
+    .roadmap-timeline {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--color-text);
+        background: var(--color-border);
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+    }
+
+    .roadmap-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-text-heading);
+      margin-bottom: 0.75rem;
+    }
+
+    .roadmap-description {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Footer CTA */
+    .timeline-footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--color-bg-secondary);
+      margin-top: 4rem;
+    }
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-text-heading);
+      margin-bottom: 1rem;
+    }
+
+    .cta-text {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #5865F2; /* Discord Blue */
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      background-color: #4f5bda;
+    }
+    
+    .cta-button .fab {
+        margin-right: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .timeline::before {
+        left: 25px;
+      }
+
+      .timeline-item, .timeline-item.right {
+        width: 100%;
+        left: 0;
+        padding-left: 4rem;
+        padding-right: 1rem;
+      }
+
+      .timeline-icon, .right .timeline-icon {
+        left: 0;
+      }
+    }
+  </style>
 </Layout>
