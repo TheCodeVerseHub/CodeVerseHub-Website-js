@@ -33,7 +33,7 @@ A comprehensive competitive programming platform built with Django for Discord c
 - **Frontend**: Bootstrap 5, HTML5, CSS3, JavaScript
 - **Database**: SQLite (development) / PostgreSQL (production ready)
 - **Authentication**: Django's built-in authentication with custom User model
-- **Forms**: Django Crispy Forms with Bootstrap4 theme
+- **Forms**: Djang Crispy Forms with Bootstrap4 theme
 - **Static Files**: Bootstrap CDN, Font Awesome, Chart.js
 
 ##  Project Structure
