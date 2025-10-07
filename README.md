@@ -2,7 +2,7 @@
 
 A comprehensive competitive programming platform built with Django for Discord communities. CodeVerseHub provides coding contests, problem repositories, user progress tracking, and community features.
 
-## 🚀 Features
+## Features
 
 ### Core Features
 - **User Authentication**: Custom user model with role-based permissions (Admin, Moderator, User)
@@ -27,16 +27,16 @@ A comprehensive competitive programming platform built with Django for Discord c
 - Platform analytics and statistics
 - Content moderation tools
 
-## 🛠 Technology Stack
+##  Technology Stack
 
-- **Backend**: Django 5.0.7 (Python)
+- **Backend**: Django 5.0.7 (Python) Now moved to Astro Js
 - **Frontend**: Bootstrap 5, HTML5, CSS3, JavaScript
 - **Database**: SQLite (development) / PostgreSQL (production ready)
 - **Authentication**: Django's built-in authentication with custom User model
 - **Forms**: Django Crispy Forms with Bootstrap4 theme
 - **Static Files**: Bootstrap CDN, Font Awesome, Chart.js
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 cvh/
@@ -63,7 +63,7 @@ cvh/
 └── manage.py               # Django management script
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -117,7 +117,7 @@ cvh/
    - Main site: http://127.0.0.1:8000/
    - Admin panel: http://127.0.0.1:8000/admin/
 
-## 📊 Database Models
+##  Database Models
 
 ### User Model
 - Custom user model extending AbstractUser
@@ -140,7 +140,7 @@ cvh/
 - Multiple programming language support
 - Execution time and memory usage tracking
 
-## 🎯 User Roles and Permissions
+##  User Roles and Permissions
 
 ### User (Default)
 - Participate in contests
@@ -160,7 +160,7 @@ cvh/
 - Platform configuration
 - Full admin panel access
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 Create a `.env` file (optional) for environment-specific settings:
@@ -199,7 +199,7 @@ Key settings in `settings.py`:
 - **Contest Creation**: Create and manage contests
 - **Problem Creation**: Create and manage problems
 
-## 🛡 Security Features
+##  Security Features
 
 - CSRF protection on all forms
 - User authentication and session management
@@ -207,7 +207,7 @@ Key settings in `settings.py`:
 - Input validation and sanitization
 - Secure file uploads
 
-## 📈 Future Enhancements
+##  Future Enhancements
 
 - Real-time code execution and evaluation
 - Advanced analytics and reporting
@@ -216,7 +216,7 @@ Key settings in `settings.py`:
 - Integration with external platforms
 - Enhanced community features
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -224,18 +224,18 @@ Key settings in `settings.py`:
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 This project is built for educational purposes and community use.
 
-## 🆘 Support
+##  Support
 
 For support and questions:
 - Check the FAQ page
 - Contact community moderators
 - Open an issue in the repository
 
-## 📝 Changelog
+##  Changelog
 
 ### Version 1.0.0 (September 2025)
 - Initial release
@@ -251,7 +251,7 @@ For support and questions:
 
 ---
 
-## 🚀 Production Deployment (Render)
+##  Production Deployment (Render)
 
 These steps prepare and deploy the Django app to Render's Python Web Service.
 
