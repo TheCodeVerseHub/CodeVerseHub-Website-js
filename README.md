@@ -2,7 +2,7 @@
 
 A modern and performant website built with Astro for the CodeVerseHub Discord community. Our platform showcases community events, contests, resources, and member achievements.
 
-## 🚀 Features
+## Features
 
 ### Core Features
 - **Modern Stack**: Built with Astro, React, and Tailwind CSS for optimal performance
@@ -27,7 +27,7 @@ A modern and performant website built with Astro for the CodeVerseHub Discord co
 - **SEO Ready**: Built-in SEO optimization tools
 - **Analytics**: Privacy-focused analytics integration
 
-## 🛠 Technology Stack
+##  Technology Stack
 
 - **Framework**: Astro 4.16.19
 - **UI Components**: React 18
@@ -36,34 +36,25 @@ A modern and performant website built with Astro for the CodeVerseHub Discord co
 - **Type Safety**: TypeScript
 - **Deployment**: Netlify/Vercel
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 cvh/
-├── codeversehub/           # Main Django project
-│   ├── settings.py         # Project settings
-│   ├── urls.py             # Main URL configuration
-│   └── wsgi.py             # WSGI configuration
-├── main/                   # Main Django app
-│   ├── models.py           # Database models
-│   ├── views.py            # View functions
-│   ├── forms.py            # Django forms
-│   ├── admin.py            # Admin configuration
-│   ├── urls.py             # App URL patterns
-│   └── migrations/         # Database migrations
-├── templates/              # HTML templates
-│   ├── base.html           # Base template
-│   └── main/               # App-specific templates
-├── static/                 # Static files
-│   ├── css/                # Custom CSS
-│   ├── js/                 # Custom JavaScript
-│   └── images/             # Images
-├── media/                  # User uploads
-├── requirements.txt        # Python dependencies
-└── manage.py               # Django management script
+├── astro-migration/      # Migration-related scripts and docs
+├── public/               # Static assets (images, fonts)
+├── src/                  # Source code
+│   ├── components/       # Reusable UI components (React/Astro)
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Site pages and API endpoints
+│   ├── styles/           # Global and component styles
+│   └── db/               # Drizzle ORM schema and seed
+├── package.json          # Project dependencies
+├── astro.config.mjs      # Astro configuration
+├── tsconfig.json         # TypeScript configuration
+└── README.md             # This file
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js 18 or higher
@@ -99,24 +90,6 @@ cvh/
 
 5. **Open the application**
    - Visit http://localhost:3000 in your browser
-   ```bash
-   python manage.py makemigrations
-   python manage.py migrate
-   ```
-
-6. **Create superuser (optional)**
-   ```bash
-   python manage.py createsuperuser
-   ```
-
-7. **Start development server**
-   ```bash
-   python manage.py runserver
-   ```
-
-8. **Access the application**
-   - Main site: http://127.0.0.1:8000/
-   - Admin panel: http://127.0.0.1:8000/admin/
 
 ## 📊 Development
 
@@ -197,7 +170,7 @@ The project uses TypeScript for type safety:
 - User journey analysis
 - Custom events
 
-## 📈 Future Enhancements
+##  Future Enhancements
 
 - Real-time chat integration
 - Discord bot integration
@@ -206,7 +179,7 @@ The project uses TypeScript for type safety:
 - Resource rating system
 - Community blog
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -214,18 +187,18 @@ The project uses TypeScript for type safety:
 4. Run tests and build
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 This project is built for educational purposes and community use.
 
-## 🆘 Support
+##  Support
 
 For support and questions:
 - Visit our Discord server
 - Check the FAQ page
 - Open an issue in the repository
 
-## 📝 Changelog
+##  Changelog
 
 ### Version 2.0.0 (October 2025)
 - Complete migration to Astro
@@ -242,6 +215,7 @@ For support and questions:
 ---
 
 ## 🚀 Deployment
+
 
 The website can be deployed to either Netlify or Vercel for optimal performance.
 
