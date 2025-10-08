@@ -1,40 +1,40 @@
-# CodeVerseHub - Discord Community Programming Platform
+# CodeVerseHub - Discord Community Website
 
-A comprehensive competitive programming platform built with Django for Discord communities. CodeVerseHub provides coding contests, problem repositories, user progress tracking, and community features.
+A modern and performant website built with Astro for the CodeVerseHub Discord community. Our platform showcases community events, contests, resources, and member achievements.
 
 ## 🚀 Features
 
 ### Core Features
-- **User Authentication**: Custom user model with role-based permissions (Admin, Moderator, User)
-- **Contest System**: Create, manage, and participate in coding contests
-- **Problem Repository**: Extensive library of algorithmic problems with difficulty levels
-- **Submission System**: Submit solutions in multiple programming languages
-- **User Dashboard**: Personalized dashboard with statistics and progress tracking
-- **Admin Panel**: Comprehensive administrative interface for platform management
+- **Modern Stack**: Built with Astro, React, and Tailwind CSS for optimal performance
+- **Hybrid Rendering**: SSR + static generation for the best of both worlds
+- **Community Hub**: Showcase upcoming events, contests, and community achievements
+- **Resource Library**: Curated programming resources and learning materials
+- **Interactive UI**: Dynamic components with seamless navigation
+- **Dark Mode**: Full dark mode support with system preference detection
 
-### User Features
-- User registration and profile management
-- Contest participation and registration
-- Problem solving with real-time submission feedback
-- Personal statistics and achievement tracking
-- Leaderboards and rankings
-- Community interaction features
+### Key Pages
+- **Home**: Community overview and latest updates
+- **About**: Our mission and community values
+- **Events**: Upcoming coding contests and community events
+- **Resources**: Programming guides and learning materials
+- **Timeline**: Community milestones and achievements
+- **FAQ**: Common questions and answers
 
-### Administrative Features
-- Contest creation and management
-- Problem creation with test cases
-- User management and role assignment
-- Platform analytics and statistics
-- Content moderation tools
+### Developer Features
+- **Type Safety**: Full TypeScript support
+- **Component Reuse**: Mix of Astro and React components
+- **Performance**: Optimized assets and minimal JS
+- **SEO Ready**: Built-in SEO optimization tools
+- **Analytics**: Privacy-focused analytics integration
 
 ## 🛠 Technology Stack
 
-- **Backend**: Django 5.0.7 (Python)
-- **Frontend**: Bootstrap 5, HTML5, CSS3, JavaScript
-- **Database**: SQLite (development) / PostgreSQL (production ready)
-- **Authentication**: Django's built-in authentication with custom User model
-- **Forms**: Django Crispy Forms with Bootstrap4 theme
-- **Static Files**: Bootstrap CDN, Font Awesome, Chart.js
+- **Framework**: Astro 4.16.19
+- **UI Components**: React 18
+- **Styling**: Tailwind CSS
+- **Database**: SQLite with Drizzle ORM
+- **Type Safety**: TypeScript
+- **Deployment**: Netlify/Vercel
 
 ## 📁 Project Structure
 
@@ -66,8 +66,8 @@ cvh/
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.8 or higher
-- pip (Python package installer)
+- Node.js 18 or higher
+- npm or pnpm
 - Git
 
 ### Installation
@@ -75,29 +75,30 @@ cvh/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd cvh
+   cd codeversehub
    ```
 
-2. **Create virtual environment**
+2. **Install dependencies**
    ```bash
-   python -m venv .venv
+   npm install
+   # or
+   pnpm install
    ```
 
-3. **Activate virtual environment**
+3. **Set up the database**
    ```bash
-   # Windows
-   .venv\Scripts\activate
-   
-   # macOS/Linux
-   source .venv/bin/activate
+   npm run db:generate
+   npm run db:push
+   npm run db:seed
    ```
 
-4. **Install dependencies**
+4. **Start development server**
    ```bash
-   pip install -r requirements.txt
+   npm run dev
    ```
 
-5. **Run database migrations**
+5. **Open the application**
+   - Visit http://localhost:3000 in your browser
    ```bash
    python manage.py makemigrations
    python manage.py migrate
@@ -117,111 +118,100 @@ cvh/
    - Main site: http://127.0.0.1:8000/
    - Admin panel: http://127.0.0.1:8000/admin/
 
-## 📊 Database Models
+## 📊 Development
 
-### User Model
-- Custom user model extending AbstractUser
-- Role-based permissions (Admin, Moderator, User)
-- Profile information and statistics tracking
-- Discord integration fields
+### Environment Setup
 
-### Contest Model
-- Contest management with status tracking
-- Support for individual and team contests
-- Flexible scheduling and participant limits
+Create a `.env` file in the root directory:
+```bash
+# Database
+DATABASE_URL=file:./data.db
 
-### Problem Model
-- Algorithmic problems with difficulty levels
-- Tag system for categorization
-- Test case management
+# Site Configuration
+PUBLIC_SITE_URL=http://localhost:3000
+PUBLIC_SITE_NAME=CodeVerseHub
 
-### Submission Model
-- Solution submissions with verdict tracking
-- Multiple programming language support
-- Execution time and memory usage tracking
-
-## 🎯 User Roles and Permissions
-
-### User (Default)
-- Participate in contests
-- Solve problems
-- View personal statistics
-- Access community features
-
-### Moderator
-- All User permissions
-- Create and manage contests
-- Create and manage problems
-- Basic content moderation
-
-### Administrator
-- All Moderator permissions
-- User management and role assignment
-- Platform configuration
-- Full admin panel access
-
-## 🔧 Configuration
-
-### Environment Variables
-Create a `.env` file (optional) for environment-specific settings:
-```
-DEBUG=True
-SECRET_KEY=your-secret-key-here
-DATABASE_URL=your-database-url
+# Optional: Analytics
+PUBLIC_UMAMI_WEBSITE_ID=your-umami-id
+PUBLIC_UMAMI_URL=your-umami-url
 ```
 
-### Settings Configuration
-Key settings in `settings.py`:
-- Database configuration
-- Static files handling
-- Media files configuration
-- Authentication settings
-- Crispy forms integration
+### Database Management
 
-## 📱 Pages and Features
+The project uses Drizzle ORM with SQLite:
 
-### Public Pages
-- **Home**: Platform overview and statistics
-- **About**: Information about the platform
-- **Rules**: Community guidelines and contest rules
-- **FAQ**: Frequently asked questions
-- **Resources**: Learning materials and references
-- **Timeline**: Platform development roadmap
+```bash
+# Generate migrations
+npm run db:generate
 
-### Authenticated Pages
-- **Dashboard**: Personalized user overview
-- **Contests**: Contest listing and management
-- **Problems**: Problem repository and submissions
-- **Profile**: User profile and statistics
+# Apply migrations
+npm run db:push
 
-### Administrative Pages
-- **Django Admin**: Full platform administration
-- **Contest Creation**: Create and manage contests
-- **Problem Creation**: Create and manage problems
+# Seed database
+npm run db:seed
+```
 
-## 🛡 Security Features
+### Type Safety
 
-- CSRF protection on all forms
-- User authentication and session management
-- Role-based access control
-- Input validation and sanitization
-- Secure file uploads
+The project uses TypeScript for type safety:
+
+- All components are fully typed
+- Database schema is type-safe with Drizzle
+- Props validation throughout
+- Type-safe environment variables
+
+### Component Development
+
+- Use Astro components for static content
+- React components for interactive features
+- Tailwind for consistent styling
+- Leverage Astro's partial hydration
+
+## 📱 Development Features
+
+### Performance
+- Automatic image optimization
+- CSS/JS minification
+- Partial hydration
+- Responsive images
+- Lazy loading
+
+### SEO
+- Built-in meta tags
+- OpenGraph support
+- Sitemap generation
+- robots.txt configuration
+- Structured data
+
+### Accessibility
+- ARIA attributes
+- Keyboard navigation
+- Color contrast compliance
+- Screen reader support
+- Focus management
+
+### Analytics
+- Privacy-focused analytics
+- Page view tracking
+- Performance monitoring
+- User journey analysis
+- Custom events
 
 ## 📈 Future Enhancements
 
-- Real-time code execution and evaluation
-- Advanced analytics and reporting
-- Mobile application
-- API development
-- Integration with external platforms
-- Enhanced community features
+- Real-time chat integration
+- Discord bot integration
+- Member achievements system
+- Event registration system
+- Resource rating system
+- Community blog
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test thoroughly
+4. Run tests and build
 5. Submit a pull request
 
 ## 📄 License
@@ -231,95 +221,94 @@ This project is built for educational purposes and community use.
 ## 🆘 Support
 
 For support and questions:
+- Visit our Discord server
 - Check the FAQ page
-- Contact community moderators
 - Open an issue in the repository
 
 ## 📝 Changelog
 
-### Version 1.0.0 (September 2025)
-- Initial release
-- Complete user authentication system
-- Contest and problem management
-- User dashboard and statistics
-- Administrative features
-- Responsive design
+### Version 2.0.0 (October 2025)
+- Complete migration to Astro
+- New modern design system
+- Improved performance metrics
+- Enhanced SEO optimization
+- Dark mode support
+- Mobile responsiveness
 
 ---
 
-**CodeVerseHub** - Built with ❤️ for the programming community
+**CodeVerseHub** - Built with Astro 🚀 for the programming community
 
 ---
 
-## 🚀 Production Deployment (Render)
+## 🚀 Deployment
 
-These steps prepare and deploy the Django app to Render's Python Web Service.
+The website can be deployed to either Netlify or Vercel for optimal performance.
 
-### 1. Environment Variables
-Required (set in Render dashboard or blueprint):
-```
-DJANGO_SETTINGS_MODULE=codeversehub.settings_production
-SECRET_KEY=<generate a strong random key>
-DEBUG=False
-ALLOWED_HOSTS=codeversehub.onrender.com
-SECURE_SSL_REDIRECT=True
-# Provided automatically if you add a Render PostgreSQL: DATABASE_URL
-```
+### Netlify Deployment
 
-Optional email / extras see `.env.example`.
+1. **Connect your repository**
+   - Connect your GitHub repository to Netlify
+   - Select the repository and branch to deploy
 
-### 2. Build & Start (Already in render.yaml)
-```
-Build:  pip install -r requirements.txt
-   python manage.py collectstatic --noinput
-   python manage.py migrate --noinput
-Start:  gunicorn codeversehub.wsgi:application --log-file -
-```
+2. **Configure build settings**
+   ```bash
+   Build command: npm run build
+   Publish directory: dist
+   Node version: 18.x
+   ```
 
-### 3. Static Files
-WhiteNoise serves collected assets from `staticfiles/`. Run `collectstatic` each deploy (handled in buildCommand). Do not commit `staticfiles/`.
+3. **Environment variables**
+   ```
+   DATABASE_URL=file:../data.db
+   PUBLIC_SITE_URL=your-site-url
+   ```
 
-### 4. Database
-Local dev uses SQLite. In production attach a PostgreSQL instance (Render add-on) which injects `DATABASE_URL`. The `settings_production.py` will parse it with SSL and persistent connections.
+4. **Deploy**
+   - Trigger deploy from Netlify dashboard
+   - Site will be live at `your-site.netlify.app`
 
-### 5. Migrations / Admin
-After first deploy run (if not automated):
-```
-python manage.py createsuperuser --settings=codeversehub.settings_production
-```
-You can run this via a one-off shell in Render.
+### Vercel Deployment
 
-### 6. Security Checklist
-- DEBUG = False
-- SECRET_KEY set & secret
-- ALLOWED_HOSTS includes your Render domain + custom domains
-- HTTPS enforced (Render provides TLS; `SECURE_PROXY_SSL_HEADER` is set)
-- `collectstatic` completes without missing files
+1. **Import your repository**
+   - Connect your GitHub repository to Vercel
+   - Import the project
 
-### 7. Health & Logs
-Use Render logs to monitor startup. Gunicorn logs go to stdout.
+2. **Configure project**
+   ```bash
+   Framework Preset: Astro
+   Build Command: npm run build
+   Output Directory: dist
+   Install Command: npm install
+   ```
 
-### 8. Scaling
-Start with single instance (free plan). For higher traffic: raise plan, add worker processes (e.g. `gunicorn --workers 3`). For WebSockets or async tasks consider moving to ASGI + Daphne/Uvicorn.
+3. **Environment setup**
+   - Add the same environment variables as Netlify
+   - Configure any additional settings
 
-### 9. Background Tasks
-If you later add async tasks (Celery/RQ) deploy a separate worker service. Not required for current feature set.
+4. **Deploy**
+   - Trigger deployment
+   - Site will be live at `your-project.vercel.app`
 
-### 10. Media Files
-Currently stored on disk (`/media`). Render disk is ephemeral; for persistence use an external storage (e.g. AWS S3, Backblaze). Adjust `DEFAULT_FILE_STORAGE` accordingly when you add that.
+### Deployment Notes
 
-### 11. Netlify Note
-Netlify cannot natively host this dynamic Django backend. If you build a separate SPA later you can deploy it to Netlify and point API calls to the Render backend domain.
+- **Database**: The SQLite database is included in the deployment
+- **Assets**: Static assets are optimized during build
+- **Performance**: Both platforms provide global CDN
+- **SSL**: Automatic HTTPS certificates
+- **Analytics**: Built-in deployment analytics
+- **Continuous Deployment**: Automatic deployments on push
 
 ---
 
-### Quick Local Production Simulation
-```
-pip install -r requirements.txt
-export DJANGO_SETTINGS_MODULE=codeversehub.settings_production
-export SECRET_KEY=test-local
-export ALLOWED_HOSTS=localhost,127.0.0.1
-python manage.py collectstatic --noinput
-python manage.py migrate --noinput
-gunicorn codeversehub.wsgi:application
+### Development vs Production
+
+For local development:
+```bash
+# Development server
+npm run dev
+
+# Production build
+npm run build
+npm run preview
 ```

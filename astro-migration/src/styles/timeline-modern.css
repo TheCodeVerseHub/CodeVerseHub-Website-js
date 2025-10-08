@@ -214,7 +214,6 @@
               linear-gradient(180deg, #030b15 0%, #040e19 100%);
 }
 
-  z-index: 0;
 .timeline-controls {
   display: flex;
   flex-direction: column;
