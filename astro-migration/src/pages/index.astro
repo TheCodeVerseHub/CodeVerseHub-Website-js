@@ -1,10 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { db } from '../db';
-import { announcements } from '../db/schema';
-import { eq } from 'drizzle-orm';
+// Use static JSON data during build so the site can be deployed as static files on Netlify
+import announcementsData from '../data/announcements.json' assert { type: 'json' };
 
-const activeAnnouncements = await db.select().from(announcements).where(eq(announcements.isActive, true)).limit(3);
+const activeAnnouncements = announcementsData.filter(a => a.isActive).slice(0, 3);
 const discordStats = { members: 450, channels: 10, bots: 5 };
 ---
 

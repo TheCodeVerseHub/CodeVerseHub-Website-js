@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome to CodeVerseHub",
+    "content": "We're excited to have you here — join our Discord and start collaborating!",
+    "createdAt": "2025-10-01T08:00:00Z",
+    "createdBy": "Admin",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "title": "Weekly Challenge: Build a CLI",
+    "content": "This week's challenge focuses on building small Node.js CLI tools. Prizes for top submissions!",
+    "createdAt": "2025-09-28T12:00:00Z",
+    "createdBy": "Events Team",
+    "isActive": true
+  }
+]
