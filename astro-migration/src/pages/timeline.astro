@@ -48,11 +48,11 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
   <div class="timeline-page-container">
     <header class="timeline-hero">
       <div class="hero-content">
-        <h1 class="hero-title">
+        <h1 class="hero-title color-dark-purple">
           <i class="fas fa-rocket" aria-hidden="true"></i>
           The Journey of CodeVerseHub
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle color-dark-grey">
           From a simple idea in {foundingEvent.year} to a thriving community. Explore our milestones and see what's next on our roadmap.
         </p>
       </div>
@@ -87,7 +87,7 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
       ))}
     </main>
 
-    <section class="roadmap-section">
+<!--    <section class="roadmap-section">
       <div class="section-header">
         <h2 class="section-title">
           <i class="fas fa-route" aria-hidden="true"></i>
@@ -107,7 +107,7 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
           </div>
         ))}
       </div>
-    </section>
+    </section> 
 
     <footer class="timeline-footer">
       <div class="cta-content">
@@ -119,7 +119,7 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
         </a>
       </div>
     </footer>
-  </div>
+  </div> -->
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -159,7 +159,12 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
   margin: 0 auto;
   padding: 2rem 0;
 }
-
+.color-dark-purple {
+  color: #a78bfa;
+}
+.color-dark-grey {
+  color: #cbd5e1;
+}
 .timeline::before {
   content: '';
   position: absolute;
