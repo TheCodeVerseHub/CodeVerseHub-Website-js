@@ -1,8 +1,8 @@
-# 📚 Documentation Index
+# Documentation Index
 
 Welcome! This is your complete guide to the Django → Astro migration.
 
-## 🚀 Quick Start (3 Steps)
+## Quick Start (3 Steps)
 
 ```bash
 cd astro-migration
@@ -14,11 +14,11 @@ Visit: http://localhost:3000
 
 ---
 
-## 📖 Documentation Files
+## Documentation Files
 
 Read in this order for best results:
 
-### 1. 🎯 START_HERE.md
+### 1. START_HERE.md
 **Start here first!**
 - Quick start guide
 - 3-command setup
@@ -30,7 +30,7 @@ Read in this order for best results:
 
 ---
 
-### 2. 📘 README.md
+### 2. README.md
 **Project overview & basics**
 - What is Astro?
 - Tech stack
@@ -43,7 +43,7 @@ Read in this order for best results:
 
 ---
 
-### 3. 📗 MIGRATION_GUIDE.md
+### 3. MIGRATION_GUIDE.md
 **Detailed migration walkthrough**
 - Migration strategy explained
 - Step-by-step process
@@ -56,7 +56,7 @@ Read in this order for best results:
 
 ---
 
-### 4. 📙 COMPARISON.md
+### 4. COMPARISON.md
 **Side-by-side Django vs Astro**
 - Code comparisons
 - File count reduction
@@ -69,7 +69,7 @@ Read in this order for best results:
 
 ---
 
-### 5. 📕 VISUAL_GUIDE.md
+### 5. VISUAL_GUIDE.md
 **Visual folder structure & diagrams**
 - Before/after folder structures
 - File mapping table
@@ -81,7 +81,7 @@ Read in this order for best results:
 
 ---
 
-### 6. 📄 SUMMARY.md
+### 6. SUMMARY.md
 **Executive summary**
 - High-level overview
 - Key improvements
@@ -94,7 +94,7 @@ Read in this order for best results:
 
 ---
 
-### 7. ✅ CHECKLIST.md
+### 7. CHECKLIST.md
 **Complete task checklist**
 - Setup checklist
 - Testing checklist
@@ -107,7 +107,7 @@ Read in this order for best results:
 
 ---
 
-## 🎯 Reading Paths
+## Reading Paths
 
 ### Path 1: Complete Beginner
 **Never used Astro? Start here:**
@@ -155,7 +155,7 @@ Read in this order for best results:
 
 ---
 
-## 📂 Project Files Reference
+## Project Files Reference
 
 ### Configuration Files
 ```
@@ -168,7 +168,7 @@ drizzle.config.ts      - Database config
 
 ### Documentation Files
 ```
-START_HERE.md          - Quick start guide ⭐
+START_HERE.md          - Quick start guide
 README.md              - Project documentation
 MIGRATION_GUIDE.md     - Migration walkthrough
 COMPARISON.md          - Django vs Astro comparison
@@ -204,7 +204,7 @@ setup.js               - Automated setup script
 
 ---
 
-## 🎓 Learning Resources
+## Learning Resources
 
 ### Official Documentation
 - [Astro Docs](https://docs.astro.build) - Complete Astro guide
@@ -226,7 +226,7 @@ setup.js               - Automated setup script
 
 ---
 
-## 🆘 Quick Help
+## Quick Help
 
 ### Something not working?
 1. Check CHECKLIST.md → "Common Issues"
@@ -250,7 +250,7 @@ setup.js               - Automated setup script
 
 ---
 
-## 📊 Quick Stats
+## Quick Stats
 
 ### Documentation Coverage
 - **Total docs**: 8 files
@@ -270,35 +270,35 @@ setup.js               - Automated setup script
 
 ---
 
-## 🎯 Success Metrics
+## Success Metrics
 
 You'll know the migration is successful when:
 
-1. ✅ All pages load correctly
-2. ✅ Contact form works
-3. ✅ Lighthouse score > 90
-4. ✅ Deployed to production
-5. ✅ Team can make updates easily
-6. ✅ No Django dependency
-7. ✅ $84/year hosting saved
+1. All pages load correctly
+2. Contact form works
+3. Lighthouse score > 90
+4. Deployed to production
+5. Team can make updates easily
+6. No Django dependency
+7. $84/year hosting saved
 
 ---
 
-## 🎊 Congratulations!
+## Congratulations!
 
 You have:
-- ✅ Complete documentation (8 guides)
-- ✅ Working Astro project
-- ✅ 70% less code to maintain
-- ✅ 5x better performance
-- ✅ Free hosting option
-- ✅ Modern tech stack
-- ✅ Type safety
-- ✅ Production-ready
+- Complete documentation (8 guides)
+- Working Astro project
+- 70% less code to maintain
+- 5x better performance
+- Free hosting option
+- Modern tech stack
+- Type safety
+- Production-ready
 
 ---
 
-## 📞 Support
+## Support
 
 ### Need Help?
 1. Check documentation (you have 8 guides!)
@@ -313,14 +313,14 @@ You have:
 - Help others migrate
 
 ### Found This Helpful?
-- ⭐ Star Astro on GitHub
-- 📢 Share your migration story
-- 💬 Leave feedback
-- 🎉 Celebrate your success!
+- Star Astro on GitHub
+- Share your migration story
+- Leave feedback
+- Celebrate your success!
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 1. **Today**: Run setup and test locally
 2. **This Week**: Deploy to production
@@ -329,7 +329,7 @@ You have:
 
 ---
 
-## 📝 Quick Reference
+## Quick Reference
 
 ### Essential Commands
 ```bash
@@ -354,6 +354,6 @@ vercel           # Deploy to Vercel
 
 ---
 
-**Happy coding with Astro!** 🚀
+**Happy coding with Astro!**
 
 *Last updated: October 2025*

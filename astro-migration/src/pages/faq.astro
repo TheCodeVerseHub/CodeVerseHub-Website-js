@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/faq-modern.css';
 
 interface QA { q: string; a: string; }
 interface FAQCategory { key: string; icon: string; label: string; items: QA[] }
@@ -48,54 +49,55 @@ const faqData: FAQCategory[] = [
     ]
   },
   {
-    key: 'server', icon: 'fa-server', label: 'Server & Community Operations',
+    key: 'community', icon: 'fa-users', label: 'Community',
     items: [
-      { q: 'How do I use bot commands?', a: 'Use bot commands mainly in <strong>🤖｜》bot-commands</strong> or <strong>💰｜》economy</strong> channels. Start typing <code>/</code> and select a command. Common examples:<ul><li><code>/balance</code> – Check your coins</li><li><code>/work</code> – Earn in‑server currency</li><li><code>/level</code> – View your XP level</li></ul>Some bots may use a prefix like <code>!</code>, <code>$</code>, or <code>?</code> — this is usually mentioned in the bot’s name or documentation.' },
-      { q: 'What roles exist and how do I get them?', a: 'Main role categories:<ul><li><strong>Language Roles:</strong> Python, Java, C++, C, PHP, Rust, JavaScript, TypeScript, SQL, HTML, CSS, Go, Scala, Assembly, Dart, more… (Select during onboarding or via reactions in <strong>🎖️｜⌯⌲｜ʀᴏʟᴇs</strong>).</li><li><strong>Field Roles:</strong> Web Dev, ML, Cybersecurity, Blockchain, Game Dev, etc. (Onboarding / reaction roles).</li><li><strong>Team / Staff:</strong> Apply in <strong>📄｜⌯⌲｜staff-applications</strong>; every application is carefully reviewed.</li><li><strong>Event / Achievement:</strong> Temporary titles like “Genius” or “Codemaster” earned via <strong>⚔️｜⌯⌲｜ᴇᴠᴇɴᴛs</strong> and <strong>❓｜》questions</strong>.</li><li><strong>Booster:</strong> Boosting unlocks perks, exclusive access, early event entry, and highest visible role.</li><li><strong>Activity Ladder:</strong> Active → Very Active → Ultra Active → Elite Member → Honorably Active → Top Contributors (automatically via Arcane bot level; unlocks channels & perms).</li></ul>' },
-      { q: 'How do I participate in coding events?', a: 'Events are announced in <strong>📢｜⌯⌲｜ᴀɴɴᴏᴜɴᴇᴍᴇɴᴛs</strong>, <strong>⚔️｜⌯⌲｜ᴇᴠᴇɴᴛs</strong>, and <strong>📊｜》polls</strong>. To join:<ol><li>Watch <strong>📢｜⌯⌲｜ᴀɴɴᴏᴜɴᴇᴍᴇɴᴛs</strong> for dates.</li><li>Follow the instructions (react, register, or submit as instructed).</li><li>Winners + rewards announced in announcements.</li><li>Prizes: badges, roles, or public shout‑outs.</li></ol>' },
-      { q: 'Where do I find study resources or project help?', a: 'Use the following channels:<ul><li><strong>📚｜》resources</strong>: curated links, PDFs, tools, cheat sheets.</li><li><strong>🐙｜》github-links</strong>: open-source repos.</li><li><strong>🧠｜》cs-theory</strong>: DSA help & concepts.</li></ul>Ask doubts in <strong>❓｜》ask-for-help</strong>. Showcase builds in <strong>🧪｜》projects-showcase</strong>.' },
-      { q: 'How should I ask for help properly?', a: 'In <strong>❓｜》ask-for-help</strong>:<ul><li>Mention language / tech (e.g., Python, HTML).</li><li>Provide code or errors in fenced code blocks (<code>```</code>).</li><li>State expected vs. actual behavior.</li><li>Avoid vague lines like “it’s not working”.</li></ul>' },
-      { q: 'What languages & tech stacks are supported?', a: 'Broad support for languages: Python, C/C++, Java, JavaScript, TypeScript, HTML, CSS, SQL, NoSQL, Rust, Dart, Scala, PHP, Assembly, Go, and more. Fields: Game Dev (Unity / Roblox / Minecraft scripting), Web Dev, ML, AI, Data Science/Analytics, Blockchain, Cybersecurity, etc.<div class="mt-2">Helpful channels:</div><ul><li>🐍｜》python – Python</li><li>⚡｜》javascript – JS (Node, Next, React, Angular, Strapi, Vue)</li><li>🕸️｜》web-dev – HTML / CSS</li><li>💻｜》c-cpp – C / C++</li><li>🧮｜》databases – SQL / NoSQL</li><li>🌐｜》other-languages – Misc languages & new forums</li></ul>Suggest a new language forum with <code>!suggest &lt;your idea&gt;</code> in <strong>🤖｜》bot-commands</strong>.' },
-      { q: 'Rules for submitting projects or challenge answers?', a: 'When posting in <strong>🧪｜》projects-showcase</strong>:<ul><li>Include source code (no <code>.exe</code> / <code>.bat</code> uploads).</li><li>Add a short descriptive summary.</li><li>No copied or AI‑generated content without credit.</li><li>Respect event deadlines.</li></ul>' },
-      { q: 'What happens if rules are broken?', a: 'Possible actions:<ul><li>Warning</li><li>Mute / Timeout (Quarantine)</li><li>Temporary or permanent ban</li></ul>Education is prioritized, but repeated violations escalate consequences.' },
-      { q: 'How do I report spam or offensive content?', a: 'Steps:<ol><li>Right‑click message → Copy Message Link.</li><li>Create a ticket in <strong>🎟️｜⌯⌲｜ᴛɪᴄᴋᴇᴛs</strong>.</li><li>Optionally ping staff if urgent.</li></ol>Do not engage with spammers — just report.' },
-      { q: 'What counts as off‑topic?', a: 'Off‑topic = not matching the channel purpose. Examples:<ul><li>Memes in <strong>❓｜》ask-for-help</strong></li><li>Food talk in <strong>💬｜》dev-discussion</strong></li></ul>Use <strong>🗨️｜》lobby</strong> for casual chat, <strong>🎮｜》gaming-anime-talk</strong> for games/anime, and <strong>🤣｜》memes-and-media</strong> for memes.' },
-      { q: 'Still have a question not listed here?', a: 'Post it in <strong>💡｜⌯⌲｜sᴜɢɢᴇsᴛɪᴏɴs</strong> using <code>!suggest &lt;your suggestion&gt;</code> in <strong>🤖｜》bot-commands</strong>, open a ticket, or ask politely in <strong>❓｜》ask-for-help</strong>. We’re here to help you get the most from the community.<div class="mt-3 text-info">— Aditya ✧ YC45</div>' }
+      { q: 'How can I contribute to CodeVerseHub?', a: 'We welcome contributions! You can contribute by suggesting new problems, writing tutorials, reporting bugs, or helping other members in our Discord community. Active contributors may be invited to join our team.' },
+      { q: 'Is there a code of conduct?', a: 'Yes, we maintain a friendly and inclusive environment. All members are expected to follow our community guidelines which prohibit harassment, cheating in contests, and inappropriate behavior. Violations may result in account suspension.' },
+      { q: 'How do I contact the administrators?', a: 'You can reach out to administrators and moderators through our Discord server. For specific inquiries, you can also use the contact form on our website or email our support team directly.' }
     ]
   }
 ];
-
-const allCategories = faqData.map(c => c.key);
 ---
+
 <Layout title="FAQ - CodeVerseHub">
   <div class="faq-page-wrapper">
+    <!-- Hero Section -->
     <section class="faq-hero">
       <div class="faq-hero-inner">
-        <div class="faq-hero-icon"><i class="fas fa-question"></i></div>
-        <h1 class="faq-hero-title gradient-text">Frequently Asked Questions</h1>
-        <p class="faq-hero-sub">Quick answers about contests, problems, roles, events, support & getting started. Search or filter by category.</p>
+        <div class="faq-hero-icon">
+          <i class="fas fa-question"></i>
+        </div>
+        <h1 class="faq-hero-title">Frequently Asked <span class="gradient-text">Questions</span></h1>
+        <p class="faq-hero-sub">Everything you need to know about the platform, contests, and community.</p>
+        
         <div class="faq-controls">
           <div class="faq-search-wrap">
             <i class="fas fa-search faq-search-icon"></i>
-            <input id="faqSearch" type="text" placeholder="Search questions or answers..." aria-label="Search FAQs" />
+            <input type="text" id="faqSearch" placeholder="Search for answers..." aria-label="Search FAQs">
           </div>
-          <div class="faq-categories" id="faqCategories" role="tablist" aria-label="FAQ Categories">
+          
+          <div class="faq-categories">
             <button class="faq-cat-btn active" data-cat="all" aria-pressed="true">All</button>
             {faqData.map(cat => (
-              <button class="faq-cat-btn" data-cat={cat.key} aria-pressed="false">{cat.label}</button>
+              <button class="faq-cat-btn" data-cat={cat.key} aria-pressed="false">
+                {cat.label}
+              </button>
             ))}
           </div>
         </div>
       </div>
     </section>
 
-    <section class="faq-section">
-      <div class="faq-grid" id="faqList">
+    <!-- FAQ List Section -->
+    <section class="faq-section" id="faqList">
+      <div class="faq-grid">
         {faqData.map(cat => (
           <>
-            <div class="faq-category-heading" data-category-heading={cat.key}><i class={`fas ${cat.icon}`}></i>{cat.label}</div>
-            {cat.items.map((item, idx) => (
-              <details class="faq-item faq-animate" data-category={cat.key} data-index={idx}>
+            <div class="faq-category-heading faq-animate" data-category-heading={cat.key}>
+              <i class={`fas ${cat.icon}`}></i> {cat.label}
+            </div>
+            {cat.items.map(item => (
+              <details class="faq-item faq-animate" data-category={cat.key}>
                 <summary>
                   <span class="icon"><i class="fas fa-hashtag"></i></span>
                   <span>{item.q}</span>
@@ -109,14 +111,19 @@ const allCategories = faqData.map(c => c.key);
       </div>
     </section>
 
-    <section class="pb-5" style="margin-top:-1.5rem;">
-      <div class="container text-center" style="max-width:780px;">
-        <div class="glass-card p-4 p-md-5" style="border-radius:22px;">
-          <h2 class="h4 gradient-text mb-3"><i class="fas fa-headset me-2"></i>Still Need Help?</h2>
-          <p class="mb-4 text-secondary small">Can’t find what you’re looking for? Reach out — the community & moderators are happy to help you level up.</p>
-          <div class="d-flex flex-wrap justify-content-center gap-3">
-            <a class="btn btn-gradient" href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener"><i class="fab fa-discord me-2"></i>Join Discord</a>
-            <a class="btn btn-gradient-outline" href="mailto:support@codeversehub.com"><i class="fas fa-envelope me-2"></i>Email Support</a>
+    <!-- Support CTA -->
+    <section class="support-cta">
+      <div class="container" style="max-width: 780px; margin: 0 auto;">
+        <div class="glass-card p-5 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
+          <h2 class="text-3xl font-bold mb-4 text-white"><i class="fas fa-headset mr-3 text-purple-400"></i>Still Need Help?</h2>
+          <p class="mb-8 text-gray-400 text-lg">Can’t find what you’re looking for? Reach out — the community & moderators are happy to help you level up.</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a class="btn-modern-primary" href="https://discord.gg/3xKFvKhuGR" target="_blank" rel="noopener">
+              <i class="fab fa-discord mr-2"></i>Join Discord
+            </a>
+            <a class="btn-modern-secondary" href="mailto:support@codeversehub.com">
+              <i class="fas fa-envelope mr-2"></i>Email Support
+            </a>
           </div>
         </div>
       </div>
@@ -126,26 +133,27 @@ const allCategories = faqData.map(c => c.key);
   <script>
     // Mark JS enabled for CSS fallbacks
     document.body.classList.add('js-enabled');
-    const searchInput = document.getElementById('faqSearch');
+    const searchInput = document.getElementById('faqSearch') as HTMLInputElement;
     const catButtons = Array.from(document.querySelectorAll('.faq-cat-btn'));
-    const faqItems = Array.from(document.querySelectorAll('details.faq-item'));
+    const faqItems = Array.from(document.querySelectorAll('details.faq-item')) as HTMLDetailsElement[];
     const headings = Array.from(document.querySelectorAll('.faq-category-heading'));
 
     // Basic reveal (no dependency on IntersectionObserver)
     faqItems.slice(0,20).forEach(i=> i.classList.add('loaded'));
 
-    function filter(cat, term){
+    function filter(cat: string, term: string){
       term = (term||'').toLowerCase();
       faqItems.forEach(it=>{
-        const matchCat = cat==='all' || it.dataset.category===cat;
-        const matchText = !term || it.textContent.toLowerCase().includes(term);
+        const itemCat = it.getAttribute('data-category');
+        const matchCat = cat==='all' || itemCat===cat;
+        const matchText = !term || (it.textContent || '').toLowerCase().includes(term);
         if(matchCat && matchText){ it.classList.remove('faq-hidden'); }
         else { it.classList.add('faq-hidden'); if(it.hasAttribute('open')) it.removeAttribute('open'); }
       });
       // Toggle headings depending on at least one visible item
       headings.forEach(h=>{
         const key = h.getAttribute('data-category-heading');
-        const anyVisible = faqItems.some(it=>!it.classList.contains('faq-hidden') && it.dataset.category===key);
+        const anyVisible = faqItems.some(it=>!it.classList.contains('faq-hidden') && it.getAttribute('data-category')===key);
         if(anyVisible) h.classList.remove('faq-hidden'); else h.classList.add('faq-hidden');
       });
     }
@@ -154,14 +162,17 @@ const allCategories = faqData.map(c => c.key);
       btn.addEventListener('click',()=>{
         catButtons.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
         btn.classList.add('active');btn.setAttribute('aria-pressed','true');
-        filter(btn.dataset.cat||'all', searchInput?.value);
-        document.getElementById('faqList').scrollIntoView({behavior:'smooth'});
+        const cat = btn.getAttribute('data-cat') || 'all';
+        filter(cat, searchInput?.value);
+        // Optional: scroll to list if needed
+        // document.getElementById('faqList').scrollIntoView({behavior:'smooth'});
       });
     });
 
     searchInput?.addEventListener('input',()=>{
       const active = catButtons.find(b=>b.classList.contains('active'));
-      filter(active?.dataset.cat||'all', searchInput.value);
+      const cat = active?.getAttribute('data-cat') || 'all';
+      filter(cat, searchInput.value);
     });
 
     // Initial full show

@@ -1,0 +1,368 @@
+/* Timeline Modern Styles */
+
+.timeline-page-container {
+    padding-bottom: 4rem;
+    background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+}
+
+/* Hero Section */
+.timeline-hero {
+    padding: 6rem 1.5rem 4rem;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-title i {
+    color: #a855f7;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Timeline Main */
+.timeline-main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.timeline-year-section {
+    margin-bottom: 4rem;
+}
+
+.year-heading {
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+    text-align: center;
+    margin-bottom: -2rem;
+    position: relative;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+    z-index: 1;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(56, 189, 248, 0), #38bdf8, #6366f1, rgba(99, 102, 241, 0));
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 2rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item.left {
+    left: 0;
+    padding-right: 3rem;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    padding-left: 3rem;
+    text-align: left;
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 2rem;
+    width: 48px;
+    height: 48px;
+    background: #0f172a;
+    border: 2px solid #38bdf8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #38bdf8;
+    font-size: 1.2rem;
+    z-index: 2;
+    box-shadow: 0 0 0 4px rgba(15, 23, 42, 1), 0 0 20px rgba(56, 189, 248, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-icon {
+    background: #38bdf8;
+    color: #0f172a;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(15, 23, 42, 1), 0 0 30px rgba(56, 189, 248, 0.5);
+}
+
+.timeline-item.left .timeline-icon {
+    right: -24px;
+}
+
+.timeline-item.right .timeline-icon {
+    left: -24px;
+}
+
+.timeline-content {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.event-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+}
+
+.event-description {
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.event-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeline-item.left .event-tags {
+    justify-content: flex-end;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Roadmap Section */
+.roadmap-section {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.section-title i {
+    color: #a855f7;
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.roadmap-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.roadmap-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.roadmap-card:hover {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: #a855f7;
+    transform: translateY(-5px);
+}
+
+.roadmap-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.roadmap-icon {
+    font-size: 1.5rem;
+    color: #a855f7;
+}
+
+.roadmap-timeline {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    background: rgba(168, 85, 247, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.roadmap-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.roadmap-description {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Footer CTA */
+.timeline-footer {
+    text-align: center;
+    padding: 6rem 1.5rem;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+}
+
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.cta-text {
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .timeline::before {
+        left: 24px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 4rem;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-item.left, .timeline-item.right {
+        left: 0;
+        padding-left: 4rem;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-icon {
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    .timeline-item.left .event-tags {
+        justify-content: flex-start;
+    }
+}

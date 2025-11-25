@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/timeline-modern.css';
 
 interface TimelineEvent {
   date: string;
@@ -48,11 +49,11 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
   <div class="timeline-page-container">
     <header class="timeline-hero">
       <div class="hero-content">
-        <h1 class="hero-title color-dark-purple">
+        <h1 class="hero-title">
           <i class="fas fa-rocket" aria-hidden="true"></i>
           The Journey of CodeVerseHub
         </h1>
-        <p class="hero-subtitle color-dark-grey">
+        <p class="hero-subtitle">
           From a simple idea in {foundingEvent.year} to a thriving community. Explore our milestones and see what's next on our roadmap.
         </p>
       </div>
@@ -87,7 +88,7 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
       ))}
     </main>
 
-<!--    <section class="roadmap-section">
+    <section class="roadmap-section">
       <div class="section-header">
         <h2 class="section-title">
           <i class="fas fa-route" aria-hidden="true"></i>
@@ -107,7 +108,7 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
           </div>
         ))}
       </div>
-    </section> 
+    </section>
 
     <footer class="timeline-footer">
       <div class="cta-content">
@@ -119,7 +120,7 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
         </a>
       </div>
     </footer>
-  </div> -->
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -142,216 +143,4 @@ const foundingEvent = timelineEvents[timelineEvents.length - 1];
       });
     });
   </script>
-
-  <style>
-
-.timeline-section {
-  padding: 4rem 1.5rem;
-  background: radial-gradient(circle at 15% 12%, rgba(0, 209, 255, 0.08), transparent 55%),
-              radial-gradient(circle at 85% 10%, rgba(119, 74, 255, 0.08), transparent 60%),
-              linear-gradient(180deg, #030b15 0%, #040e19 100%);
-}
-
-
-.timeline {
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-.color-dark-purple {
-  color: #a78bfa;
-}
-.color-dark-grey {
-  color: #cbd5e1;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(to bottom, #38bdf8, #6366f1);
-  z-index: 0;
-}
-
-
-.timeline-item {
-  position: relative;
-  width: 50%;
-  padding: 2rem 0;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.timeline-item.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-.timeline-item.left {
-  left: 0;
-  padding-right: 80px;
-  text-align: right;
-}
-
-.timeline-item.right {
-  left: 50%;
-  padding-left: 80px;
-  text-align: left;
-}
-
-
-.timeline-icon {
-  position: absolute;
-  top: 36px;
-  width: 44px;
-  height: 44px;
-  background: #38bdf8;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #06121c;
-  font-size: 1.2rem;
-  z-index: 2;
-  box-shadow: 0 0 0 4px #030b15, 0 0 15px rgba(56, 189, 248, 0.4);
-}
-
-.timeline-item.left .timeline-icon {
-  right: -22px;
-}
-
-.timeline-item.right .timeline-icon {
-  left: -22px;
-}
-
-
-.timeline-content {
-  position: relative;
-  background-color: rgba(26, 41, 56, 0.95);
-  border: 1px solid rgba(56, 189, 248, 0.15);
-  border-radius: 12px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  z-index: 1;
-}
-
-.timeline-content::before {
-  content: '';
-  position: absolute;
-  top: 30px;
-  border-style: solid;
-  width: 0;
-  height: 0;
-}
-
-.timeline-item.left .timeline-content::before {
-  right: -10px;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent rgba(56, 189, 248, 0.15);
-}
-
-.timeline-item.right .timeline-content::before {
-  left: -10px;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent rgba(56, 189, 248, 0.15) transparent transparent;
-}
-
-.timeline-date {
-  font-weight: bold;
-  color: #38bdf8;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-}
-
-.timeline-content h3 {
-  margin-top: 0;
-  font-size: 1.3rem;
-  color: #e2e8f0;
-}
-
-.timeline-content p {
-  margin-bottom: 1rem;
-  color: #94a3b8;
-  line-height: 1.6;
-}
-
-
-.event-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.timeline-item.left .event-tags {
-  justify-content: flex-end;
-}
-
-.timeline-item.right .event-tags {
-  justify-content: flex-start;
-}
-
-.tag {
-  background-color: #334155;
-  color: #cbd5e1;
-  padding: 4px 10px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  border: 1px solid rgba(148, 163, 184, 0.3);
-}
-
-
-.timeline-item.is-visible {
-  animation: fadeUp 0.6s ease forwards;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-@media (max-width: 768px) {
-  .timeline::before {
-    left: 30px;
-  }
-
-  .timeline-item,
-  .timeline-item.left,
-  .timeline-item.right {
-    width: 100%;
-    left: 0;
-    padding-left: 70px;
-    padding-right: 0;
-    text-align: left;
-  }
-
-  .timeline-icon,
-  .timeline-item.left .timeline-icon,
-  .timeline-item.right .timeline-icon {
-    left: 8px;
-    right: auto;
-  }
-
-  .timeline-item.left .timeline-content::before,
-  .timeline-item.right .timeline-content::before {
-    left: -10px;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent rgba(56, 189, 248, 0.15) transparent transparent;
-  }
-
-  .timeline-item.left .event-tags,
-  .timeline-item.right .event-tags {
-    justify-content: flex-start;
-  }
-}
-
-  
-  </style>
 </Layout>

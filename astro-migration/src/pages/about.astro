@@ -1,162 +1,311 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/about-redesign.css';
+import '../styles/sections-modern.css';
 ---
 <Layout title="About - CodeVerseHub">
   <div class="about-modern-wrapper">
     <!-- Hero -->
-    <section class="about-hero">
-      <div class="about-hero-inner">
-        <div class="about-hero-icon"><i class="fas fa-users"></i></div>
-        <h1 class="about-hero-title gradient-text">Build • Learn • Collaborate</h1>
-        <p class="about-hero-sub">Welcome to <strong>CodeVerseHub</strong> — a connected space for coders, technologists, and curious builders of every level. Dive into language help channels, real projects, contests, mentorship moments, and a culture built on shared growth.</p>
-        <div class="about-badges">
-          <span class="about-badge">Community Driven</span>
-          <span class="about-badge">Multi‑Language</span>
-            <span class="about-badge">Events & Contests</span>
-            <span class="about-badge">Project Collabs</span>
-            <span class="about-badge">Learning First</span>
+    <section class="about-hero-modern">
+      <div class="about-hero-content">
+        <div class="about-hero-icon-wrapper">
+            <i class="fas fa-globe"></i>
+        </div>
+        <h1 class="about-title-modern">Welcome to <span class="gradient-text">The CodeVerse Hub</span></h1>
+        <p class="about-subtitle-modern">We are an all-in-one space for coders, tech enthusiasts, and learners of every level! Our server brings together people interested in coding, technology, digital creativity, gaming, and many more skills.</p>
+        <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Whether you're just starting out or a seasoned expert, you are always welcomed here!! Connect, ask, share, and collaborate in a positive, diverse community. Grow together, Keep learning!!</p>
+        
+        <div class="about-badges-modern">
+          <span class="about-badge-modern"><i class="fas fa-users mr-2"></i>Diverse Community</span>
+          <span class="about-badge-modern"><i class="fas fa-code mr-2"></i>Multi-Language</span>
+          <span class="about-badge-modern"><i class="fas fa-gamepad mr-2"></i>Gaming & Tech</span>
+          <span class="about-badge-modern"><i class="fas fa-handshake mr-2"></i>Collaboration</span>
         </div>
       </div>
     </section>
 
-    <!-- Mission & Values -->
-    <section class="about-section">
-      <div class="container text-center">
-        <h2 class="mission-heading">Our Mission</h2>
-        <p class="mission-lead">To empower learners and professionals through open knowledge sharing, accessible guidance, and collaborative creation. Whether you're debugging your first loop or optimizing distributed systems, there's a place here for you.</p>
-        <div class="about-grid-4 about-grid-3" style="margin-top:1.6rem;">
-          <div class="about-card"><h3>Inclusive Growth</h3><p>Beginner friendly pathways and advanced discussions co‑exist. Ask anything—curiosity is culture.</p></div>
-          <div class="about-card"><h3>Real Collaboration</h3><p>From small scripts to team builds—share repos, iterate faster, learn code review and version control habits.</p></div>
-          <div class="about-card"><h3>Practical Learning</h3><p>Contests, challenges, and peer feedback create momentum that theory alone can’t.</p></div>
-          <div class="about-card"><h3>Recognition</h3><p>Progressive roles, contribution highlights, and event badges celebrate effort & consistency.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Languages & Domains -->
-    <section class="about-section compact">
+    <!-- Languages & Technologies -->
+    <section class="tech-modern-section">
       <div class="container">
-        <div class="about-grid-2">
-          <div class="about-card">
-            <h3>Languages Supported</h3>
-            <p>We support a wide variety of languages & paradigms:</p>
-            <div class="about-tags">
-              <span class="about-tag">Python</span><span class="about-tag">C</span><span class="about-tag">C++</span><span class="about-tag">Java</span><span class="about-tag">JavaScript</span><span class="about-tag">TypeScript</span><span class="about-tag">HTML</span><span class="about-tag">CSS</span><span class="about-tag">SQL</span><span class="about-tag">NoSQL</span><span class="about-tag">Rust</span><span class="about-tag">Dart</span><span class="about-tag">Scala</span><span class="about-tag">PHP</span><span class="about-tag">Assembly</span><span class="about-tag">Swift</span><span class="about-tag">C#</span><span class="about-tag">Go</span>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Our Stack</span>
+            <h2 class="section-title-modern">Languages & <span class="gradient-text">Technologies</span></h2>
+            <p class="section-subtitle-modern">We support a wide variety of languages and cutting-edge fields.</p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-header">
+                <div class="tech-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="tech-title">Programming Languages</h3>
             </div>
-            <p class="about-note">Need a new channel? Use <code>!suggest</code> in bot commands—staff reviews all valid requests.</p>
-          </div>
-          <div class="about-card">
-            <h3>Fields & Domains</h3>
-            <p>Explore specialized threads & forums:</p>
-            <div class="about-tags">
-              <span class="about-tag">Web Dev</span><span class="about-tag">Machine Learning</span><span class="about-tag">AI</span><span class="about-tag">Data Science</span><span class="about-tag">Analytics</span><span class="about-tag">Game Dev</span><span class="about-tag">Roblox</span><span class="about-tag">Unity</span><span class="about-tag">Minecraft</span><span class="about-tag">Cybersecurity</span><span class="about-tag">Blockchain</span><span class="about-tag">Cloud</span><span class="about-tag">DevOps</span><span class="about-tag">Systems</span>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span><span class="tech-tag">C/C++</span><span class="tech-tag">Java</span>
+              <span class="tech-tag">JavaScript</span><span class="tech-tag">TypeScript</span><span class="tech-tag">HTML/CSS</span>
+              <span class="tech-tag">SQL</span><span class="tech-tag">NoSQL</span><span class="tech-tag">Rust</span>
+              <span class="tech-tag">Dart</span><span class="tech-tag">Scala</span><span class="tech-tag">PHP</span>
+              <span class="tech-tag">Assembly</span><span class="tech-tag">Swift</span><span class="tech-tag">C#</span>
+              <span class="tech-tag">Go</span><span class="tech-tag">Elixir</span><span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">Haskell</span><span class="tech-tag">Perl</span><span class="tech-tag">Lua</span>
+              <span class="tech-tag">Julia</span><span class="tech-tag">R</span><span class="tech-tag">Matlab</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Help Channels -->
-    <section class="about-section compact">
-      <div class="container">
-        <div class="about-card">
-          <h3>Language Help Channels</h3>
-          <p>Find a space dedicated to your stack. Representative mapping below (Discord channel references omitted for web view):</p>
-          <div class="channel-grid">
-            <div class="channel-item"><strong>Python</strong>General scripting, automation, frameworks.</div>
-            <div class="channel-item"><strong>JavaScript</strong>Node, React, Next, Angular, Vue, Strapi.</div>
-            <div class="channel-item"><strong>HTML & CSS</strong>Layouts, responsive design, UI craft.</div>
-            <div class="channel-item"><strong>C / C++</strong>Low-level, performance, memory mgmt.</div>
-            <div class="channel-item"><strong>SQL / NoSQL</strong>Queries, schema design, indexing.</div>
-            <div class="channel-item"><strong>Assembly</strong>Architecture, registers, optimization.</div>
-            <div class="channel-item"><strong>PHP</strong>Backend scripting, APIs, frameworks.</div>
-            <div class="channel-item"><strong>TypeScript</strong>Types, tooling, advanced JS patterns.</div>
-            <div class="channel-item"><strong>Go</strong>Concurrency, services, tooling.</div>
-            <div class="channel-item"><strong>Rust</strong>Ownership, safety, systems dev.</div>
-            <div class="channel-item"><strong>Java</strong>OOP, Spring, backend workflows.</div>
-            <div class="channel-item"><strong>Swift</strong>iOS, tooling, platform APIs.</div>
-            <div class="channel-item"><strong>C#</strong>.NET, Unity integration, tooling.</div>
-            <div class="channel-item"><strong>Other Languages</strong>Emerging & niche stacks.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Activity Roles -->
-    <section class="about-section compact">
-      <div class="container">
-        <div class="about-card">
-          <h3>Activity Roles & Recognition</h3>
-          <p>Progress unlocks visibility, access, and perks. Consistency + contribution = advancement.</p>
-          <div class="role-track-wrapper">
-            <div class="role-track">
-              <span class="role-pill">Active</span><span class="role-sep"></span>
-              <span class="role-pill">Very Active</span><span class="role-sep"></span>
-              <span class="role-pill">Ultra Active</span><span class="role-sep"></span>
-              <span class="role-pill">Elite Member</span><span class="role-sep"></span>
-              <span class="role-pill">Honorably Active</span><span class="role-sep"></span>
-              <span class="role-pill">Top Contributors</span>
+          
+          <div class="tech-card">
+            <div class="tech-header">
+                <div class="tech-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3 class="tech-title">Domains & Interests</h3>
+            </div>
+            <div class="tech-tags">
+              <span class="tech-tag">Game Dev (Unity, Roblox, Minecraft)</span>
+              <span class="tech-tag">Web Development</span>
+              <span class="tech-tag">Machine Learning & AI</span>
+              <span class="tech-tag">Systems & OS Dev</span>
+              <span class="tech-tag">Discord Bot Dev</span>
+              <span class="tech-tag">Mobile App Dev (Android/iOS)</span>
+              <span class="tech-tag">Data Science & Analytics</span>
+              <span class="tech-tag">Blockchain</span>
+              <span class="tech-tag">Cybersecurity</span>
+              <span class="tech-tag">Theoretical CS</span>
             </div>
           </div>
-          <p class="role-footnote">Earn top tiers by ranking in the weekly leaderboard. Boosters gain elevated access instantly.</p>
         </div>
       </div>
     </section>
 
-    <!-- Staff Roles -->
-    <section class="about-section compact">
+    <!-- Channels Guide -->
+    <section class="channel-guide-section">
       <div class="container">
-        <div class="about-card">
-          <h3>Staff Roles & Path</h3>
-          <p>Our staff keeps the environment constructive & safe. Progression reflects trust and contribution.</p>
-          <ul class="staff-list">
-            <li class="staff-item"><span class="role">Rookie Staff</span><small>Entry support tier</small></li>
-            <li class="staff-item"><span class="role">Community Staff</span><small>Guidance & channel health</small></li>
-            <li class="staff-item"><span class="role">Moderator</span><small>Rule enforcement</small></li>
-            <li class="staff-item"><span class="role">Senior Moderator</span><small>High priority oversight</small></li>
-            <li class="staff-item"><span class="role">Community Manager</span><small>Programs & engagement</small></li>
-            <li class="staff-item"><span class="role">Head Staff</span><small>Strategic direction</small></li>
-            <li class="staff-item"><span class="role">Admin</span><small>Core leadership</small></li>
-          </ul>
-          <p class="role-footnote">Support Teams: Ticket Support • Social Media • Mod Team Shared • Staff of the Week honors.</p>
-          <p class="role-footnote" style="margin-top:.4rem;">Apply once you reach at least <strong>Very Active</strong> and complete the form in the staff applications channel.</p>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Navigation</span>
+            <h2 class="section-title-modern">Channel <span class="gradient-text">Guide</span></h2>
+            <p class="section-subtitle-modern">Feeling lost? Here's where to find what you need.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Beginners -->
+            <div class="channel-category-card">
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-seedling text-green-400"></i> Beginners
+                </h3>
+                <ul class="channel-list">
+                    <li class="channel-item">
+                        <span class="channel-name">#beginner-guide</span>
+                        <span class="channel-desc">How to get started in Programming!</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#resources</span>
+                        <span class="channel-desc">Helpful resources for your journey.</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#ask-for-help</span>
+                        <span class="channel-desc">Get help from mods and community.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Language Specific -->
+            <div class="channel-category-card">
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-code text-blue-400"></i> Languages
+                </h3>
+                <ul class="channel-list">
+                    <li class="channel-item">
+                        <span class="channel-name">#web-dev</span>
+                        <span class="channel-desc">JS, TS, React, Vue, Node</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#python</span>
+                        <span class="channel-desc">Python, Django, Flask, AI</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#java</span>
+                        <span class="channel-desc">Java, Spring, JVM</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#c-cpp</span>
+                        <span class="channel-desc">C, C++, Qt, CMake</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#csharp-dot-net</span>
+                        <span class="channel-desc">C#, .NET ecosystem</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tech Specific -->
+            <div class="channel-category-card">
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fas fa-layer-group text-purple-400"></i> Technologies
+                </h3>
+                <ul class="channel-list">
+                    <li class="channel-item">
+                        <span class="channel-name">#databases</span>
+                        <span class="channel-desc">SQL, Mongo, NoSQL</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#game-dev</span>
+                        <span class="channel-desc">Unity, Unreal, Godot</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#git-github</span>
+                        <span class="channel-desc">Version Control workflows</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#linux</span>
+                        <span class="channel-desc">Distros, customization</span>
+                    </li>
+                    <li class="channel-item">
+                        <span class="channel-name">#ai-ml</span>
+                        <span class="channel-desc">Machine Learning, NLP</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center mt-8">
+            <p class="text-gray-400">For general chat, head to <span class="channel-name">#lobby</span>!</p>
         </div>
       </div>
     </section>
 
-    <!-- Moderation & Reporting -->
-    <section class="about-section compact">
+    <!-- Roles & Recognition -->
+    <section class="roles-modern-section">
       <div class="container">
-        <div class="about-grid-2">
-          <div class="about-card">
-            <h3>Reporting Issues</h3>
-            <p>See something off? Help us keep standards high:</p>
-            <ol class="steps">
-              <li>Copy the message link.</li>
-              <li>Create a report ticket.</li>
-              <li>Optionally ping staff for urgent matters.</li>
-            </ol>
-            <p class="role-footnote">Avoid engaging with spam—report and move forward.</p>
-          </div>
-          <div class="about-card">
-            <h3>Channel Access</h3>
-            <p>Some areas are role-gated. Grab language & domain roles via onboarding or reaction panels to unlock specialized discussions & archives.</p>
-            <p class="role-footnote">Need something new? Suggest it—community demand shapes growth.</p>
-          </div>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Progression</span>
+            <h2 class="section-title-modern">Roles & <span class="gradient-text">Recognition</span></h2>
+            <p class="section-subtitle-modern">Progress through our activity roles for greater visibility and perks.</p>
+        </div>
+        
+        <!-- Activity Roles Chain -->
+        <div class="roles-hierarchy">
+            <div class="role-pill">@Less seen</div>
+            <i class="fas fa-arrow-right role-arrow"></i>
+            <div class="role-pill">@Active Soul</div>
+            <i class="fas fa-arrow-right role-arrow"></i>
+            <div class="role-pill">@Steady Talker</div>
+            <i class="fas fa-arrow-right role-arrow"></i>
+            <div class="role-pill">@Server Regular</div>
+            <i class="fas fa-arrow-right role-arrow"></i>
+            <div class="role-pill">@Chat Master</div>
+            <i class="fas fa-arrow-right role-arrow"></i>
+            <div class="role-pill">@Certified Talky</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Top Contributors -->
+            <div class="special-role-card">
+                <h3 class="text-xl font-bold text-yellow-400 mb-2"><i class="fas fa-crown mr-2"></i>Elite Roles</h3>
+                <p class="text-sm text-gray-400 mb-4">Earn these by contributing weekly and reaching top 10 on the leaderboard.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="role-pill border-yellow-500/50 text-yellow-200">@Honorably Active</span>
+                    <span class="role-pill border-yellow-500/50 text-yellow-200">@Top Contributors</span>
+                    <span class="role-pill border-green-500/50 text-green-200">@I don't Touch Grass !!</span>
+                </div>
+                <ul class="role-perks-list">
+                    <li><i class="fas fa-check"></i> Extra visibility</li>
+                    <li><i class="fas fa-check"></i> Exclusive permissions</li>
+                    <li><i class="fas fa-check"></i> Archive access (for higher activity)</li>
+                </ul>
+            </div>
+
+            <!-- Booster Role -->
+            <div class="special-role-card">
+                <h3 class="text-xl font-bold text-pink-400 mb-2"><i class="fas fa-gem mr-2"></i>Nitro Boosters</h3>
+                <p class="text-sm text-gray-400 mb-4">Support us to get immediate access to premium perks!</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="role-pill border-pink-500/50 text-pink-200">@Nitro Booster</span>
+                </div>
+                <ul class="role-perks-list">
+                    <li><i class="fas fa-check"></i> Access to all channels & archives</li>
+                    <li><i class="fas fa-check"></i> Highest visibility roles</li>
+                    <li><i class="fas fa-check"></i> Pick a hidden gradient role (Cosmetic)</li>
+                    <li><i class="fas fa-check"></i> Secret exclusive perks</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Other Roles Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-8">
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <h4 class="font-bold text-white mb-3"><i class="fas fa-microphone mr-2 text-blue-400"></i>VC Access Roles</h4>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li class="flex items-center gap-2"><span class="text-blue-300">@Less seen</span> - Connect & watch streams</li>
+                    <li class="flex items-center gap-2"><span class="text-blue-300">@Voice Verified!</span> - Speak & use Soundboard</li>
+                    <li class="flex items-center gap-2"><span class="text-blue-300">@Stream Verified!</span> - Start Video or Stream</li>
+                </ul>
+            </div>
+            <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <h4 class="font-bold text-white mb-3"><i class="fas fa-calendar-alt mr-2 text-purple-400"></i>Event Roles</h4>
+                <p class="text-sm text-gray-400 mb-3">Rewards for event winners including exclusive access and bragging rights.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-purple-500/20 text-purple-200 px-2 py-1 rounded">@Seasonal Role</span>
+                    <span class="text-xs bg-purple-500/20 text-purple-200 px-2 py-1 rounded">@Challenge Winners</span>
+                </div>
+            </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="about-cta-section">
+    <!-- Staff & Moderation -->
+    <section class="mission-modern-section">
       <div class="container">
-        <div class="about-cta">
-          <h2 class="gradient-text">Ready to Dive In?</h2>
-          <p>Join a culture of iterative learning, constructive critique, and authentic collaboration. Your next breakthrough might start with a single message.</p>
-          <div class="btn-pair">
-            <a href="https://discord.gg/3xKFvKhuGR" class="btn-modern"><i class="fab fa-discord"></i> Join Discord</a>
-            <a href="/resources" class="btn-modern outline"><i class="fas fa-book"></i> Browse Resources</a>
-          </div>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Team</span>
+            <h2 class="section-title-modern">Staff & <span class="gradient-text">Moderation</span></h2>
+            <p class="section-subtitle-modern">Our team keeps the community welcoming and safe.</p>
+        </div>
+
+        <div class="staff-grid">
+            <div class="staff-role-card">
+                <span class="staff-role-name text-red-400">@Admin</span>
+                <span class="staff-role-label">Administrator</span>
+            </div>
+            <div class="staff-role-card">
+                <span class="staff-role-name text-orange-400">@Head Moderator</span>
+                <span class="staff-role-label">Head Staff</span>
+            </div>
+            <div class="staff-role-card">
+                <span class="staff-role-name text-yellow-400">@Community Manager</span>
+                <span class="staff-role-label">Community Manager</span>
+            </div>
+            <div class="staff-role-card">
+                <span class="staff-role-name text-green-400">@Senior Moderator</span>
+                <span class="staff-role-label">Senior Moderator</span>
+            </div>
+            <div class="staff-role-card">
+                <span class="staff-role-name text-blue-400">@Moderator</span>
+                <span class="staff-role-label">Moderator</span>
+            </div>
+        </div>
+
+        <div class="text-center mb-12">
+            <p class="text-gray-300 mb-2">Want to join the team?</p>
+            <p class="text-sm text-gray-400">You need at least the <strong class="text-white">@Server Regular</strong> role and must fill out the form in <span class="channel-name">#staff-applications</span>.</p>
+        </div>
+
+        <div class="moderation-box">
+            <h3 class="moderation-title"><i class="fas fa-shield-alt mr-2"></i>Reporting Issues</h3>
+            <p class="text-gray-300 mb-4">See someone breaking the rules? Please report it immediately.</p>
+            
+            <div class="report-methods">
+                <div class="report-method">
+                    <i class="fas fa-ticket-alt"></i> Create a ticket in #tickets
+                </div>
+                <div class="report-method">
+                    <i class="fas fa-envelope"></i> DM Modmail @Eigen | ModMail
+                </div>
+                <div class="report-method">
+                    <i class="fas fa-at"></i> Ping Active Mod in drama channel
+                </div>
+            </div>
+            
+            <p class="text-xs text-red-300 mt-4 font-bold">NOTE: No DMs to Staff/Owner allowed. Please use Modmail/tickets for queries.</p>
         </div>
       </div>
     </section>

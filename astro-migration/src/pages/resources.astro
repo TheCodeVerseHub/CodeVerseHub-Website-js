@@ -1,420 +1,431 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/resources-modern.css';
+import '../styles/sections-modern.css'; // For shared styles like section-header-modern
 ---
 
 <Layout title="Resources - CodeVerseHub">
 <!-- Resources Hero Section -->
-<section class="resources-hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1><i class="fas fa-book-open"></i> Learning Resources</h1>
-            <p class="hero-subtitle">Curated collection of programming resources, tutorials, and tools shared by our Discord community to help you learn and grow.</p>
+<section class="resources-hero-modern">
+    <div class="resources-hero-content">
+        <div class="resources-hero-icon">
+            <i class="fas fa-book-open"></i>
         </div>
+        <h1 class="resources-title-modern">Learning <span class="gradient-text">Resources</span></h1>
+        <p class="resources-subtitle-modern">Curated collection of programming resources, tutorials, and tools shared by our Discord community to help you learn and grow.</p>
     </div>
 </section>
 
 <!-- Quick Navigation -->
-<section class="quick-nav">
-    <div class="container">
-        <div class="nav-grid">
-            <a href="#programming-basics" class="nav-item">
-                <i class="fas fa-code"></i>
-                <span>Programming Basics</span>
-            </a>
-            <a href="#data-structures" class="nav-item">
-                <i class="fas fa-globe"></i>
-                <span>Data Structures</span>
-            </a>
-            <a href="#learning-platforms" class="nav-item">
-                <i class="fas fa-laptop-code"></i>
-                <span>Learning Platforms</span>
-            </a>
-            <a href="#books" class="nav-item">
-                <i class="fas fa-book"></i>
-                <span>Books & Guides</span>
-            </a>
-            <a href="#tools" class="nav-item">
-                <i class="fas fa-tools"></i>
-                <span>Tools & IDEs</span>
-            </a>
-            <a href="#tutorials" class="nav-item">
-                <i class="fas fa-video"></i>
-                <span>Video Tutorials</span>
-            </a>
-        </div>
+<section class="quick-nav-modern">
+    <div class="nav-pills-wrapper">
+        <a href="#programming-basics" class="nav-pill">
+            <i class="fas fa-code"></i>
+            <span>Basics</span>
+        </a>
+        <a href="#data-structures" class="nav-pill">
+            <i class="fas fa-globe"></i>
+            <span>Data Structures</span>
+        </a>
+        <a href="#learning-platforms" class="nav-pill">
+            <i class="fas fa-laptop-code"></i>
+            <span>Platforms</span>
+        </a>
+        <a href="#books" class="nav-pill">
+            <i class="fas fa-book"></i>
+            <span>Books</span>
+        </a>
+        <a href="#tools" class="nav-pill">
+            <i class="fas fa-tools"></i>
+            <span>Tools</span>
+        </a>
+        <a href="#tutorials" class="nav-pill">
+            <i class="fas fa-video"></i>
+            <span>Tutorials</span>
+        </a>
     </div>
 </section>
 
 <!-- Programming Basics Section -->
-<section id="programming-basics" class="resource-section">
+<section id="programming-basics" class="resource-section-modern">
     <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-code"></i> Programming Basics</h2>
-            <p>Start your programming journey with these fundamental concepts recommended by our community</p>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Fundamentals</span>
+            <h2 class="section-title-modern">Programming <span class="gradient-text">Basics</span></h2>
+            <p class="section-subtitle-modern">Start your programming journey with these fundamental concepts</p>
         </div>
         
-        <div class="resources-grid">
-            <div class="resource-card">
-                <div class="resource-icon">
+        <div class="resources-grid-modern">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-search"></i>
                 </div>
-                <h3>Searching Algorithms</h3>
-                <ul>
+                <h3 class="resource-card-title">Searching Algorithms</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Binary Search</a></li>
                     <li><a href="#" target="_blank">Ternary Search</a></li>
                     <li><a href="#" target="_blank">Linear Search Variants</a></li>
                     <li><a href="#" target="_blank">Search in Rotated Arrays</a></li>
                 </ul>
-                <div class="difficulty beginner">Beginner Friendly</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-beginner">Beginner Friendly</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-sort"></i>
                 </div>
-                <h3>Sorting Algorithms</h3>
-                <ul>
+                <h3 class="resource-card-title">Sorting Algorithms</h3>
+                <ul class="resource-list">
                     <li><a href="https://www.wscubetech.com/resources/dsa/quick-sort" target="_blank">Quick Sort</a></li>
                     <li><a href="https://www.wscubetech.com/resources/dsa/merge-sort" target="_blank">Merge Sort</a></li>
                     <li><a href="https://www.wscubetech.com/resources/dsa/heap-sort" target="_blank">Heap Sort</a></li>
                     <li><a href="https://www.wscubetech.com/resources/dsa/counting-sort" target="_blank">Counting Sort</a></li>
                 </ul>
-                <div class="difficulty beginner">Beginner Friendly</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-beginner">Beginner Friendly</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-project-diagram"></i>
                 </div>
-                <h3>Graph Algorithms</h3>
-                <ul>
+                <h3 class="resource-card-title">Graph Algorithms</h3>
+                <ul class="resource-list">
                     <li><a href="https://www.wscubetech.com/resources/dsa/dfs-vs-bfs" target="_blank">DFS & BFS</a></li>
                     <li><a href="https://www.w3schools.com/dsa/dsa_algo_graphs_dijkstra.php" target="_blank">Dijkstra's Algorithm</a></li>
                     <li><a href="https://www.geeksforgeeks.org/dsa/floyd-warshall-algorithm-dp-16/" target="_blank">Floyd-Warshall</a></li>
                     <li><a href="https://www.geeksforgeeks.org/dsa/what-is-minimum-spanning-tree-mst/" target="_blank">Minimum Spanning Tree</a></li>
                 </ul>
-                <div class="difficulty intermediate">Intermediate</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-calculator"></i>
                 </div>
-                <h3>Dynamic Programming</h3>
-                <ul>
+                <h3 class="resource-card-title">Dynamic Programming</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Basic DP Concepts</a></li>
                     <li><a href="#" target="_blank">Knapsack Problems</a></li>
                     <li><a href="#" target="_blank">LCS & LIS</a></li>
                     <li><a href="#" target="_blank">DP on Trees</a></li>
                 </ul>
-                <div class="difficulty advanced">Advanced</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-advanced">Advanced</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-divide"></i>
                 </div>
-                <h3>Divide & Conquer</h3>
-                <ul>
+                <h3 class="resource-card-title">Divide & Conquer</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Fast Exponentiation</a></li>
                     <li><a href="#" target="_blank">Matrix Multiplication</a></li>
                     <li><a href="#" target="_blank">Closest Pair Problem</a></li>
                     <li><a href="#" target="_blank">FFT & Polynomial Multiplication</a></li>
                 </ul>
-                <div class="difficulty intermediate">Intermediate</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-infinity"></i>
                 </div>
-                <h3>Greedy Algorithms</h3>
-                <ul>
+                <h3 class="resource-card-title">Greedy Algorithms</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Activity Selection</a></li>
                     <li><a href="#" target="_blank">Huffman Coding</a></li>
                     <li><a href="#" target="_blank">Fractional Knapsack</a></li>
                     <li><a href="#" target="_blank">Job Scheduling</a></li>
                 </ul>
-                <div class="difficulty beginner">Beginner Friendly</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-beginner">Beginner Friendly</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Data Structures Section -->
-<section id="data-structures" class="resource-section alt-bg">
+<section id="data-structures" class="resource-section-modern" style="background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0) 100%);">
     <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-globe"></i> Data Structures</h2>
-            <p>Master essential data structures used in competitive programming</p>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Core Concepts</span>
+            <h2 class="section-title-modern">Data <span class="gradient-text">Structures</span></h2>
+            <p class="section-subtitle-modern">Master essential data structures used in competitive programming</p>
         </div>
         
-        <div class="resources-grid">
-            <div class="resource-card">
-                <div class="resource-icon">
+        <div class="resources-grid-modern">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-list"></i>
                 </div>
-                <h3>Linear Data Structures</h3>
-                <ul>
+                <h3 class="resource-card-title">Linear Data Structures</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Arrays & Vectors</a></li>
                     <li><a href="#" target="_blank">Linked Lists</a></li>
                     <li><a href="#" target="_blank">Stacks & Queues</a></li>
                     <li><a href="#" target="_blank">Deque & Priority Queue</a></li>
                 </ul>
-                <div class="difficulty beginner">Beginner Friendly</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-beginner">Beginner Friendly</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-tree"></i>
                 </div>
-                <h3>Trees</h3>
-                <ul>
+                <h3 class="resource-card-title">Trees</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Binary Trees</a></li>
                     <li><a href="#" target="_blank">Binary Search Trees</a></li>
                     <li><a href="#" target="_blank">AVL & Red-Black Trees</a></li>
                     <li><a href="#" target="_blank">Segment Trees</a></li>
                 </ul>
-                <div class="difficulty intermediate">Intermediate</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-hashtag"></i>
                 </div>
-                <h3>Hash Tables</h3>
-                <ul>
+                <h3 class="resource-card-title">Hash Tables</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Hash Functions</a></li>
                     <li><a href="#" target="_blank">Collision Resolution</a></li>
                     <li><a href="#" target="_blank">Rolling Hash</a></li>
                     <li><a href="#" target="_blank">Bloom Filters</a></li>
                 </ul>
-                <div class="difficulty intermediate">Intermediate</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-layer-group"></i>
                 </div>
-                <h3>Advanced Structures</h3>
-                <ul>
+                <h3 class="resource-card-title">Advanced Structures</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Fenwick Trees</a></li>
                     <li><a href="#" target="_blank">Trie (Prefix Tree)</a></li>
                     <li><a href="#" target="_blank">Disjoint Set Union</a></li>
                     <li><a href="#" target="_blank">Suffix Arrays</a></li>
                 </ul>
-                <div class="difficulty advanced">Advanced</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-advanced">Advanced</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-mountain"></i>
                 </div>
-                <h3>Heaps</h3>
-                <ul>
+                <h3 class="resource-card-title">Heaps</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Binary Heaps</a></li>
                     <li><a href="#" target="_blank">Fibonacci Heaps</a></li>
                     <li><a href="#" target="_blank">Leftist Heaps</a></li>
                     <li><a href="#" target="_blank">Skew Heaps</a></li>
                 </ul>
-                <div class="difficulty intermediate">Intermediate</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-intermediate">Intermediate</span>
+                </div>
             </div>
             
-            <div class="resource-card">
-                <div class="resource-icon">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-share-alt"></i>
                 </div>
-                <h3>Graph Representations</h3>
-                <ul>
+                <h3 class="resource-card-title">Graph Representations</h3>
+                <ul class="resource-list">
                     <li><a href="#" target="_blank">Adjacency Matrix</a></li>
                     <li><a href="#" target="_blank">Adjacency List</a></li>
                     <li><a href="#" target="_blank">Edge List</a></li>
                     <li><a href="#" target="_blank">Compressed Sparse Row</a></li>
                 </ul>
-                <div class="difficulty beginner">Beginner Friendly</div>
+                <div class="mt-auto">
+                    <span class="difficulty-badge difficulty-beginner">Beginner Friendly</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Learning Platforms Section -->
-<section id="learning-platforms" class="resource-section">
+<section id="learning-platforms" class="resource-section-modern">
     <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-laptop-code"></i> Learning Platforms</h2>
-            <p>Best online platforms for learning programming, recommended by our Discord community</p>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Where to Learn</span>
+            <h2 class="section-title-modern">Learning <span class="gradient-text">Platforms</span></h2>
+            <p class="section-subtitle-modern">Best online platforms for learning programming</p>
         </div>
         
-        <div class="platforms-grid">
-            <div class="platform-card">
-                <div class="platform-logo">
+        <div class="resources-grid-modern">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fab fa-free-code-camp"></i>
                 </div>
-                <h3>FreeCodeCamp</h3>
-                <p>Comprehensive free coding bootcamp with hands-on projects and certifications.</p>
-                <div class="platform-features">
-                    <span class="feature">Free Courses</span>
-                    <span class="feature">Hands-on Projects</span>
-                    <span class="feature">Certifications</span>
+                <h3 class="resource-card-title">FreeCodeCamp</h3>
+                <p class="text-gray-400 mb-4 text-sm">Comprehensive free coding bootcamp with hands-on projects and certifications.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Free Courses</span>
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Projects</span>
                 </div>
-                <a href="https://freecodecamp.org" target="_blank" class="platform-link">Visit Platform</a>
+                <div class="mt-auto">
+                    <a href="https://freecodecamp.org" target="_blank" class="btn-modern-secondary w-full justify-center text-sm py-2">Visit Platform</a>
+                </div>
             </div>
             
-            <div class="platform-card">
-                <div class="platform-logo">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
-                <h3>Codecademy</h3>
-                <p>Interactive coding lessons with immediate feedback and guided projects.</p>
-                <div class="platform-features">
-                    <span class="feature">Interactive Lessons</span>
-                    <span class="feature">Immediate Feedback</span>
-                    <span class="feature">Career Paths</span>
+                <h3 class="resource-card-title">Codecademy</h3>
+                <p class="text-gray-400 mb-4 text-sm">Interactive coding lessons with immediate feedback and guided projects.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Interactive</span>
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Career Paths</span>
                 </div>
-                <a href="https://codecademy.com" target="_blank" class="platform-link">Visit Platform</a>
+                <div class="mt-auto">
+                    <a href="https://codecademy.com" target="_blank" class="btn-modern-secondary w-full justify-center text-sm py-2">Visit Platform</a>
+                </div>
             </div>
             
-            <div class="platform-card">
-                <div class="platform-logo">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-play"></i>
                 </div>
-                <h3>Coursera</h3>
-                <p>University-level programming courses from top institutions and companies.</p>
-                <div class="platform-features">
-                    <span class="feature">University Courses</span>
-                    <span class="feature">Professional Certificates</span>
-                    <span class="feature">Specializations</span>
+                <h3 class="resource-card-title">Coursera</h3>
+                <p class="text-gray-400 mb-4 text-sm">University-level programming courses from top institutions and companies.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Certificates</span>
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">University</span>
                 </div>
-                <a href="https://coursera.org" target="_blank" class="platform-link">Visit Platform</a>
+                <div class="mt-auto">
+                    <a href="https://coursera.org" target="_blank" class="btn-modern-secondary w-full justify-center text-sm py-2">Visit Platform</a>
+                </div>
             </div>
             
-            <div class="platform-card">
-                <div class="platform-logo">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-user-graduate"></i>
                 </div>
-                <h3>edX</h3>
-                <p>High-quality courses from Harvard, MIT, and other leading universities.</p>
-                <div class="platform-features">
-                    <span class="feature">University Content</span>
-                    <span class="feature">Free Courses</span>
-                    <span class="feature">Verified Certificates</span>
+                <h3 class="resource-card-title">edX</h3>
+                <p class="text-gray-400 mb-4 text-sm">High-quality courses from Harvard, MIT, and other leading universities.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Harvard/MIT</span>
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Verified</span>
                 </div>
-                <a href="https://edx.org" target="_blank" class="platform-link">Visit Platform</a>
+                <div class="mt-auto">
+                    <a href="https://edx.org" target="_blank" class="btn-modern-secondary w-full justify-center text-sm py-2">Visit Platform</a>
+                </div>
             </div>
             
-            <div class="platform-card">
-                <div class="platform-logo">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-trophy"></i>
                 </div>
-                <h3>HackerRank</h3>
-                <p>Comprehensive platform with domains covering algorithms, data structures, and more.</p>
-                <div class="platform-features">
-                    <span class="feature">Multiple Domains</span>
-                    <span class="feature">Skill Certifications</span>
-                    <span class="feature">Company Challenges</span>
+                <h3 class="resource-card-title">HackerRank</h3>
+                <p class="text-gray-400 mb-4 text-sm">Comprehensive platform with domains covering algorithms, data structures, and more.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Challenges</span>
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Skills</span>
                 </div>
-                <a href="https://hackerrank.com" target="_blank" class="platform-link">Visit Platform</a>
+                <div class="mt-auto">
+                    <a href="https://hackerrank.com" target="_blank" class="btn-modern-secondary w-full justify-center text-sm py-2">Visit Platform</a>
+                </div>
             </div>
             
-            <div class="platform-card">
-                <div class="platform-logo">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-code"></i>
                 </div>
-                <h3>SPOJ</h3>
-                <p>Classical online judge with thousands of problems from various algorithmic topics.</p>
-                <div class="platform-features">
-                    <span class="feature">Classical Problems</span>
-                    <span class="feature">Multiple Languages</span>
-                    <span class="feature">Large Problem Set</span>
+                <h3 class="resource-card-title">SPOJ</h3>
+                <p class="text-gray-400 mb-4 text-sm">Classical online judge with thousands of problems from various algorithmic topics.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Classical</span>
+                    <span class="text-xs bg-white/5 px-2 py-1 rounded text-gray-300">Hard Problems</span>
                 </div>
-                <a href="https://spoj.com" target="_blank" class="platform-link">Visit Platform</a>
+                <div class="mt-auto">
+                    <a href="https://spoj.com" target="_blank" class="btn-modern-secondary w-full justify-center text-sm py-2">Visit Platform</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Books Section -->
-<section id="books" class="resource-section alt-bg">
+<section id="books" class="resource-section-modern" style="background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0) 100%);">
     <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-book"></i> Recommended Books</h2>
-            <p>Essential books for mastering algorithms and competitive programming</p>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Read & Learn</span>
+            <h2 class="section-title-modern">Recommended <span class="gradient-text">Books</span></h2>
+            <p class="section-subtitle-modern">Essential books for mastering algorithms and competitive programming</p>
         </div>
         
-        <div class="books-grid">
-            <div class="book-card">
-                <div class="book-cover">
+        <div class="resources-grid-modern">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-book"></i>
                 </div>
-                <div class="book-info">
-                    <h3>Competitive Programming 4</h3>
-                    <p class="author">by Steven Halim & Felix Halim</p>
-                    <p class="description">The ultimate guide for competitive programming with comprehensive coverage of algorithms and data structures.</p>
-                    <div class="book-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>4.8/5</span>
-                    </div>
+                <h3 class="resource-card-title">Competitive Programming 4</h3>
+                <p class="text-sm text-purple-400 mb-2">by Steven Halim & Felix Halim</p>
+                <p class="text-gray-400 mb-4 text-sm">The ultimate guide for competitive programming with comprehensive coverage of algorithms.</p>
+                <div class="mt-auto flex items-center gap-1 text-yellow-400 text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <span class="text-gray-400 ml-2">4.8/5</span>
                 </div>
             </div>
             
-            <div class="book-card">
-                <div class="book-cover">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-book"></i>
                 </div>
-                <div class="book-info">
-                    <h3>Introduction to Algorithms</h3>
-                    <p class="author">by Cormen, Leiserson, Rivest & Stein</p>
-                    <p class="description">Comprehensive textbook covering a broad range of algorithms in depth. Often called "CLRS".</p>
-                    <div class="book-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>4.7/5</span>
-                    </div>
+                <h3 class="resource-card-title">Introduction to Algorithms</h3>
+                <p class="text-sm text-purple-400 mb-2">by Cormen, Leiserson, Rivest & Stein</p>
+                <p class="text-gray-400 mb-4 text-sm">Comprehensive textbook covering a broad range of algorithms in depth. Often called "CLRS".</p>
+                <div class="mt-auto flex items-center gap-1 text-yellow-400 text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <span class="text-gray-400 ml-2">4.7/5</span>
                 </div>
             </div>
             
-            <div class="book-card">
-                <div class="book-cover">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-book"></i>
                 </div>
-                <div class="book-info">
-                    <h3>Competitive Programmer's Handbook</h3>
-                    <p class="author">by Antti Laaksonen</p>
-                    <p class="description">Free online book covering modern competitive programming techniques and algorithms.</p>
-                    <div class="book-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>4.6/5</span>
-                    </div>
+                <h3 class="resource-card-title">Competitive Programmer's Handbook</h3>
+                <p class="text-sm text-purple-400 mb-2">by Antti Laaksonen</p>
+                <p class="text-gray-400 mb-4 text-sm">Free online book covering modern competitive programming techniques and algorithms.</p>
+                <div class="mt-auto flex items-center gap-1 text-yellow-400 text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <span class="text-gray-400 ml-2">4.6/5</span>
                 </div>
             </div>
             
-            <div class="book-card">
-                <div class="book-cover">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fas fa-book"></i>
                 </div>
-                <div class="book-info">
-                    <h3>Algorithm Design Manual</h3>
-                    <p class="author">by Steven Skiena</p>
-                    <p class="description">Practical guide to algorithm design with real-world examples and problem-solving techniques.</p>
-                    <div class="book-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <span>4.5/5</span>
-                    </div>
+                <h3 class="resource-card-title">Algorithm Design Manual</h3>
+                <p class="text-sm text-purple-400 mb-2">by Steven Skiena</p>
+                <p class="text-gray-400 mb-4 text-sm">Practical guide to algorithm design with real-world examples and problem-solving techniques.</p>
+                <div class="mt-auto flex items-center gap-1 text-yellow-400 text-sm">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="text-gray-400 ml-2">4.5/5</span>
                 </div>
             </div>
         </div>
@@ -422,160 +433,163 @@ import Layout from '../layouts/Layout.astro';
 </section>
 
 <!-- Tools Section -->
-<section id="tools" class="resource-section">
+<section id="tools" class="resource-section-modern">
     <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-tools"></i> Tools & IDEs</h2>
-            <p>Essential development tools and environments for competitive programming</p>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Setup Your Environment</span>
+            <h2 class="section-title-modern">Tools & <span class="gradient-text">IDEs</span></h2>
+            <p class="section-subtitle-modern">Essential development tools for competitive programming</p>
         </div>
         
-        <div class="tools-grid">
-            <div class="tool-category">
-                <h3><i class="fas fa-code"></i> IDEs & Editors</h3>
-                <div class="tool-items">
-                    <div class="tool-item">
-                        <i class="fas fa-laptop-code"></i>
-                        <div>
-                            <h4>Visual Studio Code</h4>
-                            <p>Lightweight, powerful editor with excellent extension support</p>
-                        </div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-terminal"></i>
-                        <div>
-                            <h4>CLion / IntelliJ IDEA</h4>
-                            <p>Professional IDEs with advanced debugging and refactoring tools</p>
-                        </div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-edit"></i>
-                        <div>
-                            <h4>Sublime Text</h4>
-                            <p>Fast, lightweight text editor with powerful features</p>
-                        </div>
-                    </div>
+        <div class="resources-grid-modern">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
+                    <i class="fas fa-code"></i>
                 </div>
+                <h3 class="resource-card-title">IDEs & Editors</h3>
+                <ul class="space-y-4">
+                    <li class="flex gap-3">
+                        <i class="fas fa-laptop-code text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Visual Studio Code</strong>
+                            <span class="text-gray-400 text-sm">Lightweight, powerful editor with excellent extension support</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fas fa-terminal text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">CLion / IntelliJ IDEA</strong>
+                            <span class="text-gray-400 text-sm">Professional IDEs with advanced debugging tools</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fas fa-edit text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Sublime Text</strong>
+                            <span class="text-gray-400 text-sm">Fast, lightweight text editor with powerful features</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
             
-            <div class="tool-category">
-                <h3><i class="fas fa-rocket"></i> Competitive Programming Tools</h3>
-                <div class="tool-items">
-                    <div class="tool-item">
-                        <i class="fas fa-download"></i>
-                        <div>
-                            <h4>Competitive Companion</h4>
-                            <p>Browser extension to parse contest problems automatically</p>
-                        </div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-play"></i>
-                        <div>
-                            <h4>CP Editor</h4>
-                            <p>Specialized editor designed for competitive programming</p>
-                        </div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Stopwatch++</h4>
-                            <p>Time tracking tool for contest practice and time management</p>
-                        </div>
-                    </div>
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
+                    <i class="fas fa-rocket"></i>
                 </div>
+                <h3 class="resource-card-title">CP Tools</h3>
+                <ul class="space-y-4">
+                    <li class="flex gap-3">
+                        <i class="fas fa-download text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Competitive Companion</strong>
+                            <span class="text-gray-400 text-sm">Browser extension to parse contest problems automatically</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fas fa-play text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">CP Editor</strong>
+                            <span class="text-gray-400 text-sm">Specialized editor designed for competitive programming</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fas fa-clock text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Stopwatch++</strong>
+                            <span class="text-gray-400 text-sm">Time tracking tool for contest practice</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
             
-            <div class="tool-category">
-                <h3><i class="fas fa-bug"></i> Debugging & Testing</h3>
-                <div class="tool-items">
-                    <div class="tool-item">
-                        <i class="fas fa-search"></i>
-                        <div>
-                            <h4>GDB / LLDB</h4>
-                            <p>Command-line debuggers for C/C++ programs</p>
-                        </div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-check-double"></i>
-                        <div>
-                            <h4>Stress Testing Scripts</h4>
-                            <p>Custom scripts to generate test cases and validate solutions</p>
-                        </div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-memory"></i>
-                        <div>
-                            <h4>Valgrind</h4>
-                            <p>Memory debugging and profiling tool for C/C++</p>
-                        </div>
-                    </div>
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
+                    <i class="fas fa-bug"></i>
                 </div>
+                <h3 class="resource-card-title">Debugging & Testing</h3>
+                <ul class="space-y-4">
+                    <li class="flex gap-3">
+                        <i class="fas fa-search text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">GDB / LLDB</strong>
+                            <span class="text-gray-400 text-sm">Command-line debuggers for C/C++ programs</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fas fa-check-double text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Stress Testing Scripts</strong>
+                            <span class="text-gray-400 text-sm">Custom scripts to generate test cases and validate solutions</span>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fas fa-memory text-purple-400 mt-1"></i>
+                        <div>
+                            <strong class="text-white block">Valgrind</strong>
+                            <span class="text-gray-400 text-sm">Memory debugging and profiling tool for C/C++</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Video Tutorials Section -->
-<section id="tutorials" class="resource-section alt-bg">
+<section id="tutorials" class="resource-section-modern" style="background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0) 100%);">
     <div class="container">
-        <div class="section-header">
-            <h2><i class="fas fa-video"></i> Video Tutorials</h2>
-            <p>Learn from the best competitive programmers and educators</p>
+        <div class="section-header-modern">
+            <span class="section-eyebrow">Watch & Learn</span>
+            <h2 class="section-title-modern">Video <span class="gradient-text">Tutorials</span></h2>
+            <p class="section-subtitle-modern">Learn from the best competitive programmers and educators</p>
         </div>
         
-        <div class="tutorials-grid">
-            <div class="tutorial-card">
-                <div class="tutorial-thumbnail">
+        <div class="resources-grid-modern">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fab fa-youtube"></i>
                 </div>
-                <div class="tutorial-info">
-                    <h3>William Fiset</h3>
-                    <p>Comprehensive algorithms course with clear explanations and implementations</p>
-                    <div class="tutorial-stats">
-                        <span><i class="fas fa-play"></i> 100+ Videos</span>
-                        <span><i class="fas fa-users"></i> 500K+ Subscribers</span>
-                    </div>
+                <h3 class="resource-card-title">William Fiset</h3>
+                <p class="text-gray-400 mb-4 text-sm">Comprehensive algorithms course with clear explanations and implementations</p>
+                <div class="mt-auto flex gap-4 text-sm text-gray-500">
+                    <span><i class="fas fa-play text-purple-400"></i> 100+ Videos</span>
+                    <span><i class="fas fa-users text-purple-400"></i> 500K+ Subs</span>
                 </div>
             </div>
             
-            <div class="tutorial-card">
-                <div class="tutorial-thumbnail">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fab fa-youtube"></i>
                 </div>
-                <div class="tutorial-info">
-                    <h3>Errichto</h3>
-                    <p>Advanced competitive programming concepts explained by a legendary red coder</p>
-                    <div class="tutorial-stats">
-                        <span><i class="fas fa-play"></i> 200+ Videos</span>
-                        <span><i class="fas fa-users"></i> 250K+ Subscribers</span>
-                    </div>
+                <h3 class="resource-card-title">Errichto</h3>
+                <p class="text-gray-400 mb-4 text-sm">Advanced competitive programming concepts explained by a legendary red coder</p>
+                <div class="mt-auto flex gap-4 text-sm text-gray-500">
+                    <span><i class="fas fa-play text-purple-400"></i> 200+ Videos</span>
+                    <span><i class="fas fa-users text-purple-400"></i> 250K+ Subs</span>
                 </div>
             </div>
             
-            <div class="tutorial-card">
-                <div class="tutorial-thumbnail">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fab fa-youtube"></i>
                 </div>
-                <div class="tutorial-info">
-                    <h3>Abdul Bari</h3>
-                    <p>Excellent algorithms and data structures course with detailed explanations</p>
-                    <div class="tutorial-stats">
-                        <span><i class="fas fa-play"></i> 150+ Videos</span>
-                        <span><i class="fas fa-users"></i> 1M+ Subscribers</span>
-                    </div>
+                <h3 class="resource-card-title">Abdul Bari</h3>
+                <p class="text-gray-400 mb-4 text-sm">Excellent algorithms and data structures course with detailed explanations</p>
+                <div class="mt-auto flex gap-4 text-sm text-gray-500">
+                    <span><i class="fas fa-play text-purple-400"></i> 150+ Videos</span>
+                    <span><i class="fas fa-users text-purple-400"></i> 1M+ Subs</span>
                 </div>
             </div>
             
-            <div class="tutorial-card">
-                <div class="tutorial-thumbnail">
+            <div class="resource-card-modern">
+                <div class="resource-icon-modern">
                     <i class="fab fa-youtube"></i>
                 </div>
-                <div class="tutorial-info">
-                    <h3>Tushar Roy</h3>
-                    <p>Dynamic programming and graph algorithms explained with coding examples</p>
-                    <div class="tutorial-stats">
-                        <span><i class="fas fa-play"></i> 80+ Videos</span>
-                        <span><i class="fas fa-users"></i> 400K+ Subscribers</span>
-                    </div>
+                <h3 class="resource-card-title">Tushar Roy</h3>
+                <p class="text-gray-400 mb-4 text-sm">Dynamic programming and graph algorithms explained with coding examples</p>
+                <div class="mt-auto flex gap-4 text-sm text-gray-500">
+                    <span><i class="fas fa-play text-purple-400"></i> 80+ Videos</span>
+                    <span><i class="fas fa-users text-purple-400"></i> 400K+ Subs</span>
                 </div>
             </div>
         </div>
@@ -583,19 +597,18 @@ import Layout from '../layouts/Layout.astro';
 </section>
 
 <!-- Contribution Section -->
-<section class="contribution-section">
-    <div class="container">
-        <div class="contribution-content">
-            <h2>Contribute to Our Resources</h2>
-            <p>Know a great resource that's missing? Help us build the most comprehensive competitive programming resource collection!</p>
-            <div class="contribution-actions">
-                <a href="https://discord.gg/3xKFvKhuGR" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-discord"></i> Suggest Resources
-                </a>
-                <a href="/about" class="btn btn-outline">
-                    <i class="fas fa-info-circle"></i> Learn More
-                </a>
-            </div>
+<section class="cta-modern-section">
+    <div class="cta-modern-card">
+        <span class="cta-eyebrow">Contribute</span>
+        <h2 class="cta-title-modern">Share Your <span class="cta-title-gradient">Knowledge</span></h2>
+        <p class="cta-desc-modern">Know a great resource that's missing? Help us build the most comprehensive competitive programming resource collection!</p>
+        <div class="cta-buttons-modern">
+            <a href="https://discord.gg/3xKFvKhuGR" target="_blank" class="btn-modern-primary">
+                <i class="fab fa-discord"></i> Suggest Resources
+            </a>
+            <a href="/about" class="btn-modern-secondary">
+                <i class="fas fa-info-circle"></i> Learn More
+            </a>
         </div>
     </div>
 </section>
@@ -604,16 +617,40 @@ import Layout from '../layouts/Layout.astro';
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for quick nav
-    document.querySelectorAll('.nav-item[href^="#"]').forEach(item => {
+    document.querySelectorAll('.nav-pill[href^="#"]').forEach(item => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
+                // Update active state
+                document.querySelectorAll('.nav-pill').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+                
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+            }
+        });
+    });
+    
+    // Highlight active section on scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        document.querySelectorAll('.nav-pill').forEach(nav => {
+            nav.classList.remove('active');
+            if (nav.getAttribute('href').includes(current)) {
+                nav.classList.add('active');
             }
         });
     });

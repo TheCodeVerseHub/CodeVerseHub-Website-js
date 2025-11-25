@@ -8,6 +8,13 @@
       "when": 1760333108800,
       "tag": "0000_fearless_preak",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1764066776782,
+      "tag": "0001_right_celestials",
+      "breakpoints": true
     }
   ]
 }
