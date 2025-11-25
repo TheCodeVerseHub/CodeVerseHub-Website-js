@@ -1,16 +1,26 @@
 ---
-export const prerender = false;
+// export const prerender = false;
 import Layout from '../layouts/Layout.astro';
-import { db } from '../db';
-import { announcements } from '../db/schema';
-import { desc, eq } from 'drizzle-orm';
+// import { db } from '../db';
+// import { announcements } from '../db/schema';
+// import { desc, eq } from 'drizzle-orm';
 import '../styles/hero-redesign.css';
 import '../styles/testimonials-modern.css';
 import '../styles/contact-modern-v2.css';
 import '../styles/cta-modern.css';
 import '../styles/sections-modern.css';
 
-const announcementsData = await db.select().from(announcements).where(eq(announcements.isActive, true)).orderBy(desc(announcements.createdAt)).limit(3);
+// Mock data for static build
+const announcementsData = [
+    {
+        id: 1,
+        title: "Welcome to CodeVerseHub!",
+        content: "We are excited to launch our new website. Join our Discord community to connect with fellow developers.",
+        isActive: true,
+        createdAt: new Date()
+    }
+];
+// const announcementsData = await db.select().from(announcements).where(eq(announcements.isActive, true)).orderBy(desc(announcements.createdAt)).limit(3);
 const activeAnnouncements = announcementsData;
 const discordStats = { members: 720, channels: 50, bots: 5 };
 ---
