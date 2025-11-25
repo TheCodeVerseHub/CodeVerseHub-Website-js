@@ -94,7 +94,7 @@ netlify deploy --prod
 Create `.env` file:
 
 ```env
-DATABASE_URL=./data.db
+DATABASE_URL="file:./dev.db"
 ```
 
 ## Migration from Django
